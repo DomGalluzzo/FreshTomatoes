@@ -1,2 +1,6 @@
-class Api::V1::DirectorsController < ApplicationController
+module Api
+  module V1
+    class DirectorsController < ApplicationController
+    end
+  end
 end

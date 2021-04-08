@@ -1,2 +1,6 @@
-class Api::V1::FavoritesController < ApplicationController
+module Api
+  module V1
+    class FavoritesController < ApplicationController
+    end
+  end
 end

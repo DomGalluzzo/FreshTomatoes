@@ -1,2 +1,6 @@
-class Api::V1::ActorsController < ApplicationController
+module Api
+  module V1
+    class ActorsController < ApplicationController
+    end
+  end
 end
