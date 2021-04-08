@@ -1,5 +1,33 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  get "movies/:id", to: "pages#home"
+  get "directors/:id", to: "pages#home"
+  get "reviews/new", to: "pages#home"
+  get "users/:id/watchlists", to: "pages#home"
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :actors, only: [ :index, :show ]
+      resources :directors, only: :show
+      resources :favorites, only: [ :index, :create, :destroy ]
+      resources :genres, only: [ :index, :show ]
+      resources :movies, only: [ :index, :show ]
+      resources :reviews, only: [ :update, :destroy ]
+      resources :watchlists, only: :show
+
+      resources :users, only: [ :show, :create, :destroy ] do 
+        resources :watchlists, only: [ :index ]
+      end
+      resources :movies, only: [ :index, :show ] do 
+        resources :reviews, only: [ :index, :create ]
+        resources :credits, only: :index
+      end
+
+      resources :credits, only: :show do 
+        resources :actors, only: :index
+      end
+    end
+  end
 end
