@@ -5,7 +5,7 @@ module Api
       before_action :set_movie, only: %i[create update destroy]
 
       def index
-        @reviews = Review.where(movie_id: params[:movie_id])
+        @reviews = Review.where(movie_id: params[:movie_id]).includes(:user)
         render :index
       end
 
