@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   validates :comment, presence: true
   validated :rating, numericality: { in: 0..100 }
-  validates :user_id, :uniqueness: { scope: :movie_id }
+  validates :user_id, uniqueness: { scope: :movie_id }
 end
