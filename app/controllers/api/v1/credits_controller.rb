@@ -11,6 +11,7 @@ module Api
       def show
         @credit = Credit.find(params[:id])
         @movie = @credit.movie
+        render json: @credit
       end
     end
   end

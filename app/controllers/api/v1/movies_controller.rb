@@ -10,6 +10,8 @@ module Api
 
       def show
         @movie = Movie.find(params[:id])
+        @genre = @movie.genre
+        @director = @movie.director
         render json: @movie
       end
     end
