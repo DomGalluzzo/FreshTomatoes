@@ -1,2 +1,6 @@
-class Api::V1::CreditsController < ApplicationController
+module Api
+  module V1
+    class CreditsController < ApplicationController
+    end
+  end
 end

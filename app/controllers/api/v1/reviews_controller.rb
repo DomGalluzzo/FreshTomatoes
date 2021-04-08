@@ -1,2 +1,6 @@
-class Api::V1::ReviewsController < ApplicationController
+module Api
+  module V1
+    class ReviewsController < ApplicationController
+    end
+  end
 end

@@ -1,2 +1,6 @@
-class Api::V1::WatchlistsController < ApplicationController
+module Api
+  module V1
+    class WatchlistsController < ApplicationController
+    end
+  end
 end
