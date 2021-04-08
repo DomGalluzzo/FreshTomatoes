@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_002038) do
+ActiveRecord::Schema.define(version: 2021_04_08_160128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 2021_04_08_002038) do
   create_table "credits", force: :cascade do |t|
     t.text "cast"
     t.bigint "movie_id", null: false
-    t.bigint "actor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["actor_id"], name: "index_credits_on_actor_id"
     t.index ["movie_id"], name: "index_credits_on_movie_id"
   end
 
@@ -59,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_002038) do
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "image"
-    t.text "summmary"
+    t.text "summary"
     t.bigint "genre_id", null: false
     t.bigint "director_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -101,7 +99,6 @@ ActiveRecord::Schema.define(version: 2021_04_08_002038) do
   end
 
   add_foreign_key "actors", "movies"
-  add_foreign_key "credits", "actors"
   add_foreign_key "credits", "movies"
   add_foreign_key "favorites", "movies"
   add_foreign_key "favorites", "watchlists"
