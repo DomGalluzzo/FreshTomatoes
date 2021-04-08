@@ -5,6 +5,7 @@ class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :watchlists
+  has_many :credits
   has_many :actors, through: :credits
 
   validates :title, presence: true
