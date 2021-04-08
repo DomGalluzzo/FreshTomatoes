@@ -25,7 +25,7 @@ Rails.application.routes.draw do
         resources :credits, only: :show
       end
 
-      resources :credits, only: :index do 
+      resources :credits, only: [:index, :show] do 
         resources :actors, only: :index
       end
     end
