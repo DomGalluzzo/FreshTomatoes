@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :actors, only: [ :index, :show ]
-      resources :directors, only: :show
-      resources :favorites, only: [ :index, :create, :destroy ]
+      resources :directors, only: [ :index, :show ]
+      resources :favorites, only: [ :index, :new, :create, :destroy ]
       resources :genres, only: [ :index, :show ]
       resources :movies, only: [ :index, :show ]
       resources :reviews, only: [ :update, :destroy ]
@@ -21,11 +21,11 @@ Rails.application.routes.draw do
         resources :watchlists, only: [ :index ]
       end
       resources :movies, only: [ :index, :show ] do 
-        resources :reviews, only: [ :index, :create ]
-        resources :credits, only: :index
+        resources :reviews, only: [ :index, :new, :create ]
+        resources :credits, only: :show
       end
 
-      resources :credits, only: :show do 
+      resources :credits, only: [:index, :show] do 
         resources :actors, only: :index
       end
     end
