@@ -1,4 +1,4 @@
-import { SET_USER } from "../actions/index";
+import { FETCH_USER } from "../actions/index";
 
 const initialState = {
 	user: undefined,
@@ -6,10 +6,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case SET_USER:
-			const { user } = action;
-			return { ...state, user };
-
+		case FETCH_USER:
+			return action.payload;
 		default:
 			return state;
 	}
