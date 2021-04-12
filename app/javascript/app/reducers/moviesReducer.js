@@ -1,10 +1,13 @@
-import { FETCH_MOVIE, FETCH_MOVIES } from "../actions";
+// import { FETCH_MOVIE, FETCH_MOVIES } from "../actions";
 
-const moviesReducer = (state = [], action) => {
+const initialState = [];
+
+const moviesReducer = (state = initialState, action) => {
+	Object.freeze(state);
 	switch (action.type) {
-		case FETCH_MOVIES:
+		case "FETCH_MOVIES":
 			return action.payload;
-		case FETCH_MOVIE:
+		case "FETCH_MOVIE":
 			return [action.payload];
 		default:
 			return state;

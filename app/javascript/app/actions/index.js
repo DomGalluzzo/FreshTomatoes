@@ -1,14 +1,16 @@
-export const FETCH_MOVIES = "FETCH_MOVIES";
+import Axios from "axios";
 
-// * Fetch Movies
-export const fetchMovies = async () => {
-	const response = await fetch("/api/v1/movies");
-	const data = await response.json();
+// export const FETCH_MOVIES = "FETCH_MOVIES";
 
-	console.log(data);
+export const fetchMovies = () => {
+	return async (dispatch, getState) => {
+		const response = await Axios.get("/api/v1/movies");
 
-	return {
-		type: FETCH_MOVIES,
-		payload: data,
+		console.log(response.data);
+
+		dispatch({
+			type: "FETCH_MOVIES",
+			payload: response.data,
+		});
 	};
 };
