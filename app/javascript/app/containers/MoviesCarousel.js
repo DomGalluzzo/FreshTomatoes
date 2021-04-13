@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Col, Row, Container, Carousel } from "react-bootstrap";
 
 import { fetchMovies } from "../actions/index";
@@ -20,12 +21,14 @@ const Movies = () => {
 				<Carousel>
 					{movies.map((movie) => {
 						return (
-							<Carousel.Item>
-								<img
-									src={movie.image}
-									alt={`${movie.title}.jpg`}
-									className="d-block w-100"
-								/>
+							<Carousel.Item key={movie.id}>
+								<Link to={`/movies/${movie.id}`}>
+									<img
+										src={movie.image}
+										alt={`${movie.title}.jpg`}
+										className="movies-carousel-image d-block w-100"
+									/>
+								</Link>
 								<Carousel.Caption>{`${movie.title} (${movie.release_year})`}</Carousel.Caption>
 							</Carousel.Item>
 						);
