@@ -6,8 +6,9 @@ import { Col, Row, Container, Carousel } from "react-bootstrap";
 
 import { fetchMovies } from "../actions/index";
 import Movie from "../components/Movie";
+import Title from "../components/Title";
 
-const Movies = () => {
+const MoviesCarousel = () => {
 	const dispatch = useDispatch();
 	const movies = useSelector((state) => state.movies);
 
@@ -18,6 +19,7 @@ const Movies = () => {
 	return (
 		<Container className="movies-carousel-container">
 			<Col md={6}>
+				<Title text={"Top Movies of All Time"} />
 				<Carousel>
 					{movies.map((movie) => {
 						return (
@@ -37,18 +39,6 @@ const Movies = () => {
 			</Col>
 		</Container>
 	);
-
-	// return (
-	// 	<Row>
-	// 		{movies.map((movie) => {
-	// 			return (
-	// 				<Col md={4} key={movie.id}>
-	// 					<Movie movie={movie} />
-	// 				</Col>
-	// 			);
-	// 		})}
-	// 	</Row>
-	// );
 };
 
-export default Movies;
+export default MoviesCarousel;
