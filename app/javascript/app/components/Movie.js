@@ -1,16 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Card } from "react-bootstrap";
 
 const Movie = ({ movie }) => {
 	return (
-		<Card className="h-100">
-			<Card.Img src={movie.image} />
-			<Card.Body>
-				<Card.Title>{movie.title}</Card.Title>
-				<Card.Text>{movie.summary}</Card.Text>
-			</Card.Body>
-		</Card>
+		<Link to={`/movies/${movie.id}`} className="link movie-card">
+			<Card className="h-100">
+				<Card.Img src={movie.image} />
+				<Card.Body>
+					<Card.Title>{movie.title}</Card.Title>
+				</Card.Body>
+			</Card>
+		</Link>
 	);
 };
 

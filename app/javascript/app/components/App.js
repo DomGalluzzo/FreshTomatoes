@@ -1,17 +1,17 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Movies from "./Movies";
+import Movies from "../containers/Movies";
+import Movie from "./Movie";
 
 const App = () => {
 	return (
-		<BrowserRouter>
+		<Router>
 			<Switch>
 				<Route exact path="/" component={Movies}></Route>
-				{/* <Route exact path="/movies/:slug" component={Movie}></Route> */}
+				<Route exact path="/movies/:slug" exact component={Movie}></Route>
 			</Switch>
-		</BrowserRouter>
+		</Router>
 	);
 };
 
