@@ -22,7 +22,10 @@ Rails.application.routes.draw do
       end
       resources :movies, only: [ :index, :show ] do 
         resources :reviews, only: [ :index, :new, :create ]
-        resources :actors, only: [:index, :show]
+        resources :credits, only: :index
+      end
+      resources :actors, only: :show do
+        resources :credits, only: :index
       end
     end
   end
