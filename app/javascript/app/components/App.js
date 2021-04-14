@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Movies from "../containers/Movies";
-import Movie from "./Movie";
+import MovieShow from "../containers/MovieShow";
 
 const App = () => {
 	return (
 		<Router>
 			<Switch>
 				<Route exact path="/" component={Movies}></Route>
-				<Route exact path="/movies/:slug" exact component={Movie}></Route>
+				<Route path="/movies/:id" exact component={MovieShow}></Route>
 			</Switch>
 		</Router>
 	);

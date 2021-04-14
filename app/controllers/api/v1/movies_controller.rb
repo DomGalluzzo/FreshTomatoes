@@ -4,8 +4,8 @@ module Api
       skip_before_action :authenticate_user!, only: %i[index show]
 
       def index
-        @movies = Movie.all
-        render json: @movies
+        movies = Movie.all
+        render json: movies
       end
 
       def show
