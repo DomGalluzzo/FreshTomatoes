@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_200544) do
+ActiveRecord::Schema.define(version: 2021_04_14_201718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_200544) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "release_year"
     t.integer "runtime"
-    t.bigint "actor_id"
-    t.index ["actor_id"], name: "index_movies_on_actor_id"
     t.index ["director_id"], name: "index_movies_on_director_id"
     t.index ["genre_id"], name: "index_movies_on_genre_id"
   end
@@ -97,7 +95,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_200544) do
   add_foreign_key "actors", "movies"
   add_foreign_key "favorites", "movies"
   add_foreign_key "favorites", "watchlists"
-  add_foreign_key "movies", "actors"
   add_foreign_key "movies", "directors"
   add_foreign_key "movies", "genres"
   add_foreign_key "reviews", "movies"
