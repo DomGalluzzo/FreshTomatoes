@@ -16,13 +16,18 @@ const MovieShow = () => {
 	}, []);
 
 	return (
-		<Container className="movie-show-container">
-			<Jumbotron style={{ padding: "0" }}>
-				<Image
-					src={movie.image}
-					style={{ maxWidth: "100%", maxHeight: "100%", padding: "0" }}
-				/>
-			</Jumbotron>
+		<Container className="movie-show-container mt-5">
+			<Row>
+				<Col md={6}>{movie.title}</Col>
+				<Col md={6}>
+					<Jumbotron style={{ padding: "0" }}>
+						<Image
+							src={movie.image}
+							style={{ maxWidth: "100%", maxHeight: "100%", padding: "0" }}
+						/>
+					</Jumbotron>
+				</Col>
+			</Row>
 		</Container>
 	);
 };
