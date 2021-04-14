@@ -1,17 +1,12 @@
 module Api
   module V1
     class CreditsController < ApplicationController
-      skip_before_action :authenticate_user!, only: %i[index show]
+      skip_before_action :authenticate_user!, only: :index
 
       def index
-        @actors = Actor.all
-        render json: @actors
-      end
-
-      def show
-        @actor = Actor.find(params[:id])
-        @movies = @actor.movies
-        render json: @actor
+        @credits = Credit.all
+        # @actors = @credits.actors
+        # @movies = @credits.movies
       end
     end
   end
