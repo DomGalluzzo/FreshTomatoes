@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Col, Row, Container, Jumbotron, Image } from "react-bootstrap";
 
 import { fetchMovie } from "../actions/index";
+import Credits from "./Credits";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -18,7 +19,12 @@ const MovieShow = () => {
 	return (
 		<Container className="movie-show-container mt-5">
 			<Row>
-				<Col md={6}>{movie.title}</Col>
+				<Col md={6}>
+					<h5>{movie.title}</h5>
+					<p>
+						<Credits />
+					</p>
+				</Col>
 				<Col md={6}>
 					<Jumbotron style={{ padding: "0" }}>
 						<Image

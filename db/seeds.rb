@@ -1,8 +1,8 @@
 
 User.destroy_all
 Watchlist.destroy_all
-Actor.destroy_all
 Credit.destroy_all
+Actor.destroy_all
 Movie.destroy_all
 Genre.destroy_all
 Director.destroy_all

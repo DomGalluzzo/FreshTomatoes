@@ -7,16 +7,20 @@ import { fetchCredits } from "../actions/index";
 
 const Credits = () => {
 	const dispatch = useDispatch();
-	const credit = useSelector((state) => state.credits);
+	const credits = useSelector((state) => state.credits);
 
 	let { movieId } = useParams();
-	console.log(movieId);
 
 	useEffect(() => {
 		dispatch(fetchCredits(movieId));
 	}, []);
 
-	return <h1>stuff</h1>;
+	return (
+		<>
+			{console.log("credits")}
+			{console.log(credits)}
+		</>
+	);
 };
 
 export default Credits;
