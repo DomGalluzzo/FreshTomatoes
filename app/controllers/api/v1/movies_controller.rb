@@ -12,6 +12,8 @@ module Api
         @movie = Movie.find(params[:id])
         @genre = @movie.genre
         @director = @movie.director
+        @credit = @movie.credit
+        # @review = @movie.reviews
         render json: @movie
       end
     end
