@@ -2,7 +2,7 @@
 User.destroy_all
 Watchlist.destroy_all
 Actor.destroy_all
-Credit.destroy_all
+# Credit.destroy_all
 Movie.destroy_all
 Genre.destroy_all
 Director.destroy_all
@@ -103,15 +103,15 @@ amy_adams = Actor.create!(name: "Amy Adams", image: "https://i.pravatar.cc/50", 
 scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://i.pravatar.cc/50", movie: her)
 
 # ! Credits
-space_odyssey_credits = Credit.create!(cast: [keir_dullea, gary_lockwood, will_sylvester], movie: space_odyssey)
-godfather1_credits = Credit.create!(cast: [marlon_brando, al_pacino], movie: godfather1)
-citizen_kane_credits = Credit.create!(cast: [joseph_cotten, dorothy_comingore, agnes_moorehead], movie: citizen_kane)
-lost_ark_credits = Credit.create!(cast: [harrison_ford, karen_allen], movie: raiders_lost_ark)
-will_be_blood_credits = Credit.create!(cast: [daniel_day_lewis, paul_dano, dillon_freasier], movie: will_be_blood)
-dark_knight_credits = Credit.create!(cast: [christian_bale, heath_ledger, michael_cane], movie: dark_knight)
-airplane_credits = Credit.create!(cast: [leslie_nielsen, robert_hays, julie_hagerty], movie: airplane)
-alien_credits = Credit.create!(cast: [sigourney_weaver, yaphet_kotto, ian_holm], movie: alien)
-her_credits = Credit.create!(cast: [joaquin_phoenix, amy_adams, scarlett_johansson], movie: her)
+# space_odyssey_credits = Credit.create!(cast: [keir_dullea, gary_lockwood, will_sylvester], movie: space_odyssey)
+# godfather1_credits = Credit.create!(cast: [marlon_brando, al_pacino], movie: godfather1)
+# citizen_kane_credits = Credit.create!(cast: [joseph_cotten, dorothy_comingore, agnes_moorehead], movie: citizen_kane)
+# lost_ark_credits = Credit.create!(cast: [harrison_ford, karen_allen], movie: raiders_lost_ark)
+# will_be_blood_credits = Credit.create!(cast: [daniel_day_lewis, paul_dano, dillon_freasier], movie: will_be_blood)
+# dark_knight_credits = Credit.create!(cast: [christian_bale, heath_ledger, michael_cane], movie: dark_knight)
+# airplane_credits = Credit.create!(cast: [leslie_nielsen, robert_hays, julie_hagerty], movie: airplane)
+# alien_credits = Credit.create!(cast: [sigourney_weaver, yaphet_kotto, ian_holm], movie: alien)
+# her_credits = Credit.create!(cast: [joaquin_phoenix, amy_adams, scarlett_johansson], movie: her)
 
 # ! Reviews
 Review.create!(comment: "I loved this movie!", rating: 5, user: seed1, movie: space_odyssey)
