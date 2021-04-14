@@ -3,5 +3,5 @@ class Director < ApplicationRecord
   has_many :genres, through: :movies
 
   validates :name, presence: true
-  validates :image, presence: true
+  # validates :image, presence: true
 end
