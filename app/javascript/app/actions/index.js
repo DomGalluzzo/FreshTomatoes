@@ -17,7 +17,6 @@ export const fetchMovies = () => {
 export const fetchMovie = (id) => {
 	return async (dispatch, getState) => {
 		const response = await Axios.get(`/api/v1/movies/${id}`);
-
 		dispatch({
 			type: FETCH_MOVIE,
 			payload: response.data,
