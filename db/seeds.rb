@@ -2,7 +2,7 @@
 User.destroy_all
 Watchlist.destroy_all
 Actor.destroy_all
-# Credit.destroy_all
+Credit.destroy_all
 Movie.destroy_all
 Genre.destroy_all
 Director.destroy_all
@@ -60,58 +60,92 @@ her = Movie.create!(title: "Her", image: "https://picsum.photos/1000/400", summa
 
 # ! Actors
 # Space Odyssey
-keir_dullea = Actor.create!(name: "Keir Dullea", image: "https://i.pravatar.cc/50", movie: space_odyssey)
-gary_lockwood = Actor.create!(name: "Gary Lockwood", image: "https://i.pravatar.cc/50", movie: space_odyssey)
-will_sylvester = Actor.create!(name: "William Sylvester", image: "https://i.pravatar.cc/50", movie: space_odyssey)
+keir_dullea = Actor.create!(name: "Keir Dullea", image: "https://i.pravatar.cc/50")
+gary_lockwood = Actor.create!(name: "Gary Lockwood", image: "https://i.pravatar.cc/50")
+will_sylvester = Actor.create!(name: "William Sylvester", image: "https://i.pravatar.cc/50")
 
 # Godfather
-marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://i.pravatar.cc/50", movie: godfather1)
-al_pacino = Actor.create!(name: "Al Pacino", image:"https://i.pravatar.cc/50", movie: godfather1)
+marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://i.pravatar.cc/50")
+al_pacino = Actor.create!(name: "Al Pacino", image:"https://i.pravatar.cc/50")
 
 # Citizen Kane
-joseph_cotten = Actor.create!(name: "Joseph Cotten", image: "https://i.pravatar.cc/50", movie: citizen_kane)
-dorothy_comingore = Actor.create!(name: "Dorothy Comingore", image: "https://i.pravatar.cc/50", movie: citizen_kane)
-agnes_moorehead = Actor.create!(name: "Agnes Moorehead", image: "https://i.pravatar.cc/50", movie: citizen_kane)
+joseph_cotten = Actor.create!(name: "Joseph Cotten", image: "https://i.pravatar.cc/50")
+dorothy_comingore = Actor.create!(name: "Dorothy Comingore", image: "https://i.pravatar.cc/50")
+agnes_moorehead = Actor.create!(name: "Agnes Moorehead", image: "https://i.pravatar.cc/50")
 
 # Raiders of the Lost Ark
-harrison_ford = Actor.create!(name: "Harrison Ford", image: "https://i.pravatar.cc/50", movie: raiders_lost_ark)
-karen_allen = Actor.create!(name: "Karen Allen", image: "https://i.pravatar.cc/50", movie: raiders_lost_ark)
+harrison_ford = Actor.create!(name: "Harrison Ford", image: "https://i.pravatar.cc/50")
+karen_allen = Actor.create!(name: "Karen Allen", image: "https://i.pravatar.cc/50")
 
 # There Will Be Blood
-daniel_day_lewis = Actor.create!(name: "Daniel Day-Lewis", image: "https://i.pravatar.cc/50", movie: will_be_blood)
-paul_dano = Actor.create!(name: "Paul Dano", image: "https://i.pravatar.cc/50", movie: will_be_blood)
-dillon_freasier = Actor.create!(name: "Dillon Freasier", image: "https://i.pravatar.cc/50", movie: will_be_blood)
+daniel_day_lewis = Actor.create!(name: "Daniel Day-Lewis", image: "https://i.pravatar.cc/50")
+paul_dano = Actor.create!(name: "Paul Dano", image: "https://i.pravatar.cc/50")
+dillon_freasier = Actor.create!(name: "Dillon Freasier", image: "https://i.pravatar.cc/50")
 
 # Dark Knight
-christian_bale = Actor.create!(name: "Christian Bale", image: "https://i.pravatar.cc/50", movie: dark_knight)
-heath_ledger = Actor.create!(name: "Heath Ledger", image: "https://i.pravatar.cc/50", movie: dark_knight)
-michael_cane = Actor.create!(name: "Michael Cane", image: "https://i.pravatar.cc/50", movie: dark_knight)
+christian_bale = Actor.create!(name: "Christian Bale", image: "https://i.pravatar.cc/50")
+heath_ledger = Actor.create!(name: "Heath Ledger", image: "https://i.pravatar.cc/50")
+michael_cane = Actor.create!(name: "Michael Cane", image: "https://i.pravatar.cc/50")
 
 # Airplane!
-leslie_nielsen = Actor.create!(name: "Leslie Nielsen", image: "https://i.pravatar.cc/50", movie: airplane)
-robert_hays = Actor.create!(name: "Robert Hays", image: "https://i.pravatar.cc/50", movie: airplane)
-julie_hagerty = Actor.create!(name: "Julie Hagerty", image: "https://i.pravatar.cc/50", movie: airplane)
+leslie_nielsen = Actor.create!(name: "Leslie Nielsen", image: "https://i.pravatar.cc/50")
+robert_hays = Actor.create!(name: "Robert Hays", image: "https://i.pravatar.cc/50")
+julie_hagerty = Actor.create!(name: "Julie Hagerty", image: "https://i.pravatar.cc/50")
 
 # Alien
-sigourney_weaver = Actor.create!(name: "Sigourney Weaver", image: "https://i.pravatar.cc/50", movie: alien)
-yaphet_kotto = Actor.create!(name: "Yaphet Kotto", image: "https://i.pravatar.cc/50", movie: alien)
-ian_holm = Actor.create!(name: "Ian Holm", image: "https://i.pravatar.cc/50", movie: alien)
+sigourney_weaver = Actor.create!(name: "Sigourney Weaver", image: "https://i.pravatar.cc/50")
+yaphet_kotto = Actor.create!(name: "Yaphet Kotto", image: "https://i.pravatar.cc/50")
+ian_holm = Actor.create!(name: "Ian Holm", image: "https://i.pravatar.cc/50")
 
 # Her
-joaquin_phoenix = Actor.create!(name: "Joaquin Phoenix", image: "https://i.pravatar.cc/50", movie: her)
-amy_adams = Actor.create!(name: "Amy Adams", image: "https://i.pravatar.cc/50", movie: her)
-scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://i.pravatar.cc/50", movie: her)
+joaquin_phoenix = Actor.create!(name: "Joaquin Phoenix", image: "https://i.pravatar.cc/50")
+amy_adams = Actor.create!(name: "Amy Adams", image: "https://i.pravatar.cc/50")
+scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://i.pravatar.cc/50")
+
 
 # ! Credits
-# space_odyssey_credits = Credit.create!(cast: [keir_dullea, gary_lockwood, will_sylvester], movie: space_odyssey)
-# godfather1_credits = Credit.create!(cast: [marlon_brando, al_pacino], movie: godfather1)
-# citizen_kane_credits = Credit.create!(cast: [joseph_cotten, dorothy_comingore, agnes_moorehead], movie: citizen_kane)
-# lost_ark_credits = Credit.create!(cast: [harrison_ford, karen_allen], movie: raiders_lost_ark)
-# will_be_blood_credits = Credit.create!(cast: [daniel_day_lewis, paul_dano, dillon_freasier], movie: will_be_blood)
-# dark_knight_credits = Credit.create!(cast: [christian_bale, heath_ledger, michael_cane], movie: dark_knight)
-# airplane_credits = Credit.create!(cast: [leslie_nielsen, robert_hays, julie_hagerty], movie: airplane)
-# alien_credits = Credit.create!(cast: [sigourney_weaver, yaphet_kotto, ian_holm], movie: alien)
-# her_credits = Credit.create!(cast: [joaquin_phoenix, amy_adams, scarlett_johansson], movie: her)
+# Space Odyssey
+Credit.create!(actor: keir_dullea, movie: space_odyssey)
+Credit.create!(actor: gary_lockwood, movie: space_odyssey)
+Credit.create!(actor: will_sylvester, movie: space_odyssey)
+
+# Godfather
+Credit.create!(actor: marlon_brando, movie: godfather1)
+Credit.create!(actor: al_pacino, movie: godfather1)
+
+# Citizen Kane
+Credit.create!(actor: joseph_cotten, movie: citizen_kane)
+Credit.create!(actor: dorothy_comingore, movie: citizen_kane)
+Credit.create!(actor: agnes_moorehead, movie: citizen_kane)
+
+# Raiders of the Lost Ark
+Credit.create!(actor: harrison_ford, movie: raiders_lost_ark)
+Credit.create!(actor: karen_allen, movie: raiders_lost_ark)
+
+# There Will Be Blood
+Credit.create!(actor: daniel_day_lewis, movie: will_be_blood)
+Credit.create!(actor: paul_dano, movie: will_be_blood)
+Credit.create!(actor: dillon_freasier, movie: will_be_blood)
+
+# The Dark Knight
+Credit.create!(actor: christian_bale, movie: dark_knight)
+Credit.create!(actor: heath_ledger, movie: dark_knight)
+Credit.create!(actor: michael_cane, movie: dark_knight)
+
+# Airplane!
+Credit.create!(actor: leslie_nielsen, movie: airplane)
+Credit.create!(actor: robert_hays, movie: airplane)
+Credit.create!(actor: julie_hagerty, movie: airplane)
+
+# Alien
+Credit.create!(actor: sigourney_weaver, movie: alien)
+Credit.create!(actor: yaphet_kotto, movie: alien)
+Credit.create!(actor: ian_holm, movie: alien)
+
+# Her
+Credit.create!(actor: joaquin_phoenix, movie: her)
+Credit.create!(actor: amy_adams, movie: her)
+Credit.create!(actor: scarlett_johansson, movie: her)
 
 # ! Reviews
 Review.create!(comment: "I loved this movie!", rating: 5, user: seed1, movie: space_odyssey)
