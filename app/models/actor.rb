@@ -1,5 +1,5 @@
 class Actor < ApplicationRecord
-  has_many :movies
+  belongs_to :movie
 
   validates :name, presence: true
   validates :image, presence: true
