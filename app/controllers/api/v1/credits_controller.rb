@@ -1,7 +1,7 @@
 module Api
   module V1
     class CreditsController < ApplicationController
-      skip_before_action :authenticate_user!, only: :index
+      skip_before_action :authenticate_user!, only: %i[index show]
 
       # def index
       #   # If movie_id present in call, render credits for movie
