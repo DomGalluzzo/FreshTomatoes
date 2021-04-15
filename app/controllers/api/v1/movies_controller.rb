@@ -4,7 +4,8 @@ module Api
       skip_before_action :authenticate_user!, only: %i[index show]
 
       def index
-        @movies = Movie.all
+        # * Refactored to eliminate N+1 query
+        @movies = Movie.includes(:actors)
         render :index
       end
 

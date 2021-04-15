@@ -4,14 +4,15 @@ module Api
       skip_before_action :authenticate_user!, only: %i[index show]
 
       def index
-        @actors = Actor.where(movie_id: params[:movie_id]).includes(:movie)
+        # * Refactored to eliminate N+1 query
+        @actors = Actor.includes(:movies)
         render :index
       end
 
       def show
         @actor = Actor.find(params[:id])
         @movies = @actor.movies
-        render json: @actor
+        render :show
       end
     end
   end

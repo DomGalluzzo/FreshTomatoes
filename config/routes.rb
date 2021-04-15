@@ -18,15 +18,14 @@ Rails.application.routes.draw do
       resources :watchlists, only: :show
 
       resources :users, only: [ :show, :create, :destroy ] do 
-        resources :watchlists, only: [ :index ]
+        resources :watchlists, only: [ :index, :show ]
       end
       resources :movies, only: [ :index, :show ] do 
         resources :reviews, only: [ :index, :new, :create ]
-        resources :credits, only: [:index, :show]
-        resources :actors, only: :index
+        resources :actors, only: [:index, :show]
       end
       resources :actors, only: :show do
-        resources :credits, only: [:index, :show]
+        resources :movies, only: [:index, :show]
       end
     end
   end
