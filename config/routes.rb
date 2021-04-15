@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_scope :user do 
+    get "/users/sign_out", to: "devise/sessions#destroy"
+  end
+
   root to: 'pages#home'
   
   get "movies/:id", to: "pages#home"
@@ -10,23 +14,24 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :actors, only: [ :index, :show ]
-      resources :directors, only: [ :index, :show ]
-      resources :favorites, only: [ :index, :new, :create, :destroy ]
+      resources :directors, only: :show 
       resources :genres, only: [ :index, :show ]
       resources :movies, only: [ :index, :show ]
       resources :reviews, only: [ :update, :destroy ]
       resources :watchlists, only: :show
-
+      
       resources :users, only: [ :show, :create, :destroy ] do 
-        resources :watchlists, only: [ :index, :show ]
+        resources :favorites, only: [ :new, :create, :destroy ]
+        resources :watchlists, only: :index 
+        # resources :favorites, only: :index
       end
       resources :movies, only: [ :index, :show ] do 
-        resources :reviews, only: [ :index, :new, :create ]
-        resources :actors, only: [:index, :show]
+        resources :reviews, only: [ :index, :show, :new, :create ]
+        # resources :actors, only: :index
       end
-      resources :actors, only: :show do
-        resources :movies, only: [:index, :show]
-      end
+      # resources :actors, only: :show do
+      #   resources :movies, only: :index
+      # end
     end
   end
 end

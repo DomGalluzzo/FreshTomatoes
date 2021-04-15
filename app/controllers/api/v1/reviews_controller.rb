@@ -1,12 +1,12 @@
 module Api
   module V1
     class ReviewsController < ApplicationController
-      skip_before_action :authenticate_user!, only: :show
+      skip_before_action :authenticate_user!, only: %i[index show]
       before_action :set_movie, only: %i[create update destroy]
 
       def index
         @reviews = Review.where(movie_id: params[:movie_id]).includes(:user)
-        render :index
+        render json: @reviews
       end
 
       def new
