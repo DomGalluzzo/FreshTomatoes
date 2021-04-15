@@ -13,6 +13,7 @@ module Api
         @genre = @movie.genre
         @director = @movie.director
         @credits = @movie.credits
+        @actors = @credits.actors
         render json: @movie
       end
     end

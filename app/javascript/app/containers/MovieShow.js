@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Col, Row, Container, Jumbotron, Image } from "react-bootstrap";
 
-import { fetchMovie } from "../actions/index";
-import Credits from "./Credits";
+import { fetchMovie } from "../actions";
+import MovieCredits from "./MovieCredits";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -21,9 +21,7 @@ const MovieShow = () => {
 			<Row>
 				<Col md={6}>
 					<h5>{movie.title}</h5>
-					<p>
-						<Credits />
-					</p>
+					<MovieCredits />
 				</Col>
 				<Col md={6}>
 					<Jumbotron style={{ padding: "0" }}>
