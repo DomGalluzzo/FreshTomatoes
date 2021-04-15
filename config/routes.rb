@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         resources :watchlists, only: [ :index ]
       end
       resources :movies, only: [ :index, :show ] do 
-        resources :reviews, only: [ :index, :new, :create ]
+        resources :reviews, only: [ :index, :show, :new, :create ]
         # resources :actors, only: :index
       end
       # resources :actors, only: :show do
