@@ -4,8 +4,8 @@ module Api
       skip_before_action :authenticate_user!, only: %i[index show]
 
       def index
-        @movies = Movie.all
-        render json: @movies
+        @movies = Movie.includes(:actors, :director, :genre)
+        render json: @movies, include: %i[actors director genre]
       end
 
       def show
@@ -13,7 +13,7 @@ module Api
         @genre = @movie.genre
         @director = @movie.director
         @credits = @movie.credits
-        render json: @movie
+        render json: @movie, include: %i[actors director genre]
       end
     end
   end
