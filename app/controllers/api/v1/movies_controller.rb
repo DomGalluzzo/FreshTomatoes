@@ -12,7 +12,7 @@ module Api
         @movie = Movie.find(params[:id])
         @genre = @movie.genre
         @director = @movie.director
-        @credits = @movie.credits
+        @actors = @movie.actors
         render json: @movie, include: %i[actors director genre]
       end
     end
