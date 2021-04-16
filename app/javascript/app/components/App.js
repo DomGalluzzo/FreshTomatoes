@@ -8,7 +8,7 @@ const App = () => {
 	return (
 		<Router>
 			<Switch>
-				<Route exact path="/" component={MoviesCarousel}></Route>
+				<Route exact path="/" exact component={MoviesCarousel}></Route>
 				<Route path="/movies/:id" exact component={MovieShow}></Route>
 			</Switch>
 		</Router>

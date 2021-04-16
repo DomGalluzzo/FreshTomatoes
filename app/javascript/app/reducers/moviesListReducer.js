@@ -5,7 +5,6 @@ import {
 } from "../actions";
 
 const initialState = {
-	loading: false,
 	movies: [
 		{
 			movie: {
@@ -14,15 +13,16 @@ const initialState = {
 						actor: {},
 					},
 				],
-				directors: [
+				director: {},
+				genre: {},
+				reviews: [
 					{
-						director: {},
+						review: {},
 					},
 				],
 			},
 		},
 	],
-	errorMessage: "",
 };
 
 const moviesListReducer = (state = initialState, action) => {
