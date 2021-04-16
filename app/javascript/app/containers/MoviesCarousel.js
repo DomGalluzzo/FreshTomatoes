@@ -7,7 +7,6 @@ import _ from "lodash";
 import { Col, Row, Container, Carousel } from "react-bootstrap";
 
 import { fetchMoviesList } from "../actions/index";
-import Movie from "../components/Movie";
 import Title from "../components/Title";
 
 const MoviesCarousel = () => {
@@ -25,7 +24,7 @@ const MoviesCarousel = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<Carousel.Item className="img-fluid" key={movie.id}>
+					<Carousel.Item key={movie.id} className="img-fluid">
 						<Link to={`/movies/${movie.id}`}>
 							<img
 								id="carousel-movie-image"
