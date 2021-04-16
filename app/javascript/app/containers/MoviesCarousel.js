@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Col, Row, Container, Carousel } from "react-bootstrap";
 
-import { fetchMovies } from "../actions/index";
+import { fetchMoviesList } from "../actions/index";
 import Movie from "../components/Movie";
 import Title from "../components/Title";
 
 const MoviesCarousel = () => {
 	const dispatch = useDispatch();
-	const movies = useSelector((state) => state.movies);
+	const moviesList = useSelector((state) => state.moviesList);
 
 	useEffect(() => {
-		dispatch(fetchMovies());
+		dispatch(fetchMoviesList());
 	}, []);
 
 	return (

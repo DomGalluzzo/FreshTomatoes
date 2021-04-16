@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import { Col, Row, Container, Jumbotron, Image } from "react-bootstrap";
 
 import { fetchMovie } from "../actions";
-import MovieCredits from "./MovieCredits";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movie = useSelector((state) => state.movies[0]);
+	console.log(movie.actors);
 
 	let { id } = useParams();
 
@@ -21,7 +21,6 @@ const MovieShow = () => {
 			<Row>
 				<Col md={6}>
 					<h5>{movie.title}</h5>
-					<MovieCredits />
 				</Col>
 				<Col md={6}>
 					<Jumbotron style={{ padding: "0" }}>
