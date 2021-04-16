@@ -51,7 +51,7 @@ will_be_blood = Movie.create!(title: "There Will Be Blood", image: "/images/Will
 
 dark_knight = Movie.create!(title: "The Dark Knight", image: "/images/DarkKnight.jpg", poster: "/images/DarkKnightPoster.jpg", summary: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", release_year: 2008, runtime: 152, genre: action, director: nolan)
 
-airplane = Movie.create!(title: "Airplane!", image: "/images/Airplane.jpg", poster: "/images/Airplane.jpg", summary: "When the passengers and crew of a jet are incapacitated due to food poisoning, a rogue pilot with a drinking problem must cooperate with his ex-girlfriend turned stewardess to bring the plane to a safe landing.", release_year: 1980, runtime: 118, genre: comedy, director: abrahams)
+airplane = Movie.create!(title: "Airplane!", image: "/images/Airplane.jpg", poster: "/images/AirplanePoster.jpg", summary: "When the passengers and crew of a jet are incapacitated due to food poisoning, a rogue pilot with a drinking problem must cooperate with his ex-girlfriend turned stewardess to bring the plane to a safe landing.", release_year: 1980, runtime: 118, genre: comedy, director: abrahams)
 
 alien = Movie.create!(title: "Alien", image: "/images/Alien.jpg", poster: "/images/AlienPoster.jpg", summary: "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.", release_year: 1979, runtime: 117, genre: horror, director: scott)
 
