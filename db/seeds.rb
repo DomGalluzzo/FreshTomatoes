@@ -60,47 +60,52 @@ her = Movie.create!(title: "Her", image: "/images/Her.jpg", poster: "/images/Her
 
 # ! Actors
 # Space Odyssey
-keir_dullea = Actor.create!(name: "Keir Dullea", image: "https://i.pravatar.cc/50")
-gary_lockwood = Actor.create!(name: "Gary Lockwood", image: "https://i.pravatar.cc/50")
-will_sylvester = Actor.create!(name: "William Sylvester", image: "https://i.pravatar.cc/50")
+keir_dullea = Actor.create!(name: "Keir Dullea", image: "https://i.pravatar.cc/50", character: "Dr. Dave Bowman")
+gary_lockwood = Actor.create!(name: "Gary Lockwood", image: "https://i.pravatar.cc/50", character: "Dr. Frank Poole")
+will_sylvester = Actor.create!(name: "William Sylvester", image: "https://i.pravatar.cc/50", character: "Dr. Heywood R. Floyd")
 
 # Godfather
-marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://i.pravatar.cc/50")
-al_pacino = Actor.create!(name: "Al Pacino", image:"https://i.pravatar.cc/50")
+marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://i.pravatar.cc/50", character: "Don Vito Corleone")
+al_pacino = Actor.create!(name: "Al Pacino", image:"https://i.pravatar.cc/50", character: "Michael Corleone")
+james_caan = Actor.create!(name: "James Caan", character: "Sonny Corleone" )
+richard_castellano = Actor.create!(name: "Richard S. Castellano", character: "Clemenza")
+robert_duvall = Actor.create!(name: "Robert Duvall", image:"https://i.pravatar.cc/50", character: "Tom Hagen")
+sterling_hayden = Actor.create!(name: "Sterling Hayden", character: "Capt. McCluskey")
+
 
 # Citizen Kane
-joseph_cotten = Actor.create!(name: "Joseph Cotten", image: "https://i.pravatar.cc/50")
-dorothy_comingore = Actor.create!(name: "Dorothy Comingore", image: "https://i.pravatar.cc/50")
-agnes_moorehead = Actor.create!(name: "Agnes Moorehead", image: "https://i.pravatar.cc/50")
+joseph_cotten = Actor.create!(name: "Joseph Cotten", image: "https://i.pravatar.cc/50", character:)
+dorothy_comingore = Actor.create!(name: "Dorothy Comingore", image: "https://i.pravatar.cc/50", character:)
+agnes_moorehead = Actor.create!(name: "Agnes Moorehead", image: "https://i.pravatar.cc/50", character:)
 
 # Raiders of the Lost Ark
-harrison_ford = Actor.create!(name: "Harrison Ford", image: "https://i.pravatar.cc/50")
-karen_allen = Actor.create!(name: "Karen Allen", image: "https://i.pravatar.cc/50")
+harrison_ford = Actor.create!(name: "Harrison Ford", image: "https://i.pravatar.cc/50", character:)
+karen_allen = Actor.create!(name: "Karen Allen", image: "https://i.pravatar.cc/50", character:)
 
 # There Will Be Blood
-daniel_day_lewis = Actor.create!(name: "Daniel Day-Lewis", image: "https://i.pravatar.cc/50")
-paul_dano = Actor.create!(name: "Paul Dano", image: "https://i.pravatar.cc/50")
-dillon_freasier = Actor.create!(name: "Dillon Freasier", image: "https://i.pravatar.cc/50")
+daniel_day_lewis = Actor.create!(name: "Daniel Day-Lewis", image: "https://i.pravatar.cc/50", character:)
+paul_dano = Actor.create!(name: "Paul Dano", image: "https://i.pravatar.cc/50", character:)
+dillon_freasier = Actor.create!(name: "Dillon Freasier", image: "https://i.pravatar.cc/50", character:)
 
 # Dark Knight
-christian_bale = Actor.create!(name: "Christian Bale", image: "https://i.pravatar.cc/50")
-heath_ledger = Actor.create!(name: "Heath Ledger", image: "https://i.pravatar.cc/50")
-michael_cane = Actor.create!(name: "Michael Cane", image: "https://i.pravatar.cc/50")
+christian_bale = Actor.create!(name: "Christian Bale", image: "https://i.pravatar.cc/50", character:)
+heath_ledger = Actor.create!(name: "Heath Ledger", image: "https://i.pravatar.cc/50", character:)
+michael_cane = Actor.create!(name: "Michael Cane", image: "https://i.pravatar.cc/50", character:)
 
 # Airplane!
-leslie_nielsen = Actor.create!(name: "Leslie Nielsen", image: "https://i.pravatar.cc/50")
-robert_hays = Actor.create!(name: "Robert Hays", image: "https://i.pravatar.cc/50")
+leslie_nielsen = Actor.create!(name: "Leslie Nielsen", image: "https://i.pravatar.cc/50", character:)
+robert_hays = Actor.create!(name: "Robert Hays", image: "https://i.pravatar.cc/50", character:)
 julie_hagerty = Actor.create!(name: "Julie Hagerty", image: "https://i.pravatar.cc/50")
 
 # Alien
-sigourney_weaver = Actor.create!(name: "Sigourney Weaver", image: "https://i.pravatar.cc/50")
-yaphet_kotto = Actor.create!(name: "Yaphet Kotto", image: "https://i.pravatar.cc/50")
-ian_holm = Actor.create!(name: "Ian Holm", image: "https://i.pravatar.cc/50")
+sigourney_weaver = Actor.create!(name: "Sigourney Weaver", image: "https://i.pravatar.cc/50", character:)
+yaphet_kotto = Actor.create!(name: "Yaphet Kotto", image: "https://i.pravatar.cc/50", character:)
+ian_holm = Actor.create!(name: "Ian Holm", image: "https://i.pravatar.cc/50", character:)
 
 # Her
-joaquin_phoenix = Actor.create!(name: "Joaquin Phoenix", image: "https://i.pravatar.cc/50")
-amy_adams = Actor.create!(name: "Amy Adams", image: "https://i.pravatar.cc/50")
-scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://i.pravatar.cc/50")
+joaquin_phoenix = Actor.create!(name: "Joaquin Phoenix", image: "https://i.pravatar.cc/50", character:)
+amy_adams = Actor.create!(name: "Amy Adams", image: "https://i.pravatar.cc/50", character:)
+scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://i.pravatar.cc/50", character:)
 
 
 # ! Credits
