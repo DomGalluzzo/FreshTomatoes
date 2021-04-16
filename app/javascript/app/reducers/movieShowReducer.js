@@ -1,7 +1,7 @@
 import {
-	FETCH_MOVIES_LIST_LOADING,
-	FETCH_MOVIES_LIST_SUCCESS,
-	FETCH_MOVIES_LIST_FAILED,
+	FETCH_MOVIE_SHOW_LOADING,
+	FETCH_MOVIE_SHOW_SUCCESS,
+	FETCH_MOVIE_SHOW_FAILED,
 } from "../actions";
 
 const initialState = {
@@ -27,26 +27,22 @@ const initialState = {
 	errorMessage: "",
 };
 
-const moviesListReducer = (state = initialState, action) => {
+const movieShowReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case FETCH_MOVIES_LIST_LOADING:
+		case FETCH_MOVIE_SHOW_LOADING:
 			return { ...state, loading: true, errorMessage: "" };
-		case FETCH_MOVIES_LIST_SUCCESS:
+		case FETCH_MOVIE_SHOW_SUCCESS:
 			return {
 				...state,
 				loading: false,
-				movies: action.payload,
+				movie: action.payload,
 				errorMessage: "",
 			};
-		case FETCH_MOVIES_LIST_FAILED:
-			return {
-				...state,
-				loading: false,
-				errorMessage: "Unable to load movies",
-			};
+		case FETCH_MOVIE_SHOW_FAILED:
+			return { ...state, loading: false, errorMessage: "Unable to load movie" };
 		default:
 			return state;
 	}
 };
 
-export default moviesListReducer;
+export default movieShowReducer;

@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import Axios from "axios";
+import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Col, Row, Container, Carousel } from "react-bootstrap";
 import _ from "lodash";
+
+import { Col, Row, Container, Carousel } from "react-bootstrap";
 
 import { fetchMoviesList } from "../actions/index";
 import Movie from "../components/Movie";
@@ -15,10 +16,6 @@ const MoviesCarousel = () => {
 	React.useEffect(() => {
 		fetchData();
 	}, []);
-
-	// useEffect(() => {
-	// 	fetchData();
-	// }, [movies]);
 
 	const fetchData = () => {
 		dispatch(fetchMoviesList());
@@ -59,7 +56,7 @@ const MoviesCarousel = () => {
 			return <p>{moviesList.errorMessage}</p>;
 		}
 
-		return <p>unable to fetch data</p>;
+		return <p>Unable to fetch data</p>;
 	};
 
 	return (
