@@ -3,6 +3,6 @@ class Review < ApplicationRecord
   belongs_to :movie
 
   validates :comment, presence: true
-  validates :rating, numericality: { in: 0..100 }
+  validates :rating, numericality: { in: 1..10 }
   validates :user_id, uniqueness: { scope: :movie_id }
 end
