@@ -35,22 +35,29 @@ const MovieShow = () => {
 			const movie = movieState.movie;
 
 			return (
-				<>
+				<Container className="movie-show-container pt-3 abc">
+					<Row
+						style={{
+							display: "block",
+							fontSize: "30px",
+							fontWeight: "bold",
+						}}>
+						<Title text={movie.title} style={{ marginLeft: "25px" }} />
+					</Row>
 					<Col md={6}>
-						<Title text={movie.title} />
 						<MovieActorsList actors={movie.actors} />
 					</Col>
 					<Col md={6}>
 						<Jumbotron style={{ padding: "0" }}>
 							<Image
-								src={movie.poster}
-								alt={`${movie.poster}.jpg`}
+								src={movie.image}
+								alt={`${movie.image}.jpg`}
 								className="d-block w-100"
 								style={{ padding: "0" }}
 							/>
 						</Jumbotron>
 					</Col>
-				</>
+				</Container>
 			);
 		}
 
@@ -65,11 +72,7 @@ const MovieShow = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	return (
-		<Container className="movie-show-container mt-5">
-			<Row>{showData()}</Row>
-		</Container>
-	);
+	return <>{showData()}</>;
 };
 
 export default MovieShow;

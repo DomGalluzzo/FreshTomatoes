@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Title = ({ text }) => {
-	return <span>{text}</span>;
+const Title = ({ text, style, className }) => {
+	return (
+		<span className={className} style={style}>
+			{text}
+		</span>
+	);
 };
 
 Title.defaultProps = {
