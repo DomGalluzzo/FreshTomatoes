@@ -15,6 +15,8 @@ import {
 import { fetchMovieShow } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
+import MoviePoster from "../components/MoviePoster";
+import Reviews from "./ReviewsList";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -35,8 +37,9 @@ const MovieShow = () => {
 			const movie = movieState.movie;
 
 			return (
-				<Container className="movie-show-container pt-3 abc">
+				<Container className="movie-show-container mt-4">
 					<Row
+						className="mb-3"
 						style={{
 							display: "block",
 							fontSize: "30px",
@@ -44,19 +47,28 @@ const MovieShow = () => {
 						}}>
 						<Title text={movie.title} style={{ marginLeft: "25px" }} />
 					</Row>
-					<Col md={6}>
-						<MovieActorsList actors={movie.actors} />
-					</Col>
-					<Col md={6}>
-						<Jumbotron style={{ padding: "0" }}>
-							<Image
-								src={movie.image}
-								alt={`${movie.image}.jpg`}
-								className="d-block w-100"
-								style={{ padding: "0" }}
-							/>
-						</Jumbotron>
-					</Col>
+					<Row>
+						<Col md={4}>
+							<Reviews reviews={movie.reviews} />
+						</Col>
+						<Col md={8}>
+							<div className="movie-image">
+								<Image
+									src={movie.image}
+									alt={`${movie.image}.jpg`}
+									className="d-block w-100"
+									style={{ padding: "0" }}
+								/>
+							</div>
+							<div>
+								<MoviePoster movie={movie} className="movie-poster" />
+							</div>
+							<div className="movie-info pt-3">
+								<MovieActorsList actors={movie.actors} />
+							</div>
+						</Col>
+					</Row>
+					<Row></Row>
 				</Container>
 			);
 		}
