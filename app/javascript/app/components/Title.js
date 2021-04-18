@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 const Title = ({ text, style, className }) => {
 	return (
-		<span className={className} style={style}>
+		<p className={className} style={style}>
 			{text}
-		</span>
+		</p>
 	);
 };
 

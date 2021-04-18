@@ -60,7 +60,7 @@ const ReviewsList = ({ reviews, className, style, onClick }) => {
 	};
 
 	return (
-		<Container className="reviews-container">
+		<Container className="reviews-container p-0">
 			<ListGroup className="reviews-list-group">{showData()}</ListGroup>
 		</Container>
 	);
