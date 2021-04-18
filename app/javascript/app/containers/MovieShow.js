@@ -52,7 +52,8 @@ const MovieShow = () => {
 						<Col md={4}>
 							<MoviesList />
 						</Col>
-						<Col md={8}>
+						<Col md={1}></Col>
+						<Col md={7}>
 							<div className="movie-image">
 								<Image
 									src={movie.image}
