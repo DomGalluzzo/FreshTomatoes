@@ -25,26 +25,23 @@ const ReviewsList = ({ reviews, className, style, onClick }) => {
 		if (!_.isEmpty(reviewsList.reviews)) {
 			return reviewsList.reviews.map((review) => {
 				return (
-					<ListGroup.Item className="d-block review-list-item">
-						<Row className="w-100">
-							<Col md={6}>
-								<Image
-									className="review-user-avatar"
-									src="/images/DefaultIcon.png"
-								/>
+					<ListGroup.Item className=" review-list-item">
+						<Row className="review-header-row">
+							<Col md={4} sm={4} className="review-user avatar">
+								<Image src="/images/DefaultIcon.png" />
 							</Col>
 
-							<Col md={6}>
+							<Col md={4} sm={4} className="review-user username">
 								<span>{review.user.username}</span>
 							</Col>
 
-							<Row>
+							<Col md={4} sm={4} className="review-user rating">
 								<span>{review.rating}</span>
-							</Row>
+							</Col>
+						</Row>
 
-							<Row>
-								<p>{review.comment}</p>
-							</Row>
+						<Row className="px-2 pt-3">
+							<p>{review.comment}</p>
 						</Row>
 					</ListGroup.Item>
 				);
