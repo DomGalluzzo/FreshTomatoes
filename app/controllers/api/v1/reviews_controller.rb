@@ -16,6 +16,7 @@ module Api
       def show
         @review = Review.find(params[:id])
         @movie = @review.movie
+        @user = @review.user
         render json: @review
       end
 
