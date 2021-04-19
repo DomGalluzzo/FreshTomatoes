@@ -46,10 +46,9 @@ const MoviesList = () => {
 
 	return (
 		<div className="movies-list-container">
-			<Title
-				text="Other Movies"
-				style={{ display: "block", fontSize: "20px", fontWeight: "bold" }}
-			/>
+			<Row className="other-movies-header">
+				<Title text="Other Movies" className="other-movies-title ml-4" />
+			</Row>
 			<div className="movies-list-group">{showData()}</div>
 		</div>
 	);

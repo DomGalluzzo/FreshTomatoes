@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 
 const Title = ({ text, style, className }) => {
 	return (
-		<div className="title-header-row">
-			<div className={className} style={style}>
-				{text}
+		<div className="title-header-container">
+			<div className="title-span-div">
+				<span className={className} style={style}>
+					{text}
+				</span>
 			</div>
 		</div>
 	);
