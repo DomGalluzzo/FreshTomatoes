@@ -5,7 +5,7 @@ import _ from "lodash";
 
 import { fetchMoviesList } from "../actions";
 import Title from "../components/Title";
-import { Row, Col, Card, ListGroup } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const MoviesList = () => {
 	const dispatch = useDispatch();

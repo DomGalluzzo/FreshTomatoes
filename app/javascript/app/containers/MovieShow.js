@@ -39,14 +39,8 @@ const MovieShow = () => {
 
 			return (
 				<Container className="movie-show-container mt-4 p-0">
-					<Row
-						className="movie-show-header"
-						style={{
-							display: "block",
-							fontSize: "30px",
-							fontWeight: "bold",
-						}}>
-						<Title text={movie.title} className="movie-show-title" />
+					<Row className="movie-show-header" style={{}}>
+						<Title text={movie.title} className="movie-show-title ml-4" />
 					</Row>
 					<Row className="mt-3">
 						<Col md={4}>
