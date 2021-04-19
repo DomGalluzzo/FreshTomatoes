@@ -18,7 +18,7 @@ import MovieActorsList from "../components/MovieActorsList";
 import MoviePoster from "../components/MoviePoster";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
-import Reviews from "./ReviewsList";
+import ReviewsList from "./ReviewsList";
 import MoviesList from "./MoviesList";
 
 const MovieShow = () => {
@@ -64,8 +64,11 @@ const MovieShow = () => {
 							<div>
 								<MovieInfo movie={movie} />
 							</div>
-							<div className="movie-info pt-3">
+							<div className="movie-info mt-3">
 								<MovieActorsList actors={movie.actors} />
+							</div>
+							<div className="reviews mt-3">
+								<ReviewsList reviews={movie.reviews} />
 							</div>
 						</Col>
 					</Row>
