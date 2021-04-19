@@ -34,21 +34,7 @@ const ReviewsList = ({ reviews, className, style, onClick }) => {
 	const showData = () => {
 		if (!_.isEmpty(reviewsList.reviews)) {
 			return reviewsList.reviews.map((review) => {
-				return (
-					<Card>
-						<Card.Body>
-							<Card.Text>
-								<Row>
-									<Col md={1}>
-										<img src={badRating} />
-									</Col>
-									<Col md={11}>{review.comment}</Col>
-								</Row>
-							</Card.Text>
-							<Card.Footer>{review.user.username}</Card.Footer>
-						</Card.Body>
-					</Card>
-				);
+				return <div>123</div>;
 			});
 		}
 
@@ -73,23 +59,17 @@ const ReviewsList = ({ reviews, className, style, onClick }) => {
 export default ReviewsList;
 
 {
-	/* <ListGroup.Item className=" review-list-item">
-						<Row className="review-header-row">
-							<Col md={4} sm={4} className="review-user avatar">
-								<Image src="/images/DefaultIcon.png" />
-							</Col>
-
-							<Col md={4} sm={4} className="review-user username">
-								<span>{review.user.username}</span>
-							</Col>
-
-							<Col md={4} sm={4} className="review-user rating">
-								<span>{review.rating}</span>
-							</Col>
-						</Row>
-
-						<Row className="px-2 pt-3">
-							<p>{review.comment}</p>
-						</Row>
-					</ListGroup.Item> */
+	/* <Card>
+	<Card.Body>
+		<Card.Text>
+			<Row>
+				<Col md={1}>
+					<img src={badRating} />
+				</Col>
+				<Col md={11}>{review.comment}</Col>
+			</Row>
+		</Card.Text>
+		<Card.Footer>{review.user.username}</Card.Footer>
+	</Card.Body>
+</Card>; */
 }
