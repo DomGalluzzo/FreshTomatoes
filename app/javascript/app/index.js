@@ -9,7 +9,7 @@ import store from "./components/store";
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<Container className="main-container">
+			<Container className="main-container p-0">
 				<App />
 			</Container>
 		</Provider>

@@ -15,6 +15,11 @@ import {
 import { fetchMovieShow } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
+import MoviePoster from "../components/MoviePoster";
+import MovieDetails from "../components/MovieDetails";
+import MovieInfo from "../components/MovieInfo";
+import ReviewsList from "./ReviewsList";
+import MoviesList from "./MoviesList";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -35,22 +40,40 @@ const MovieShow = () => {
 			const movie = movieState.movie;
 
 			return (
-				<>
-					<Col md={6}>
-						<Title text={movie.title} />
-						<MovieActorsList actors={movie.actors} />
-					</Col>
-					<Col md={6}>
-						<Jumbotron style={{ padding: "0" }}>
-							<Image
-								src={movie.poster}
-								alt={`${movie.poster}.jpg`}
-								className="d-block w-100"
-								style={{ padding: "0" }}
-							/>
-						</Jumbotron>
-					</Col>
-				</>
+				<Container className="movie-show-container">
+					<Row className="movie-show-header">
+						<Title text={movie.title} className="movie-show-title ml-4" />
+					</Row>
+					<Row className="mt-3">
+						<Col sm={0} md={4}>
+							<MoviesList />
+						</Col>
+
+						<Col sm={12} md={8} className="pl-4">
+							<div className="movie-image">
+								<Image
+									src={movie.image}
+									alt={`${movie.image}.jpg`}
+									className="d-block w-100 movie-banner-image"
+									style={{ padding: "0" }}
+								/>
+							</div>
+							<div className="mt-3">
+								<MovieDetails movie={movie} />
+							</div>
+							<div>
+								<MovieInfo movie={movie} />
+							</div>
+							<div className="movie-info mt-3">
+								<MovieActorsList actors={movie.actors} />
+							</div>
+							<div className="reviews mt-3">
+								<ReviewsList reviews={movie.reviews} />
+							</div>
+						</Col>
+					</Row>
+					<Row></Row>
+				</Container>
 			);
 		}
 
@@ -65,11 +88,7 @@ const MovieShow = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	return (
-		<Container className="movie-show-container mt-5">
-			<Row>{showData()}</Row>
-		</Container>
-	);
+	return <>{showData()}</>;
 };
 
 export default MovieShow;

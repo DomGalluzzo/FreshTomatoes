@@ -6,7 +6,7 @@ module Api
 
       def index
         @reviews = Review.where(movie_id: params[:movie_id]).includes(:user)
-        render json: @reviews
+        render json: @reviews, include: :user
       end
 
       def new
@@ -16,7 +16,8 @@ module Api
       def show
         @review = Review.find(params[:id])
         @movie = @review.movie
-        render json: @review
+        @user = @review.user
+        render json: @review, include: :user
       end
 
       def create

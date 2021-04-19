@@ -1,0 +1,8 @@
+.panel-heading ::before {
+	background-color: #fa320a;
+	content: " ";
+	min-width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 0;
+}
