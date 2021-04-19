@@ -10,7 +10,7 @@ const MovieInfo = ({ movie }) => {
 		<Container className="p-0" fluid>
 			<Row className="movie-show-header">
 				<Title
-					text="Movie Info"
+					text="MOVIE INFO"
 					className="movie-show-title"
 					id="movie-info-header"
 				/>

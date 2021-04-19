@@ -19,6 +19,13 @@
 	padding: 10px 15px;
 }
 
+// Changes bootstrap's default table padding
+.table th,
+.table td {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
 .movie-table {
 	text-align: center;
 }
@@ -29,6 +36,7 @@
 	border-top: none !important;
 	text-align: right;
 	color: #757a84;
+	padding: 0 0.5rem;
 }
 
 .movie-table-data-column {

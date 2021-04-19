@@ -4,6 +4,7 @@ import { Jumbotron, Container, Col, Row } from "react-bootstrap";
 
 import Title from "./Title";
 import MoviePoster from "./MoviePoster";
+import { runtimeConversion } from "../../../helpers/helpers";
 
 const MovieDetails = ({ movie }) => {
 	return (
@@ -24,7 +25,8 @@ const MovieDetails = ({ movie }) => {
 					</h1>
 
 					<h6>
-						{movie.release_year}, {movie.genre.name}, {movie.runtime}
+						{movie.release_year}, {movie.genre.name},{" "}
+						{runtimeConversion(movie.runtime)}
 					</h6>
 				</Col>
 			</Row>

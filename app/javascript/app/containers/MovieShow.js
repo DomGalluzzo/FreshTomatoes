@@ -45,11 +45,11 @@ const MovieShow = () => {
 						<Title text={movie.title} className="movie-show-title ml-4" />
 					</Row>
 					<Row className="mt-3">
-						<Col sm={6} md={4}>
+						<Col sm={0} md={4}>
 							<MoviesList />
 						</Col>
 
-						<Col sm={6} md={8} className="pl-4">
+						<Col sm={12} md={8} className="pl-4">
 							<div className="movie-image">
 								<Image
 									src={movie.image}
