@@ -2,7 +2,36 @@
 	border-radius: 5px;
 	background-color: #f3f3f3;
 	padding-right: 0;
-	max-width: 65%;
+	padding-left: 0;
+	max-width: 73%;
 	text-align: center;
-	// box-shadow: 0 0 5px 5px rgba(5, 5, 5, 0.3);
+	cursor: default;
+	margin-left: 2%;
+}
+
+#movie-info-header {
+	font-size: 20px;
+	margin-left: 3%;
+	font-family: $main-font;
+}
+
+.movie-info-body {
+	padding: 10px 15px;
+}
+
+.movie-table {
+	text-align: center;
+}
+
+.movie-table-header-column {
+	font-family: $main-font;
+	font-weight: bold;
+	border-top: none !important;
+	text-align: right;
+	color: #757a84;
+}
+
+.movie-table-data-column {
+	border-top: none !important;
+	text-align: left;
 }

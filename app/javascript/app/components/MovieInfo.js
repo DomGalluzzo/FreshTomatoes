@@ -1,28 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Jumbotron, Container, Col, Row } from "react-bootstrap";
+import { Container, Row, Table } from "react-bootstrap";
 
 import Title from "./Title";
-import MoviePoster from "./MoviePoster";
+import { runtimeConversion } from "../../../helpers/helpers";
 
 const MovieInfo = ({ movie }) => {
 	return (
-		<Jumbotron style={{ backgroundColor: "#ffffff" }} fluid>
-			<Row>
-				<Col md={4}>
-					<MoviePoster movie={movie} className="movie-poster" />
-				</Col>
-				<Col md={8} className="movie-info-column">
-					<h1 style={{ fontSize: "20px", fontWeight: "bold" }}>
-						{movie.title}
-					</h1>
-
-					<h6>
-						{movie.release_year}, {movie.runtime}
-					</h6>
-				</Col>
+		<Container className="p-0" fluid>
+			<Row className="movie-show-header">
+				<Title
+					text="Movie Info"
+					className="movie-show-title"
+					id="movie-info-header"
+				/>
 			</Row>
-		</Jumbotron>
+			<Container className="movie-info-body" fluid>
+				<p>{movie.summary}</p>
+				<Table className="movie-table">
+					<tbody>
+						<tr>
+							<td className="movie-table-header-column">Director:</td>
+							<td className="movie-table-data-column">
+								<Link to={`/directors/${movie.director.name}`}>
+									{movie.director.name}
+								</Link>
+							</td>
+						</tr>
+						<tr>
+							<td className="movie-table-header-column">Genre:</td>
+							<td className="movie-table-data-column">
+								<Link to={`/genres/${movie.genre.name}`}>
+									{movie.genre.name}
+								</Link>
+							</td>
+						</tr>
+						<tr>
+							<td className="movie-table-header-column">Year of Release:</td>
+							<td className="movie-table-data-column">{movie.release_year}</td>
+						</tr>
+						<tr>
+							<td className="movie-table-header-column">Runtime:</td>
+							<td className="movie-table-data-column">
+								{runtimeConversion(movie.runtime)}
+							</td>
+						</tr>
+					</tbody>
+				</Table>
+			</Container>
+		</Container>
 	);
 };
 

@@ -16,6 +16,7 @@ import { fetchMovieShow } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MoviePoster from "../components/MoviePoster";
+import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import Reviews from "./ReviewsList";
 import MoviesList from "./MoviesList";
@@ -44,11 +45,11 @@ const MovieShow = () => {
 						<Title text={movie.title} className="movie-show-title ml-4" />
 					</Row>
 					<Row className="mt-3">
-						<Col md={4}>
+						<Col sm={6} md={4}>
 							<MoviesList />
 						</Col>
 
-						<Col md={8} className="">
+						<Col sm={6} md={8} className="pl-4">
 							<div className="movie-image">
 								<Image
 									src={movie.image}
@@ -58,6 +59,9 @@ const MovieShow = () => {
 								/>
 							</div>
 							<div className="mt-3">
+								<MovieDetails movie={movie} />
+							</div>
+							<div>
 								<MovieInfo movie={movie} />
 							</div>
 							<div className="movie-info pt-3">
