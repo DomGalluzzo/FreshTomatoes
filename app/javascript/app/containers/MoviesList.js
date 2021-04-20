@@ -23,7 +23,7 @@ const MoviesList = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<Link to={`/movies/${movie.id}`}>
+					<Link to={`/movies/${movie.id}`} key={movie.id}>
 						<Row className="pt-3 movie-list-item" id="movies-list-row">
 							<Col sm={8}>{movie.title}</Col>
 							<Col sm={4}>Avg. Review</Col>

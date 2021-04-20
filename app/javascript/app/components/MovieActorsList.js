@@ -21,7 +21,7 @@ const MovieActorsList = ({ actors }) => {
 				<CardDeck>
 					{actors.map((actor) => {
 						return (
-							<Card className="credits-card">
+							<Card key={actor.id} className="credits-card">
 								<Link
 									to={`/actors/${actor.id}`}
 									key={actor.id}
