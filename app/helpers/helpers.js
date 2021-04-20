@@ -18,5 +18,5 @@ export function averageRating(reviews) {
 	});
 
 	total = Math.floor((total / 50) * 100);
-	return `${total}%`;
+	return total;
 }
