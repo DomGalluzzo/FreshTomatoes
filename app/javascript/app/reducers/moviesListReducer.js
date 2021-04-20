@@ -4,28 +4,7 @@ import {
 	FETCH_MOVIES_LIST_FAILED,
 } from "../actions";
 
-const initialState = {
-	loading: false,
-	movies: [
-		{
-			movie: {
-				actors: [
-					{
-						actor: {},
-					},
-				],
-				director: {},
-				genre: {},
-				reviews: [
-					{
-						review: {},
-					},
-				],
-			},
-		},
-	],
-	errorMessage: "",
-};
+import initialState from "../components/initialState";
 
 const moviesListReducer = (state = initialState, action) => {
 	switch (action.type) {

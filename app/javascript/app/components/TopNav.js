@@ -32,8 +32,8 @@ const TopNav = () => {
 								<FontAwesomeIcon icon={faSearch} />
 							</Button>
 						</Form>
-						<Nav.Link href="#features">Movies</Nav.Link>
-						<Nav.Link href="#pricing">Genres</Nav.Link>
+						<Nav.Link href="/movies">Movies</Nav.Link>
+						<Nav.Link href="/genres">Genres</Nav.Link>
 						<NavDropdown title="Account" id="collasible-nav-dropdown">
 							<NavDropdown.Item href="#action/3.1">Dashboard</NavDropdown.Item>
 							<NavDropdown.Item href="#action/3.2">

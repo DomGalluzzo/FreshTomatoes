@@ -4,28 +4,7 @@ import {
 	FETCH_MOVIE_SHOW_FAILED,
 } from "../actions";
 
-const initialState = {
-	loading: false,
-	movies: [
-		{
-			movie: {
-				actors: [
-					{
-						actor: {},
-					},
-				],
-				director: {},
-				genre: {},
-				reviews: [
-					{
-						review: {},
-					},
-				],
-			},
-		},
-	],
-	errorMessage: "",
-};
+import initialState from "../components/initialState";
 
 const movieShowReducer = (state = initialState, action) => {
 	switch (action.type) {

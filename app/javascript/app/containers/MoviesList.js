@@ -24,7 +24,7 @@ const MoviesList = () => {
 			return moviesList.movies.map((movie) => {
 				return (
 					<Link
-						to={`/movies/${movie.id}`}
+						to={`/movies/${movie.title}`}
 						key={movie.id}
 						className="other-movies-link">
 						<Row className="pt-2 movie-list-item" id="movies-list-row">
