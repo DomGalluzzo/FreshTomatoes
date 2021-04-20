@@ -52,7 +52,7 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 						<Card.Body>
 							<Card.Text>{review.comment}</Card.Text>
 						</Card.Body>
-						<Card.Footer className="d-flex align-items-end pl-1 pb-1">
+						<Card.Footer className="d-flex align-items-end pl-0 pb-1">
 							<Image
 								src={review.user.photo ? review.user.photo : defaultAvatar}
 							/>

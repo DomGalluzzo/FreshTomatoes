@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   
+  get "/genres", to: "pages#home"
+  get "/movies", to: "pages#home"
   get "movies/:id", to: "pages#home"
   get "directors/:id", to: "pages#home"
   get "reviews/new", to: "pages#home"
