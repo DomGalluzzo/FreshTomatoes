@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Jumbotron, Container, Col, Row } from "react-bootstrap";
 
-import Title from "./Title";
 import MoviePoster from "./MoviePoster";
 import RatingIcon from "./RatingIcon";
-import { runtimeConversion, averageRating } from "../../../helpers/helpers";
+import { runtimeConversion } from "../../../helpers/helpers";
 
 const MovieDetails = ({ movie }) => {
 	return (
@@ -30,7 +29,10 @@ const MovieDetails = ({ movie }) => {
 						{runtimeConversion(movie.runtime)}
 					</h6>
 					<div className="movie-details-ratings mt-3">
-						<RatingIcon movie={movie} />
+						<RatingIcon
+							movie={movie}
+							style={{ height: "48px", width: "48px" }}
+						/>
 					</div>
 				</Col>
 			</Row>

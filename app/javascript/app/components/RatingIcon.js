@@ -3,7 +3,7 @@ import React from "react";
 import { averageRating } from "../../../helpers/helpers";
 import { Image } from "react-bootstrap";
 
-const RatingIcon = ({ movie }) => {
+const RatingIcon = ({ movie, style }) => {
 	const rating = averageRating(movie.reviews);
 	let icon = "";
 
@@ -30,7 +30,7 @@ const RatingIcon = ({ movie }) => {
 
 	return (
 		<>
-			<Image src={icon} style={{ height: "48px", width: "48px" }} />
+			<Image src={icon} style={style} />
 			<h4 className="ml-3 pb-1">{rating}%</h4>
 		</>
 	);
