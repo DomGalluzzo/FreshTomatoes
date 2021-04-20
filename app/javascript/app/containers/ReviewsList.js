@@ -12,11 +12,12 @@ import {
 	CardColumns,
 	Container,
 	Row,
+	Image,
 } from "react-bootstrap";
 import Title from "../components/Title";
 
 const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
-	// const defaultProfilePic = "/images/DefaultIcon.png";
+	const defaultAvatar = "/images/BlankAvatar.png";
 	const dispatch = useDispatch();
 	const reviewsList = useSelector((state) => state.reviewsList);
 
@@ -29,8 +30,6 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 	const fetchData = () => {
 		dispatch(fetchReviewsList(id));
 	};
-
-	const badRating = "/images/splash.png";
 
 	const showData = () => {
 		if (!_.isEmpty(reviewsList.reviews)) {
@@ -52,8 +51,14 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 						</Card.Header>
 						<Card.Body>
 							<Card.Text>{review.comment}</Card.Text>
-							<Card.Footer>{review.user.username}</Card.Footer>
 						</Card.Body>
+						<Card.Footer className="d-flex align-items-end pl-1 pb-1">
+							<Image
+								src={review.user.photo ? review.user.photo : defaultAvatar}
+							/>
+
+							<span className="ml-3">{review.user.username}</span>
+						</Card.Footer>
 					</Card>
 				);
 			});
