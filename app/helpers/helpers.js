@@ -8,6 +8,7 @@ export function runtimeConversion(n) {
 	return `${rhours}h ${rminutes}m`;
 }
 
+// ! Compute a movie's average rating score
 export function averageRating(reviews) {
 	let xReviews = reviews;
 	let total = 0;
@@ -16,6 +17,6 @@ export function averageRating(reviews) {
 		total += review.rating;
 	});
 
-	total = (total / 50) * 100;
+	total = Math.floor((total / 50) * 100);
 	return `${total}%`;
 }

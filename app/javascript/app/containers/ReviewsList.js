@@ -35,7 +35,7 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 		if (!_.isEmpty(reviewsList.reviews)) {
 			return reviewsList.reviews.map((review) => {
 				return (
-					<Card key={review.id}>
+					<Card key={review.id} className="review-card">
 						<Card.Header>
 							<ReactStars
 								count={5}
