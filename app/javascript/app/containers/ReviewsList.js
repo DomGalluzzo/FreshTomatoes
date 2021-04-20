@@ -34,7 +34,14 @@ const ReviewsList = ({ reviews, className, style, onClick }) => {
 	const showData = () => {
 		if (!_.isEmpty(reviewsList.reviews)) {
 			return reviewsList.reviews.map((review) => {
-				return <div>123</div>;
+				return (
+					<Card>
+						<Card.Body>
+							<Card.Text>{review.comment}</Card.Text>
+							<Card.Footer>{review.user.username}</Card.Footer>
+						</Card.Body>
+					</Card>
+				);
 			});
 		}
 
@@ -57,19 +64,3 @@ const ReviewsList = ({ reviews, className, style, onClick }) => {
 };
 
 export default ReviewsList;
-
-{
-	/* <Card>
-	<Card.Body>
-		<Card.Text>
-			<Row>
-				<Col md={1}>
-					<img src={badRating} />
-				</Col>
-				<Col md={11}>{review.comment}</Col>
-			</Row>
-		</Card.Text>
-		<Card.Footer>{review.user.username}</Card.Footer>
-	</Card.Body>
-</Card>; */
-}
