@@ -4,10 +4,16 @@
 
 .movie-details-ratings {
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
 	justify-content: center;
 
 	.rating-percentage {
 		font-family: $main-font;
 	}
+}
+
+.rating-link-reviews {
+	font-family: $main-font;
+	font-weight: lighter;
+	font-size: 10px;
 }
