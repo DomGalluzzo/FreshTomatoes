@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+
+import {} from "../actions";
 import {
 	Container,
 	Form,
@@ -16,7 +20,7 @@ const TopNav = () => {
 	return (
 		<Container className="topnav-container p-0">
 			<Navbar className="topnav" collapseOnSelect sticky="top" expand="lg">
-				<Navbar.Brand href="/">
+				<Navbar.Brand className="mr-4" href="/">
 					<img src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016229/Logo_lbddl5.png" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -32,22 +36,17 @@ const TopNav = () => {
 								<FontAwesomeIcon icon={faSearch} />
 							</Button>
 						</Form>
+					</Nav>
+					<Nav id="nav-center-links">
 						<Nav.Link href="/movies">Movies</Nav.Link>
 						<Nav.Link href="/genres">Genres</Nav.Link>
+					</Nav>
+					<Nav>
 						<NavDropdown title="Account" id="collasible-nav-dropdown">
-							<NavDropdown.Item href="#action/3.1">Dashboard</NavDropdown.Item>
-							<NavDropdown.Item href="#action/3.2">
-								My Watchlists
-							</NavDropdown.Item>
+							<NavDropdown.Item href="/users/">My Watchlists</NavDropdown.Item>
 							<NavDropdown.Divider />
 							<NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
 						</NavDropdown>
-					</Nav>
-					<Nav>
-						<Nav.Link href="#deets">More deets</Nav.Link>
-						<Nav.Link eventKey={2} href="#memes">
-							Dank memes
-						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

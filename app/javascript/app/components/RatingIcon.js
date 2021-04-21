@@ -9,22 +9,28 @@ const RatingIcon = ({ movie, style }) => {
 
 	switch (true) {
 		case rating == 0:
-			icon = "/images/help.png";
+			icon =
+				"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016226/help_cgaulr.png";
 			break;
 		case rating <= 20:
-			icon = "/images/anger.png";
+			icon =
+				"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016253/anger_d6yl8b.png";
 			break;
 		case rating <= 40:
-			icon = "/images/sad-face.png";
+			icon =
+				"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016233/sad-face_qpaoqo.png";
 			break;
 		case rating <= 60:
-			icon = "/images/neutral.png";
+			icon =
+				"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016232/neutral_byxrgw.png";
 			break;
 		case rating <= 80:
-			icon = "/images/smile.png";
+			icon =
+				"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016234/smile_cmcfvb.png";
 			break;
 		case rating <= 100:
-			icon = "/images/grinning.png";
+			icon =
+				"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016225/grinning_a91kuo.png";
 			break;
 	}
 

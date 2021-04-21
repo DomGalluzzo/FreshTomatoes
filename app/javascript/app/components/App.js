@@ -7,7 +7,7 @@ import UserWatchlists from "../containers/UserWatchlists";
 
 const App = () => {
 	return (
-		<Router>
+		<Router forceRefresh={true}>
 			<Switch>
 				<Route exact path="/" exact component={MoviesCarousel}></Route>
 				<Route path="/movies/:id" exact component={MovieShow}></Route>
