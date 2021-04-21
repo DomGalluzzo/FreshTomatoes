@@ -14,7 +14,7 @@
 .carousel-title-div {
 	display: flex;
 	align-items: center;
-	background-color: rgba(25, 25, 25, 0.7);
+	background-color: rgba(0, 0, 0, 0.6);
 	color: white;
 	font-size: 16px;
 
@@ -26,4 +26,32 @@
 
 .carousel-title {
 	font-family: $secondary-font;
+}
+
+.image-overlay-text {
+	position: relative;
+	text-align: center;
+	color: white;
+
+	span {
+		font-family: $main-font;
+		font-size: 16px;
+	}
+
+	font-family: $secondary-font;
+	font-size: 12px;
+}
+
+.image-overlay-header {
+	position: absolute;
+	top: -30px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: fit-content;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-left: 2px solid $main-red;
+}
+
+.home-image {
+	opacity: 0.7;
 }
