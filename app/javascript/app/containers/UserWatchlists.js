@@ -22,9 +22,9 @@ const UserWatchlists = () => {
 		dispatch(fetchWatchlists(id));
 	};
 
-  const showData = () => {
-    if (!)
-  }
+	const showData = () => {
+		return 123;
+	};
 
 	return <div>{showData()}</div>;
 };
