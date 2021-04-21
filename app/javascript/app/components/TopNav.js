@@ -17,7 +17,7 @@ const TopNav = () => {
 		<Container className="topnav-container p-0">
 			<Navbar className="topnav" collapseOnSelect sticky="top" expand="lg">
 				<Navbar.Brand href="/">
-					<img src="/images/Logo.png" />
+					<img src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016229/Logo_lbddl5.png" />
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">

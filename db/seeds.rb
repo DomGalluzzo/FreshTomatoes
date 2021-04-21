@@ -17,37 +17,37 @@ Review.destroy_all
 
 # ! Users
 guest = User.create!(email: "guest@gmail.com", password: "password", username: "guest")
-seed1 = User.create!(email: "seed1@gmail.com", password: "password", username: Faker::Internet.username)
-seed2 = User.create!(email: "seed2@gmail.com", password: "password", username: Faker::Internet.username)
-seed3 = User.create!(email: "seed3@gmail.com", password: "password", username: Faker::Internet.username)
-seed4 = User.create!(email: "seed4@gmail.com", password: "password", username: Faker::Internet.username)
-seed5 = User.create!(email: "seed5@gmail.com", password: "password", username: Faker::Internet.username)
-seed6 = User.create!(email: "seed6@gmail.com", password: "password", username: Faker::Internet.username)
-seed7 = User.create!(email: "seed7@gmail.com", password: "password", username: Faker::Internet.username)
-seed8 = User.create!(email: "seed8@gmail.com", password: "password", username: Faker::Internet.username)
-seed9 = User.create!(email: "seed9@gmail.com", password: "password", username: Faker::Internet.username)
-seed10 = User.create!(email: "seed10@gmail.com", password: "password", username: Faker::Internet.username)
-seed11 = User.create!(email: "seed11@gmail.com", password: "password", username: Faker::Internet.username)
-seed12 = User.create!(email: "seed12@gmail.com", password: "password", username: Faker::Internet.username)
-seed13 = User.create!(email: "seed13@gmail.com", password: "password", username: Faker::Internet.username)
+seed1 = User.create!(email: "seed1@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar5_h7s99j.png")
+seed2 = User.create!(email: "seed2@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar4_iqqyka.png")
+seed3 = User.create!(email: "seed3@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar8_mbfjns.png")
+seed4 = User.create!(email: "seed4@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar2_qs2lkh.png")
+seed5 = User.create!(email: "seed5@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar3_ksdwml.png")
+seed6 = User.create!(email: "seed6@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar7_eec8tv.png")
+seed7 = User.create!(email: "seed7@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar6_kr5fr1.png")
+seed8 = User.create!(email: "seed8@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar6_kr5fr1.png")
+seed9 = User.create!(email: "seed9@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar1_ai6gwn.png")
+seed10 = User.create!(email: "seed10@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar4_iqqyka.png")
+seed11 = User.create!(email: "seed11@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar8_mbfjns.png")
+seed12 = User.create!(email: "seed12@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar5_h7s99j.png")
+seed13 = User.create!(email: "seed13@gmail.com", password: "password", username: Faker::Internet.username, image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619017179/Avatar1_ai6gwn.png")
 
 
 # ! Directors
-kubrick = Director.create!(name: "Stanley Kubrick", image: "https://i.pravatar.cc/50")
-coppola = Director.create!(name: "Francis Ford Coppola", image: "https://i.pravatar.cc/50")
-welles = Director.create!(name: "Orson Welles", image: "https://i.pravatar.cc/50")
-spielberg = Director.create!(name: "Stephen Spielberg", image: "https://i.pravatar.cc/50")
-anderson = Director.create!(name: "Paul Thomas Anderson", image: "https://i.pravatar.cc/50")
-nolan = Director.create!(name: "Christopher Nolan", image: "https://i.pravatar.cc/50")
-abrahams = Director.create!(name: "Jim Abrahams", image: "https://i.pravatar.cc/50")
-scott = Director.create!(name: "Ridley Scott", image: "https://i.pravatar.cc/50")
-jonze = Director.create!(name: "Spike Jonze", image: "https://i.pravatar.cc/50")
+kubrick = Director.create!(name: "Stanley Kubrick", image: "https://m.media-amazon.com/images/M/MV5BMTIwMzAwMzg1MV5BMl5BanBnXkFtZTYwMjc4ODQ2._V1_UY1200_CR82,0,630,1200_AL_.jpg")
+coppola = Director.create!(name: "Francis Ford Coppola", image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Francis_Ford_Coppola_2011_CC.jpg")
+welles = Director.create!(name: "Orson Welles", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Orson_Welles_1937.jpg")
+spielberg = Director.create!(name: "Stephen Spielberg", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Orson_Welles_1937.jpg")
+anderson = Director.create!(name: "Paul Thomas Anderson", image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Paul_Thomas_Anderson_2007_crop.jpg")
+nolan = Director.create!(name: "Christopher Nolan", image: "https://upload.wikimedia.org/wikipedia/commons/9/95/Christopher_Nolan_Cannes_2018.jpg")
+abrahams = Director.create!(name: "Jim Abrahams", image: "https://resizing.flixster.com/az1B3giCm4b4wE2FL_HYhEZt2_w=/506x652/v2/https://flxt.tmsimg.com/v9/AllPhotos/73999/73999_v9_bb.jpg")
+scott = Director.create!(name: "Ridley Scott", image: "https://m.media-amazon.com/images/M/MV5BMGJkOGM5OWEtNDYxMy00Njg4LWExNjAtY2ZlNWNlNzVhNDk4XkEyXkFqcGdeQXVyNDkzNTM2ODg@._V1_UY1200_CR85,0,630,1200_AL_.jpg")
+jonze = Director.create!(name: "Spike Jonze", image: "https://cdn.britannica.com/38/144738-050-D46AE318/Spike-Jonze-2003.jpg")
 coogler = Director.create!(name: "Ryan Coogler")
 cooley = Director.create!(name: "Josh Cooley")
 unkrich = Director.create!(name: "Lee Unkrich")
 docter = Director.create!(name: "Pete Docter")
-krasinski = Director.create!(name: "John Krasinski")
-peele = Director.create!(name: "Jordan Peele")
+krasinski = Director.create!(name: "John Krasinski", image: "https://m.media-amazon.com/images/M/MV5BMTc3MzY3MjQ3OV5BMl5BanBnXkFtZTcwODI3NjQxMw@@._V1_UY1200_CR115,0,630,1200_AL_.jpg")
+peele = Director.create!(name: "Jordan Peele", image: "https://pyxis.nymag.com/v1/imgs/97b/4ee/1070041f7c346674b77bc8cace5d324af7-14-jordan-peele.rsquare.w700.jpg")
 
 # ! Genres
 scifi = Genre.create!(name: "Sci-Fi")
@@ -59,23 +59,23 @@ romance = Genre.create!(name: "Romance")
 animation = Genre.create!(name: "Animation")
 
 # ! Movies
-space_odyssey = Movie.create!(title: "2001: A Space Odyssey", image: "/images/SpaceOdyssey.jpg", poster: "/images/SpaceOdysseyPoster.jpg", summary: "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest to find its origins with help from intelligent supercomputer H.A.L. 9000.", release_year: 1968, runtime: 141, genre: scifi, director: kubrick)
+space_odyssey = Movie.create!(title: "2001: A Space Odyssey", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016235/SpaceOdyssey_ctbezk.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016236/SpaceOdysseyPoster_tsjlnb.jpg", summary: "After discovering a mysterious artifact buried beneath the Lunar surface, mankind sets off on a quest to find its origins with help from intelligent supercomputer H.A.L. 9000.", release_year: 1968, runtime: 141, genre: scifi, director: kubrick)
 
-godfather1 = Movie.create!(title: "The Godfather", image: "/images/GodFather.jpg", poster: "/images/GodFatherPoster.jpg",summary: "Widely regarded as one of the greatest films of all time, this mob drama, based on Mario Puzo's novel of the same name, focuses on the powerful Italian-American crime family of Don Vito Corleone (Marlon Brando).", release_year: 1972, runtime: 175, genre: drama, director: coppola)
+godfather1 = Movie.create!(title: "The Godfather", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016263/GodFather_k5rrxy.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016265/GodFatherPoster_vw4xer.jpg",summary: "Widely regarded as one of the greatest films of all time, this mob drama, based on Mario Puzo's novel of the same name, focuses on the powerful Italian-American crime family of Don Vito Corleone (Marlon Brando).", release_year: 1972, runtime: 175, genre: drama, director: coppola)
 
-citizen_kane = Movie.create!(title: "Citizen Kane", image:"/images/CitizenKane.jpg", poster: "/images/CitizenKanePoster.jpg", summary: "When a reporter is assigned to decipher newspaper magnate Charles Foster Kane's (Orson Welles) dying words, his investigation gradually reveals the fascinating portrait of a complex man who rose from obscurity to staggering heights.", release_year: 1941, runtime: 119, genre: drama, director: welles)
+citizen_kane = Movie.create!(title: "Citizen Kane", image:"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016255/CitizenKane_xdm9ln.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016257/CitizenKanePoster_vvirru.jpg", summary: "When a reporter is assigned to decipher newspaper magnate Charles Foster Kane's (Orson Welles) dying words, his investigation gradually reveals the fascinating portrait of a complex man who rose from obscurity to staggering heights.", release_year: 1941, runtime: 119, genre: drama, director: welles)
 
-raiders_lost_ark = Movie.create!(title: "Indiana Jones and the Raiders of the Lost Ark", image: "/images/LostArk.jpg", poster: "/images/LostArkPoster.jpg", summary: "Epic tale in which an intrepid archaeologist tries to beat a band of Nazis to a unique religious relic which is central to their plans for world domination.", release_year: 1981, runtime: 115, genre: action, director: spielberg)
+raiders_lost_ark = Movie.create!(title: "Indiana Jones and the Raiders of the Lost Ark", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016230/LostArk_vldtvg.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016231/LostArkPoster_mqr3pq.jpg", summary: "Epic tale in which an intrepid archaeologist tries to beat a band of Nazis to a unique religious relic which is central to their plans for world domination.", release_year: 1981, runtime: 115, genre: action, director: spielberg)
 
-will_be_blood = Movie.create!(title: "There Will Be Blood", image: "/images/WillBeBlood.jpg", poster: "/images/WillBeBloodPoster.jpg", summary: "A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.", release_year: 2007, runtime: 158, genre: drama, director: anderson)
+will_be_blood = Movie.create!(title: "There Will Be Blood", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016239/WillBeBlood_x0haha.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016240/WillBeBloodPoster_mx5ko1.jpg", summary: "A story of family, religion, hatred, oil and madness, focusing on a turn-of-the-century prospector in the early days of the business.", release_year: 2007, runtime: 158, genre: drama, director: anderson)
 
-dark_knight = Movie.create!(title: "The Dark Knight", image: "/images/DarkKnight.jpg", poster: "/images/DarkKnightPoster.jpg", summary: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", release_year: 2008, runtime: 152, genre: action, director: nolan)
+dark_knight = Movie.create!(title: "The Dark Knight", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016259/DarkKnight_sye4z3.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016261/DarkKnightPoster_ms9ayr.jpg", summary: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", release_year: 2008, runtime: 152, genre: action, director: nolan)
 
-airplane = Movie.create!(title: "Airplane!", image: "/images/Airplane.jpg", poster: "/images/AirplanePoster.jpg", summary: "When the passengers and crew of a jet are incapacitated due to food poisoning, a rogue pilot with a drinking problem must cooperate with his ex-girlfriend turned stewardess to bring the plane to a safe landing.", release_year: 1980, runtime: 118, genre: comedy, director: abrahams)
+airplane = Movie.create!(title: "Airplane!", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016245/Airplane_l9xysm.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016247/AirplanePoster_wxtzik.jpg", summary: "When the passengers and crew of a jet are incapacitated due to food poisoning, a rogue pilot with a drinking problem must cooperate with his ex-girlfriend turned stewardess to bring the plane to a safe landing.", release_year: 1980, runtime: 118, genre: comedy, director: abrahams)
 
-alien = Movie.create!(title: "Alien", image: "/images/Alien.jpg", poster: "/images/AlienPoster.jpg", summary: "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.", release_year: 1979, runtime: 117, genre: horror, director: scott)
+alien = Movie.create!(title: "Alien", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016249/Alien_vwp0ms.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016251/AlienPoster_oh64vh.jpg", summary: "After a space merchant vessel receives an unknown transmission as a distress call, one of the crew is attacked by a mysterious life form and they soon realize that its life cycle has merely begun.", release_year: 1979, runtime: 117, genre: horror, director: scott)
 
-her = Movie.create!(title: "Her", image: "/images/Her.jpg", poster: "/images/HerPoster.jpg", summary: "Left heartbroken after his marriage ends, Theodore (Joaquin Phoenix) becomes fascinated with a new operating system which reportedly develops into an intuitive and unique entity in its own right.", release_year: 2014, runtime: 126, genre: romance, director: jonze)
+her = Movie.create!(title: "Her", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016227/Her_qvupnh.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016228/HerPoster_q2xfpj.jpg", summary: "Left heartbroken after his marriage ends, Theodore (Joaquin Phoenix) becomes fascinated with a new operating system which reportedly develops into an intuitive and unique entity in its own right.", release_year: 2014, runtime: 126, genre: romance, director: jonze)
 
 black_panther = Movie.create!(title: "Black Panther", summary: "After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.", release_year: 2018, runtime: 124, genre: action, director: coogler)
 
@@ -96,11 +96,11 @@ inception = Movie.create!(title: "Inception", summary: "A thief who steals corpo
 
 # ! Actors
 # Space Odyssey
-keir_dullea = Actor.create!(name: "Keir Dullea", image: "https://i.pravatar.cc/50", character: "Dr. Dave Bowman")
-gary_lockwood = Actor.create!(name: "Gary Lockwood", image: "https://i.pravatar.cc/50", character: "Dr. Frank Poole")
-will_sylvester = Actor.create!(name: "William Sylvester", image: "https://i.pravatar.cc/50", character: "Dr. Heywood R. Floyd")
-daniel_richter = Actor.create!(name: "Daniel Richter", character: "Moon-Watcher")
+keir_dullea = Actor.create!(name: "Keir Dullea", image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Keir_Dullea_Denver_Pyle_1962_%28cropped%29.JPG", character: "Dr. Dave Bowman")
+gary_lockwood = Actor.create!(name: "Gary Lockwood", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Gary_Lockwood_in_1962.jpg", character: "Dr. Frank Poole")
 leonard_rossiter = Actor.create!(name: "Leonard Rossiter", character: "Dr. Andrei Smyslov")
+will_sylvester = Actor.create!(name: "William Sylvester", image: "https://resizing.flixster.com/OdnPn_A-nynaNIJ8GrxrgoRIc28=/506x652/v2/https://flxt.tmsimg.com/v9/AllPhotos/66287/66287_v9_ba.jpg", character: "Dr. Heywood R. Floyd")
+daniel_richter = Actor.create!(name: "Daniel Richter", character: "Moon-Watcher")
 
 # Godfather
 marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://i.pravatar.cc/50", character: "Don Vito Corleone")

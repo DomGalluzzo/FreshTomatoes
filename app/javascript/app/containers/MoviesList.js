@@ -30,7 +30,7 @@ const MoviesList = () => {
 						<Row className="pt-2 movie-list-item" id="movies-list-row">
 							<Col sm={1}>
 								<Image
-									src="/images/VideoPlayerIcon.png"
+									src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016243/VideoPlayerIcon_rdnefv.png"
 									style={{ height: "16px", width: "16px" }}
 									className="mb-1"
 								/>

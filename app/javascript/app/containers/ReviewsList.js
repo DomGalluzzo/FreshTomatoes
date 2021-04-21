@@ -17,7 +17,8 @@ import {
 import Title from "../components/Title";
 
 const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
-	const defaultAvatar = "/images/BlankAvatar.png";
+	const defaultAvatar =
+		"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016242/BlankAvatar.png";
 	const dispatch = useDispatch();
 	const reviewsList = useSelector((state) => state.reviewsList);
 
@@ -52,9 +53,10 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 						<Card.Body>
 							<Card.Text>{review.comment}</Card.Text>
 						</Card.Body>
-						<Card.Footer className="d-flex align-items-end pl-0 pb-1">
+						<Card.Footer className="d-flex align-items-end pl-0 pb-1 pt-0">
 							<Image
-								src={review.user.photo ? review.user.photo : defaultAvatar}
+								src={review.user.image ? review.user.image : defaultAvatar}
+								style={{ height: "50px", width: "50px" }}
 							/>
 
 							<span className="ml-3">{review.user.username}</span>

@@ -6,7 +6,8 @@ import { Container, Card, CardDeck, Image, Row } from "react-bootstrap";
 import Title from "../components/Title";
 
 const MovieActorsList = ({ actors }) => {
-	const defaultProfilePic = "/images/DefaultIcon.png";
+	const defaultProfilePic =
+		"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619018185/default_icon_yflbxj.png";
 
 	return (
 		<Container className="p-0" fluid>
@@ -62,28 +63,3 @@ const MovieActorsList = ({ actors }) => {
 };
 
 export default MovieActorsList;
-
-// return (
-// 	<Card>
-// 		<ListGroup variant="flush">
-// 			{actors.map((actor) => {
-// 				return (
-// 					<Link
-// 						key={actor.id}
-// 						to={`/actors/${actor.id}`}
-// 						style={{ textDecoration: "inherit", color: "inherit" }}>
-// 						<ListGroup.Item>
-// 							<img
-// 								id="avatar-cast"
-// 								src={actor.image ? actor.image : defaultProfilePic}
-// 								alt={`${actor.name}.jpg`}
-// 								style={{ height: "64px" }}
-// 							/>
-// 							<span className="ml-3">{actor.name}</span>
-// 						</ListGroup.Item>
-// 					</Link>
-// 				);
-// 			})}
-// 		</ListGroup>
-// 	</Card>
-// );
