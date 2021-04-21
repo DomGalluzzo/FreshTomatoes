@@ -10,3 +10,20 @@
 // #carousel-movie-image {
 // 	color: rgba(20, 20, 20, 0.8);
 // }
+
+.carousel-title-div {
+	display: flex;
+	align-items: center;
+	background-color: rgba(25, 25, 25, 0.7);
+	color: white;
+	font-size: 16px;
+
+	& > span {
+		font-family: $main-font;
+		color: rgb(253, 228, 22);
+	}
+}
+
+.carousel-title {
+	font-family: $secondary-font;
+}

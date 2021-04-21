@@ -23,27 +23,29 @@ const MoviesCarousel = () => {
 	const showData = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
-				return (
-					<Carousel.Item key={movie.id} className="img-fluid">
-						<Link to={`/movies/${movie.id}`}>
-							<img
-								id="carousel-movie-image"
-								src={movie.image}
-								alt={`${movie.title}.jpg`}
-								className="d-block movies-carousel-image w-100"
-								style={{ opacity: "0.8" }}
-							/>
-							<Carousel.Caption
-								style={{
-									backgroundColor: "rgba(10,10,10, 0.5)",
-									marginBottom: "5px",
-									marginTop: "25px",
-								}}>
-								{`${movie.title} (${movie.release_year})`}
-							</Carousel.Caption>
-						</Link>
-					</Carousel.Item>
-				);
+				if (movie.release_year < 2000) {
+					return (
+						<Carousel.Item key={movie.id} className="img-fluid">
+							<Link to={`/movies/${movie.id}`}>
+								<img
+									id="carousel-movie-image"
+									src={movie.image}
+									alt={`${movie.title}.jpg`}
+									className="d-block movies-carousel-image w-100"
+									style={{ opacity: "0.8" }}
+								/>
+								<Carousel.Caption
+									style={{
+										backgroundColor: "rgba(10,10,10, 0.5)",
+										marginBottom: "5px",
+										marginTop: "25px",
+									}}>
+									{`${movie.title} (${movie.release_year})`}
+								</Carousel.Caption>
+							</Link>
+						</Carousel.Item>
+					);
+				}
 			});
 		}
 
@@ -59,9 +61,15 @@ const MoviesCarousel = () => {
 	};
 
 	return (
-		<Container className="movies-carousel-container">
-			<Col md={6}>
-				<Title text={"Top Movies of All Time"} />
+		<Container className="movies-carousel-container px-0">
+			<Col md={6} className="px-0">
+				<div className="carousel-title-div">
+					<span className="px-2">Trending on FT:</span>
+					<Title
+						text="Critics are STILL raving about these top classics"
+						className="carousel-title"
+					/>
+				</div>
 				<Carousel>{showData()}</Carousel>
 			</Col>
 		</Container>
