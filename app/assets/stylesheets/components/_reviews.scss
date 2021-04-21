@@ -1,28 +1,19 @@
-.review-list-group {
-	padding: 0;
+.review-card {
+	cursor: default;
 }
 
-// .review-list-item.header-row {
-// 	padding-top: 0;
-// }
+.movie-details-ratings {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-// .list-group-item {
-// 	padding: 0;
-// }
+	.rating-percentage {
+		font-family: $main-font;
+	}
+}
 
-// .reviews-container {
-// 	padding: 0;
-// }
-
-// .review-header-row {
-// 	.avatar {
-// 		padding: 0;
-// 	}
-// 	.username {
-// 		text-align: center;
-// 	}
-
-// 	.rating {
-// 		text-align: right;
-// 	}
-// }
+.rating-link-reviews {
+	font-family: $main-font;
+	font-weight: lighter;
+	font-size: 10px;
+}

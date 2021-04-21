@@ -3,6 +3,19 @@
 	padding: 2%;
 }
 
+.movie-show-title {
+	font-family: $main-font;
+}
+
+.other-movies-title {
+	font-family: $main-font;
+}
+
+.other-movies-link {
+	text-decoration: inherit;
+	color: inherit;
+}
+
 .credits-card {
 	border: none;
 }

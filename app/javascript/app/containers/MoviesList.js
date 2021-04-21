@@ -5,7 +5,7 @@ import _ from "lodash";
 
 import { fetchMoviesList } from "../actions";
 import Title from "../components/Title";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 
 const MoviesList = () => {
 	const dispatch = useDispatch();
@@ -23,10 +23,19 @@ const MoviesList = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<Link to={`/movies/${movie.id}`}>
-						<Row className="pt-3 movie-list-item" id="movies-list-row">
-							<Col sm={8}>{movie.title}</Col>
-							<Col sm={4}>Avg. Review</Col>
+					<Link
+						to={`/movies/${movie.title}`}
+						key={movie.id}
+						className="other-movies-link">
+						<Row className="pt-2 movie-list-item" id="movies-list-row">
+							<Col sm={1}>
+								<Image
+									src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016243/VideoPlayerIcon_rdnefv.png"
+									style={{ height: "16px", width: "16px" }}
+									className="mb-1"
+								/>
+							</Col>
+							<Col sm={11}>{movie.title}</Col>
 						</Row>
 					</Link>
 				);

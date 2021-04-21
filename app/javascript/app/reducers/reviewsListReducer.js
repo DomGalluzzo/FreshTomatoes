@@ -4,28 +4,7 @@ import {
 	FETCH_REVIEWS_LIST_FAILED,
 } from "../actions";
 
-const initialState = {
-	loading: false,
-	movies: [
-		{
-			movie: {
-				actors: [
-					{
-						actor: {},
-					},
-				],
-				director: {},
-				genre: {},
-				reviews: [
-					{
-						review: {},
-					},
-				],
-			},
-		},
-	],
-	errorMessage: "",
-};
+import initialState from "../components/initialState";
 
 const reviewsListReducer = (state = initialState, action) => {
 	switch (action.type) {

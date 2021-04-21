@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Jumbotron, Container, Col, Row } from "react-bootstrap";
 
-import Title from "./Title";
 import MoviePoster from "./MoviePoster";
+import RatingIcon from "./RatingIcon";
 import { runtimeConversion } from "../../../helpers/helpers";
 
 const MovieDetails = ({ movie }) => {
@@ -20,14 +20,20 @@ const MovieDetails = ({ movie }) => {
 					<MoviePoster movie={movie} className="movie-poster" />
 				</Col>
 				<Col sm={8} lg={9} className="movie-info-column">
-					<h1 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "5%" }}>
+					<h1 className="mt-4" style={{ fontSize: "25px", fontWeight: "bold" }}>
 						{movie.title}
 					</h1>
 
-					<h6>
+					<h6 className="mt-3">
 						{movie.release_year}, {movie.genre.name},{" "}
 						{runtimeConversion(movie.runtime)}
 					</h6>
+					<div className="movie-details-ratings mt-3">
+						<RatingIcon
+							movie={movie}
+							style={{ height: "48px", width: "48px" }}
+						/>
+					</div>
 				</Col>
 			</Row>
 		</Container>

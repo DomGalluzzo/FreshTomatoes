@@ -68,7 +68,18 @@ const MovieShow = () => {
 								<MovieActorsList actors={movie.actors} />
 							</div>
 							<div className="reviews mt-3">
-								<ReviewsList reviews={movie.reviews} />
+								<Container className="p-0 reviews-container" fluid>
+									<Row className="movie-show-header">
+										<Title
+											text={`REVIEWS FOR ${movie.title}`}
+											className="movie-show-title"
+											id="movie-info-header"
+										/>
+									</Row>
+									<Container className="reviews-list-body">
+										<ReviewsList reviews={movie.reviews} />
+									</Container>
+								</Container>
 							</div>
 						</Col>
 					</Row>
