@@ -12,7 +12,6 @@ ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<CloudinaryContext cloudName="dcdspz5mv">
-				<TopNav />
 				<Container className="main-container p-0">
 					<App />
 				</Container>

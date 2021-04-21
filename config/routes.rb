@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "movies/:id", to: "pages#home"
   get "directors/:id", to: "pages#home"
   get "reviews/new", to: "pages#home"
-  get "users/:id/watchlists", to: "pages#home"
+  get "users/:id/watchlists", to: "pages#home", as: "watchlists"
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
