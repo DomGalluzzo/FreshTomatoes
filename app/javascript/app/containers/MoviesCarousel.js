@@ -4,15 +4,6 @@ import { Link } from "react-router-dom";
 import _ from "lodash";
 
 import { Col, Row, Container, Carousel, Image } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faFacebookSquare,
-	faTwitter,
-	faInstagram,
-	faSnapchatGhost,
-	faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-// import {  } from "@fortawesome/free-solid-svg-icons";
 
 import { fetchMoviesList } from "../actions/index";
 import Title from "../components/Title";
@@ -69,7 +60,7 @@ const MoviesCarousel = () => {
 	};
 
 	return (
-		<Container className="movies-carousel-container px-0">
+		<>
 			<div className="carousel-title-div">
 				<span className="px-2">Trending on FT:</span>
 				<div className="carousel-title">
@@ -91,7 +82,7 @@ const MoviesCarousel = () => {
 						<Image
 							src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619033134/oscars_mrit9x.jpg"
 							className="home-image"
-							style={{ height: "259px", width: "285px" }}
+							style={{ height: "100%", width: "100%" }}
 						/>
 						<div className="image-overlay-text">
 							<p className="image-overlay-header px-3 py-2">
@@ -107,8 +98,8 @@ const MoviesCarousel = () => {
 							src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619033134/vote_mve6ah.jpg"
 							className="home-image"
 							style={{
-								height: "259px",
-								width: "286px",
+								height: "100%",
+								width: "100%",
 							}}
 						/>
 						<div className="image-overlay-text">
@@ -120,7 +111,7 @@ const MoviesCarousel = () => {
 					</Link>
 				</Col>
 			</Row>
-		</Container>
+		</>
 	);
 };
 
