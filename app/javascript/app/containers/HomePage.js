@@ -16,6 +16,8 @@ import {
 import { fetchMoviesList } from "../actions/index";
 import Title from "../components/Title";
 import PosterCarousel from "../components/PosterCarousel";
+import Movie from "../components/Movie";
+import RatingIcon from "../components/RatingIcon";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -69,14 +71,13 @@ const HomePage = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	const moviePosters = () => {
+	const popularMovies = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<Image
-						src={movie.poster}
-						style={{ height: "258px", width: "180px" }}
-					/>
+					<>
+						<Movie movie={movie} key={movie.id} />
+					</>
 				);
 			});
 		}
@@ -151,7 +152,7 @@ const HomePage = () => {
 						className="popular-movies-title pl-1 my-3"
 					/>
 
-					<PosterCarousel items={moviePosters()} />
+					<PosterCarousel items={popularMovies()} />
 				</Container>
 			</Container>
 		</>
