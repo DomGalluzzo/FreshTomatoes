@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+body {
+	background-color: #f3f3f3;
+}
+
+.main-container {
+	background-color: #ffffff;
+	box-shadow: 0 0 10px 10px rgba(25, 25, 25, 0.1);
+}
+
+.popular-movies-title {
+	border-left: 3px solid $main-red;
+	font-family: $main-font;
+	text-transform: uppercase;
+}

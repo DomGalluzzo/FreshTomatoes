@@ -15,7 +15,6 @@ const Title = ({ text, style, className, id }) => {
 
 Title.defaultProps = {
 	text: "Default Text",
-	// style: { fontFamily: "Noto Sans TC" },
 };
 
 Title.propTypes = {

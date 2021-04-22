@@ -7,19 +7,20 @@ import {
 	Col,
 	Row,
 	Container,
-	Carousel,
 	Image,
+	Carousel,
 	Card,
 	CardDeck,
 } from "react-bootstrap";
 
 import { fetchMoviesList } from "../actions/index";
 import Title from "../components/Title";
-import SlideButtons from "../components/SlideButtons";
+import PosterCarousel from "../components/PosterCarousel";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const moviesList = useSelector((state) => state.moviesList);
+
 	React.useEffect(() => {
 		fetchData();
 	}, []);
@@ -68,15 +69,14 @@ const HomePage = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	const posterScroll = () => {
+	const moviePosters = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<Card
-						className="scrolling-poster-card"
-						style={{ minWidth: "150px", minHeight: "150px" }}>
-						<Card.Img src={movie.poster} />
-					</Card>
+					<Image
+						src={movie.poster}
+						style={{ height: "258px", width: "180px" }}
+					/>
 				);
 			});
 		}
@@ -144,15 +144,14 @@ const HomePage = () => {
 					</Link>
 				</Col>
 			</Row>
-			<Container className="home-page-body-content" fluid>
-				<Container className="py-2">
-					<Title text="Popular & Trending Movies" />
-					<CardDeck
-						style={{ flexFlow: "row", overflowX: "scroll" }}
-						className="poster-card-deck">
-						{posterScroll()}
-					</CardDeck>
-					<SlideButtons />
+			<Container className="px-3 home-page-body-content" fluid>
+				<Container className="mt-3 p-0">
+					<Title
+						text="Popular & Trending Movies"
+						className="popular-movies-title pl-1 my-3"
+					/>
+
+					<PosterCarousel items={moviePosters()} />
 				</Container>
 			</Container>
 		</>
