@@ -13,7 +13,7 @@ const MovieActorsList = ({ actors }) => {
 		<Container className="p-0" fluid>
 			<Row className="movie-show-header">
 				<Title
-					text="CAST & CREW"
+					text="Cast & Crew"
 					className="movie-show-title"
 					id="movie-info-header"
 				/>
