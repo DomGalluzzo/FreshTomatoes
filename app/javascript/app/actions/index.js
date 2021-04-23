@@ -9,9 +9,9 @@ export const FETCH_MOVIES_LIST_LOADING = "FETCH_MOVIES_LIST_LOADING";
 export const FETCH_MOVIES_LIST_SUCCESS = "FECTH_MOVIES_LIST_SUCCESS";
 export const FETCH_MOVIES_LIST_FAILED = "FETCH_MOVIES_LIST_FAILED";
 
-export const FETCH_REVIEWS_LIST_LOADING = "FETCH_REVIEWS_LIST_LOADING";
-export const FETCH_REVIEWS_LIST_SUCCESS = "FETCH_REVIEWS_LIST_SUCCESS";
-export const FETCH_REVIEWS_LIST_FAILED = "FETCH_REVIEWS_LIST_FAILED";
+export const FETCH_MOVIE_REVIEWS_LOADING = "FETCH_MOVIE_REVIEWS_LOADING";
+export const FETCH_MOVIE_REVIEWS_SUCCESS = "FETCH_MOVIE_REVIEWS_SUCCESS";
+export const FETCH_MOVIE_REVIEWS_FAILED = "FETCH_MOVIE_REVIEWS_FAILED";
 
 export const FETCH_WATCHLISTS_LOADING = "FETCH_WATCHLISTS_LOADING";
 export const FETCH_WATCHLISTS_SUCCESS = "FETCH_WATCHLISTS_SUCCESS";
@@ -29,7 +29,7 @@ export const fetchMovieShow = (id) => async (dispatch) => {
 			type: FETCH_MOVIE_SHOW_SUCCESS,
 			payload: response.data,
 		});
-	} catch (e) {
+	} catch (error) {
 		dispatch({
 			type: FETCH_MOVIE_SHOW_FAILED,
 		});
@@ -54,21 +54,21 @@ export const fetchMoviesList = () => async (dispatch) => {
 	}
 };
 
-export const fetchReviewsList = (id) => async (dispatch) => {
+export const fetchMovieReviews = (id) => async (dispatch) => {
 	try {
 		dispatch({
-			type: FETCH_REVIEWS_LIST_LOADING,
+			type: FETCH_MOVIE_REVIEWS_LOADING,
 		});
 
 		const response = await Axios.get(`/api/v1/movies/${id}/reviews`);
 
 		dispatch({
-			type: FETCH_REVIEWS_LIST_SUCCESS,
+			type: FETCH_MOVIE_REVIEWS_SUCCESS,
 			payload: response.data,
 		});
 	} catch (error) {
 		dispatch({
-			type: FETCH_REVIEWS_LIST_FAILED,
+			type: FETCH_MOVIE_REVIEWS_FAILED,
 		});
 	}
 };

@@ -13,9 +13,13 @@ export function averageRating(reviews) {
 	let xReviews = reviews;
 	let total = 0;
 
-	xReviews.forEach((review) => {
-		total += review.rating;
-	});
+	if (xReviews === undefined) {
+		console.log("none");
+	} else {
+		xReviews.forEach((review) => {
+			total += review.rating;
+		});
+	}
 
 	total = Math.floor((total / 50) * 100);
 	return total;

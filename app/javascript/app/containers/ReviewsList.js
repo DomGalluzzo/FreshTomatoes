@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import _ from "lodash";
 import ReactStars from "react-rating-stars-component";
 
-import { fetchReviewsList } from "../actions";
+import { fetchMovieReviews } from "../actions";
 import {
 	Button,
 	Col,
@@ -20,7 +20,7 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 	const defaultAvatar =
 		"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016242/BlankAvatar.png";
 	const dispatch = useDispatch();
-	const reviewsList = useSelector((state) => state.reviewsList);
+	const movieReviews = useSelector((state) => state.movieReviews);
 
 	let { id } = useParams();
 
@@ -29,12 +29,12 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 	}, []);
 
 	const fetchData = () => {
-		dispatch(fetchReviewsList(id));
+		dispatch(fetchMovieReviews(id));
 	};
 
 	const showData = () => {
-		if (!_.isEmpty(reviewsList.reviews)) {
-			return reviewsList.reviews.map((review) => {
+		if (!_.isEmpty(movieReviews.reviews)) {
+			return movieReviews.reviews.map((review) => {
 				return (
 					<Card key={review.id} className="review-card">
 						<Card.Header>
@@ -59,19 +59,19 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 								style={{ height: "50px", width: "50px" }}
 							/>
 
-							<span className="ml-3">{review.user.username}</span>
+							<p className="ml-3">{review.user.username}</p>
 						</Card.Footer>
 					</Card>
 				);
 			});
 		}
 
-		if (reviewsList.loading) {
+		if (movieReviews.loading) {
 			return <p>loading...</p>;
 		}
 
-		if (reviewsList.errorMessage !== "") {
-			return <p>{reviewsList.errorMessage}</p>;
+		if (movieReviews.errorMessage !== "") {
+			return <p>{movieReviews.errorMessage}</p>;
 		}
 
 		return <p>Unable to fetch data</p>;
