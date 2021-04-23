@@ -59,7 +59,7 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 								style={{ height: "50px", width: "50px" }}
 							/>
 
-							<span className="ml-3">{review.user.username}</span>
+							<p className="ml-3">{review.user.username}</p>
 						</Card.Footer>
 					</Card>
 				);

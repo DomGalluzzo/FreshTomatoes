@@ -7,17 +7,19 @@ import RatingIcon from "./RatingIcon";
 const Movie = ({ movie }) => {
 	return (
 		<>
-			<Link to={`/movies/${movie.id}`} style={{ textDecoration: "none" }}>
+			<Link
+				to={`/movies/${movie.id}`}
+				style={{ textDecoration: "none", color: "black" }}>
 				<Image src={movie.poster} style={{ height: "258px", width: "180px" }} />
-				<div className="poster-footer">
+				<div className="poster-footer ml-1">
 					<Row className="m-0 mt-2">
 						<RatingIcon
 							movie={movie}
-							style={{ height: "24px", width: "24px", marginLeft: "0.25rem" }}
+							style={{ height: "24px", width: "24px" }}
 						/>
 					</Row>
 
-					{movie.title}
+					<p style={{ fontSize: "0.875rem" }}>{movie.title}</p>
 				</div>
 			</Link>
 		</>
