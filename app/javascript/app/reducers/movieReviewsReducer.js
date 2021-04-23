@@ -1,23 +1,23 @@
 import {
-	FETCH_REVIEWS_LIST_LOADING,
-	FETCH_REVIEWS_LIST_SUCCESS,
-	FETCH_REVIEWS_LIST_FAILED,
+	FETCH_MOVIE_REVIEWS_LOADING,
+	FETCH_MOVIE_REVIEWS_SUCCESS,
+	FETCH_MOVIE_REVIEWS_FAILED,
 } from "../actions";
 
 import initialState from "../components/initialState";
 
-const reviewsListReducer = (state = initialState, action) => {
+const movieReviewsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case FETCH_REVIEWS_LIST_LOADING:
+		case FETCH_MOVIE_REVIEWS_LOADING:
 			return { ...state, loading: true, errorMessage: "" };
-		case FETCH_REVIEWS_LIST_SUCCESS:
+		case FETCH_MOVIE_REVIEWS_SUCCESS:
 			return {
 				...state,
 				reviews: action.payload,
 				loading: false,
 				errorMessage: "",
 			};
-		case FETCH_REVIEWS_LIST_FAILED:
+		case FETCH_MOVIE_REVIEWS_FAILED:
 			return {
 				...state,
 				loading: false,
@@ -28,4 +28,4 @@ const reviewsListReducer = (state = initialState, action) => {
 	}
 };
 
-export default reviewsListReducer;
+export default movieReviewsReducer;

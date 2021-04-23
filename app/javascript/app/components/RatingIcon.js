@@ -37,7 +37,7 @@ const RatingIcon = ({ movie, style }) => {
 	return (
 		<>
 			<Image src={icon} style={style} />
-			<div className="ml-3">
+			<div className="ml-1">
 				<h4 className="rating-percentage p-0 mt-1">{rating}%</h4>
 			</div>
 		</>

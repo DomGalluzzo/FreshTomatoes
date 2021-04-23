@@ -25,7 +25,11 @@ const posterCarousel = ({ items }) => {
 			slidesToSlide: 2.5,
 		},
 	};
-	return <Carousel responsive={responsive}>{items}</Carousel>;
+	return (
+		<Carousel responsive={responsive} showDots={false}>
+			{items}
+		</Carousel>
+	);
 };
 
 export default posterCarousel;
