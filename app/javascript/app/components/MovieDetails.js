@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Jumbotron, Container, Col, Row } from "react-bootstrap";
+import { Jumbotron, Container, Col, Row, Image } from "react-bootstrap";
 
-import MoviePoster from "./MoviePoster";
 import RatingIcon from "./RatingIcon";
 import { runtimeConversion } from "../../../helpers/helpers";
 
@@ -17,7 +16,7 @@ const MovieDetails = ({ movie }) => {
 			fluid>
 			<Row>
 				<Col sm={4} lg={3} className="p-0">
-					<MoviePoster movie={movie} className="movie-poster" />
+					<Image src={movie.poster} className="movie-poster" />
 				</Col>
 				<Col sm={8} lg={9} className="movie-info-column">
 					<h1 className="mt-4" style={{ fontSize: "25px", fontWeight: "bold" }}>

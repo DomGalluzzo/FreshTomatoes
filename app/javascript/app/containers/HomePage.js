@@ -9,6 +9,7 @@ import { fetchMoviesList } from "../actions/index";
 import Title from "../components/Title";
 import PosterCarousel from "../components/PosterCarousel";
 import Movie from "../components/Movie";
+import GenresList from "./GenresList";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -68,9 +69,9 @@ const HomePage = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<>
-						<Movie movie={movie} key={movie.id} />
-					</>
+					<li className="top-genre-movies-item">
+						<Movie movie={movie} key={movie.id} image={movie.image} />
+					</li>
 				);
 			});
 		}
@@ -86,9 +87,16 @@ const HomePage = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	// * Returns movies in genre "action" with rating above
-
-	// * Returns movies in genre "comedy"
+	// * Returns movies in specified genre
+	const moviesInGenre = (selectedGenre) => {
+		if (!_.isEmpty(moviesList.movies)) {
+			return moviesList.movies.map((movie) => {
+				if (!_.isUndefined(movie.genre) && movie.genre.name === selectedGenre) {
+					return <Movie movie={movie} key={movie.id} />;
+				}
+			});
+		}
+	};
 
 	return (
 		<>
@@ -153,11 +161,22 @@ const HomePage = () => {
 				</Container>
 
 				<Container className="mt-3 p-0 top-movies-container">
-					<Title
-						text="Top Action Movies"
-						className="popular-movies-title pl-1 my-3"
-					/>
-					<Col sm={2} md={4}></Col>
+					<Row className="m-0 p-0" fluid>
+						<Col className="p-0" sm={6} md={4}>
+							<Title
+								text="Top Action Movies"
+								className="popular-movies-title pl-1 my-3"
+							/>
+							{moviesInGenre("Action")}
+						</Col>
+						<Col className="p-0 drama-movies-column" sm={6} md={4}>
+							<Title
+								text="Top Drama Movies"
+								className="popular-movies-title pl-1 my-3"
+							/>
+							{moviesInGenre("Drama")}
+						</Col>
+					</Row>
 				</Container>
 			</Container>
 		</>
