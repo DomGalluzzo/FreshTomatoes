@@ -18,7 +18,6 @@ import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
-import MoviesList from "./MoviesList";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -44,9 +43,7 @@ const MovieShow = () => {
 						<Title text={movie.title} className="movie-show-title ml-4" />
 					</Row>
 					<Row className="mt-3">
-						<Col sm={0} md={4}>
-							<MoviesList />
-						</Col>
+						<Col sm={0} md={4}></Col>
 
 						<Col sm={12} md={8} className="pl-4">
 							<div className="movie-image">

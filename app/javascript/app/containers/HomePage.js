@@ -165,7 +165,7 @@ const HomePage = () => {
 				</Container>
 
 				<Container className="mt-3 p-0 top-movies-container">
-					<Row className="m-0 p-0" fluid>
+					<Row className="m-0 p-0">
 						<Col className="p-0" sm={6} md={4}>
 							<Title
 								text="Top Action Movies"

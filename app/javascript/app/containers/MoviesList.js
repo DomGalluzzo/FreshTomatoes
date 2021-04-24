@@ -5,9 +5,9 @@ import _ from "lodash";
 
 import { fetchMoviesList } from "../actions";
 import Title from "../components/Title";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, ListGroup } from "react-bootstrap";
 
-const MoviesList = () => {
+const MoviesList = ({ onclick }) => {
 	const dispatch = useDispatch();
 	const moviesList = useSelector((state) => state.moviesList);
 
@@ -21,22 +21,16 @@ const MoviesList = () => {
 
 	const showData = () => {
 		if (!_.isEmpty(moviesList.movies)) {
-			return moviesList.movies.map((movie) => {
+			const sortedMovies = moviesList.movies.sort((a, b) =>
+				a.title > b.title ? 1 : -1
+			);
+			return sortedMovies.map((movie) => {
 				return (
 					<Link
 						to={`/movies/${movie.id}`}
 						key={movie.id}
 						className="other-movies-link">
-						<Row className="pt-2 movie-list-item" id="movies-list-row">
-							<Col sm={1}>
-								<Image
-									src="https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016243/VideoPlayerIcon_rdnefv.png"
-									style={{ height: "16px", width: "16px" }}
-									className="mb-1"
-								/>
-							</Col>
-							<Col sm={11}>{movie.title}</Col>
-						</Row>
+						<ListGroup.Item action>{movie.title}</ListGroup.Item>
 					</Link>
 				);
 			});
@@ -53,14 +47,7 @@ const MoviesList = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	return (
-		<div className="movies-list-container">
-			<Row className="other-movies-header">
-				<Title text="Other Movies" className="other-movies-title ml-4" />
-			</Row>
-			<div className="movies-list-group">{showData()}</div>
-		</div>
-	);
+	return <ListGroup>{showData()}</ListGroup>;
 };
 
 export default MoviesList;
