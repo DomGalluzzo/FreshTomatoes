@@ -69,9 +69,9 @@ const HomePage = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
-					<li className="top-genre-movies-item">
+					<>
 						<Movie movie={movie} key={movie.id} image={movie.image} />
-					</li>
+					</>
 				);
 			});
 		}
@@ -92,7 +92,11 @@ const HomePage = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				if (!_.isUndefined(movie.genre) && movie.genre.name === selectedGenre) {
-					return <Movie movie={movie} key={movie.id} />;
+					return (
+						<li className="top-genre-movies-item">
+							<Movie movie={movie} key={movie.id} />
+						</li>
+					);
 				}
 			});
 		}
@@ -169,7 +173,7 @@ const HomePage = () => {
 							/>
 							{moviesInGenre("Action")}
 						</Col>
-						<Col className="p-0 drama-movies-column" sm={6} md={4}>
+						<Col className="second-top-movies-column" sm={6} md={4}>
 							<Title
 								text="Top Drama Movies"
 								className="popular-movies-title pl-1 my-3"
