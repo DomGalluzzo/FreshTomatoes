@@ -21,6 +21,10 @@ export const FETCH_GENRES_LOADING = "FETCH_GENRES_LOADING";
 export const FETCH_GENRES_SUCCESS = "FETCH_GENRES_SUCCESS";
 export const FETCH_GENRES_FAILED = "FETCH_GENRES_FAILED";
 
+export const CREATE_FAVORITE_LOADING = "CREATE_FAVORITE_LOADING";
+export const CREATE_FAVORITE_SUCCESS = "CREATE_FAVORITE_SUCCESS";
+export const CREATE_FAVORITE_FAILED = "CREATE_FAVORITE_FAILED";
+
 export const fetchMovieShow = (id) => async (dispatch) => {
 	try {
 		dispatch({
@@ -111,6 +115,34 @@ export const fetchGenres = () => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: FETCH_GENRES_FAILED,
+		});
+	}
+};
+
+export const createFavorite = (user_id, watchlist_id, movie_id) => async (
+	dispatch
+) => {
+	try {
+		dispatch({
+			type: CREATE_FAVORITE_LOADING,
+		});
+
+		const body = { watchlist_id, movie_id };
+		const response = await Axios.post(`/api/v1/users/${user_id}/watchlists`, {
+			method: "POST",
+			headers: { "Content-type": "application/json" },
+			body: JSON.stringify(body),
+		});
+
+		const data = await response.json();
+
+		dispatch({
+			type: CREATE_FAVORITE_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: CREATE_FAVORITE_FAILED,
 		});
 	}
 };
