@@ -3,21 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
-import {
-	Col,
-	Row,
-	Container,
-	Image,
-	Carousel,
-	Card,
-	CardDeck,
-} from "react-bootstrap";
+import { Col, Row, Container, Image, Carousel } from "react-bootstrap";
 
 import { fetchMoviesList } from "../actions/index";
 import Title from "../components/Title";
 import PosterCarousel from "../components/PosterCarousel";
 import Movie from "../components/Movie";
-import RatingIcon from "../components/RatingIcon";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -31,6 +22,7 @@ const HomePage = () => {
 		dispatch(fetchMoviesList());
 	};
 
+	// * Returns movies that have a release year before 2000
 	const classicMovies = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
@@ -71,6 +63,7 @@ const HomePage = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
+	// * Returns all movies
 	const popularMovies = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
@@ -92,6 +85,10 @@ const HomePage = () => {
 
 		return <p>Unable to fetch data</p>;
 	};
+
+	// * Returns movies in genre "action" with rating above
+
+	// * Returns movies in genre "comedy"
 
 	return (
 		<>
@@ -146,13 +143,21 @@ const HomePage = () => {
 				</Col>
 			</Row>
 			<Container className="px-3 home-page-body-content" fluid>
-				<Container className="mt-3 p-0">
+				<Container className="mt-3 p-0 popular-trending-movies-container">
 					<Title
 						text="Popular & Trending Movies"
 						className="popular-movies-title pl-1 my-3"
 					/>
 
 					<PosterCarousel items={popularMovies()} />
+				</Container>
+
+				<Container className="mt-3 p-0 top-movies-container">
+					<Title
+						text="Top Action Movies"
+						className="popular-movies-title pl-1 my-3"
+					/>
+					<Col sm={2} md={4}></Col>
 				</Container>
 			</Container>
 		</>
