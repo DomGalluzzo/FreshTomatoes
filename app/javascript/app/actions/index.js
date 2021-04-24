@@ -17,6 +17,10 @@ export const FETCH_WATCHLISTS_LOADING = "FETCH_WATCHLISTS_LOADING";
 export const FETCH_WATCHLISTS_SUCCESS = "FETCH_WATCHLISTS_SUCCESS";
 export const FETCH_WATCHLISTS_FAILED = "FETCH_WATCHLISTS_FAILED";
 
+export const FETCH_GENRES_LOADING = "FETCH_GENRES_LOADING";
+export const FETCH_GENRES_SUCCESS = "FETCH_GENRES_SUCCESS";
+export const FETCH_GENRES_FAILED = "FETCH_GENRES_FAILED";
+
 export const fetchMovieShow = (id) => async (dispatch) => {
 	try {
 		dispatch({
@@ -88,6 +92,25 @@ export const fetchWatchlists = (id) => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: FETCH_WATCHLISTS_FAILED,
+		});
+	}
+};
+
+export const fetchGenres = () => async (dispatch) => {
+	try {
+		dispatch({
+			type: FETCH_GENRES_LOADING,
+		});
+
+		const response = await Axios.get("/api/v1/genres");
+
+		dispatch({
+			type: FETCH_GENRES_SUCCESS,
+			payload: response.data,
+		});
+	} catch (error) {
+		dispatch({
+			type: FETCH_GENRES_FAILED,
 		});
 	}
 };

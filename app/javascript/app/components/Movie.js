@@ -4,13 +4,19 @@ import { Image, Row } from "react-bootstrap";
 
 import RatingIcon from "./RatingIcon";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, image }) => {
 	return (
 		<>
 			<Link
 				to={`/movies/${movie.id}`}
 				style={{ textDecoration: "none", color: "black" }}>
-				<Image src={movie.poster} style={{ height: "258px", width: "180px" }} />
+				{image && (
+					<Image
+						src={movie.poster}
+						style={{ height: "258px", width: "180px" }}
+					/>
+				)}
+
 				<div className="poster-footer ml-1">
 					<Row className="m-0 mt-2">
 						<RatingIcon

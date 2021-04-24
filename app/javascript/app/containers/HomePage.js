@@ -3,21 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
-import {
-	Col,
-	Row,
-	Container,
-	Image,
-	Carousel,
-	Card,
-	CardDeck,
-} from "react-bootstrap";
+import { Col, Row, Container, Image, Carousel } from "react-bootstrap";
 
 import { fetchMoviesList } from "../actions/index";
 import Title from "../components/Title";
 import PosterCarousel from "../components/PosterCarousel";
 import Movie from "../components/Movie";
-import RatingIcon from "../components/RatingIcon";
+import GenresList from "./GenresList";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -31,6 +23,7 @@ const HomePage = () => {
 		dispatch(fetchMoviesList());
 	};
 
+	// * Returns movies that have a release year before 2000
 	const classicMovies = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
@@ -71,12 +64,13 @@ const HomePage = () => {
 		return <p>Unable to fetch data</p>;
 	};
 
+	// * Returns all movies
 	const popularMovies = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			return moviesList.movies.map((movie) => {
 				return (
 					<>
-						<Movie movie={movie} key={movie.id} />
+						<Movie movie={movie} key={movie.id} image={movie.image} />
 					</>
 				);
 			});
@@ -91,6 +85,21 @@ const HomePage = () => {
 		}
 
 		return <p>Unable to fetch data</p>;
+	};
+
+	// * Returns movies in specified genre
+	const moviesInGenre = (selectedGenre) => {
+		if (!_.isEmpty(moviesList.movies)) {
+			return moviesList.movies.map((movie) => {
+				if (!_.isUndefined(movie.genre) && movie.genre.name === selectedGenre) {
+					return (
+						<li className="top-genre-movies-item">
+							<Movie movie={movie} key={movie.id} />
+						</li>
+					);
+				}
+			});
+		}
 	};
 
 	return (
@@ -146,13 +155,32 @@ const HomePage = () => {
 				</Col>
 			</Row>
 			<Container className="px-3 home-page-body-content" fluid>
-				<Container className="mt-3 p-0">
+				<Container className="mt-3 p-0 popular-trending-movies-container">
 					<Title
 						text="Popular & Trending Movies"
 						className="popular-movies-title pl-1 my-3"
 					/>
 
 					<PosterCarousel items={popularMovies()} />
+				</Container>
+
+				<Container className="mt-3 p-0 top-movies-container">
+					<Row className="m-0 p-0" fluid>
+						<Col className="p-0" sm={6} md={4}>
+							<Title
+								text="Top Action Movies"
+								className="popular-movies-title pl-1 my-3"
+							/>
+							{moviesInGenre("Action")}
+						</Col>
+						<Col className="second-top-movies-column" sm={6} md={4}>
+							<Title
+								text="Top Drama Movies"
+								className="popular-movies-title pl-1 my-3"
+							/>
+							{moviesInGenre("Drama")}
+						</Col>
+					</Row>
 				</Container>
 			</Container>
 		</>

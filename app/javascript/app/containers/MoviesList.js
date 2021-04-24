@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import _ from "lodash";
 
 import { fetchMoviesList } from "../actions";
@@ -24,7 +24,7 @@ const MoviesList = () => {
 			return moviesList.movies.map((movie) => {
 				return (
 					<Link
-						to={`/movies/${movie.title}`}
+						to={`/movies/${movie.id}`}
 						key={movie.id}
 						className="other-movies-link">
 						<Row className="pt-2 movie-list-item" id="movies-list-row">

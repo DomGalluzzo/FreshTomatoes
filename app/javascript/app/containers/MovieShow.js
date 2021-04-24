@@ -15,7 +15,6 @@ import {
 import { fetchMovieShow } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
-import MoviePoster from "../components/MoviePoster";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
