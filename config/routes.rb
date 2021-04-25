@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :genres, only: [ :index, :show ]
       resources :movies, only: [ :index, :show ]
       resources :reviews, only: [ :update, :destroy ]
-      resources :watchlists, only: :show
+      resources :watchlists, only: [:index, :show]
       
       resources :users, only: [ :show, :create, :destroy ] do 
         resources :favorites, only: [ :new, :create, :destroy ]

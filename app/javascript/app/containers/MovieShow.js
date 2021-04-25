@@ -23,6 +23,7 @@ import AddFavorite from "./AddFavorite";
 const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movieState = useSelector((state) => state.movieShow);
+	const addToWatchlist = useSelector;
 
 	let { id } = useParams();
 
@@ -40,9 +41,6 @@ const MovieShow = () => {
 
 			return (
 				<Container className="movie-show-container">
-					<Row className="movie-show-header">
-						<Title text={movie.title} className="movie-show-title ml-4" />
-					</Row>
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
 							<AddFavorite />

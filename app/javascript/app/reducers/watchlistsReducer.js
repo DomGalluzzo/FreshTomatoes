@@ -2,6 +2,7 @@ import {
 	FETCH_WATCHLISTS_LOADING,
 	FETCH_WATCHLISTS_SUCCESS,
 	FETCH_WATCHLISTS_FAILED,
+	ADD_TO_WATCHLIST,
 } from "../actions";
 import initialState from "../components/initialState";
 
@@ -21,6 +22,11 @@ const watchlistsReducer = (state = initialState, action) => {
 				...state,
 				loading: false,
 				errorMessage: "Unable to fetch watchlists",
+			};
+		case ADD_TO_WATCHLIST:
+			return {
+				...state,
+				watchlist: [action.payload, ...state.watchlist],
 			};
 		default:
 			return state;

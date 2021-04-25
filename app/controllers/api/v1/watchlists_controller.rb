@@ -2,8 +2,7 @@ module Api
   module V1
     class WatchlistsController < ApplicationController
       def index
-        @watchlists = Watchlist.where(user_id: params[:user_id]).includes(:user)
-        @user = current_user
+        @watchlists = Watchlist.all
         render json: @watchlists, include: %i[user movies]
       end
 
