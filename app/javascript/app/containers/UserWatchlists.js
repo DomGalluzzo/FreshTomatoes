@@ -38,7 +38,7 @@ const UserWatchlists = () => {
 		<Container fluid>
 			<Title
 				text={watchlists.name}
-				className="popular-movies-title pl-1 my-3"
+				className="popular-movies-title pl-2 my-3"
 			/>
 
 			{showData()}
