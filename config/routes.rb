@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "reviews/new", to: "pages#home"
   get "users/:id/watchlists", to: "pages#home", as: "watchlists"
 
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :actors, only: [ :index, :show ]
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
       
       resources :users, only: [ :show, :create, :destroy ] do 
         resources :favorites, only: [ :new, :create, :destroy ]
-        resources :watchlists, only: :index 
+        resources :watchlists, only: :show 
         # resources :favorites, only: :index
       end
       resources :movies, only: [ :index, :show ] do 

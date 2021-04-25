@@ -70,7 +70,12 @@ const HomePage = () => {
 			return moviesList.movies.map((movie) => {
 				return (
 					<>
-						<Movie movie={movie} key={movie.id} image={movie.image} />
+						<Movie
+							movie={movie}
+							key={movie.id}
+							image={movie.image}
+							rating={movie.reviews}
+						/>
 					</>
 				);
 			});
@@ -94,7 +99,7 @@ const HomePage = () => {
 				if (!_.isUndefined(movie.genre) && movie.genre.name === selectedGenre) {
 					return (
 						<li className="top-genre-movies-item">
-							<Movie movie={movie} key={movie.id} />
+							<Movie movie={movie} key={movie.id} rating={movie.reviews} />
 						</li>
 					);
 				}

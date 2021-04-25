@@ -6,6 +6,8 @@ import _ from "lodash";
 import { fetchMoviesList } from "../actions";
 import Title from "../components/Title";
 import { Row, Col, Image, ListGroup } from "react-bootstrap";
+import Movie from "../components/Movie";
+import AddFavorite from "./AddFavorite";
 
 const MoviesList = ({ onclick }) => {
 	const dispatch = useDispatch();
@@ -24,15 +26,9 @@ const MoviesList = ({ onclick }) => {
 			const sortedMovies = moviesList.movies.sort((a, b) =>
 				a.title > b.title ? 1 : -1
 			);
+
 			return sortedMovies.map((movie) => {
-				return (
-					<Link
-						to={`/movies/${movie.id}`}
-						key={movie.id}
-						className="other-movies-link">
-						<ListGroup.Item action>{movie.title}</ListGroup.Item>
-					</Link>
-				);
+				return <Movie movie={movie} />;
 			});
 		}
 
@@ -47,7 +43,11 @@ const MoviesList = ({ onclick }) => {
 		return <p>Unable to fetch data</p>;
 	};
 
-	return <ListGroup>{showData()}</ListGroup>;
+	return (
+		<ListGroup>
+			<ListGroup.Item>{showData()}</ListGroup.Item>
+		</ListGroup>
+	);
 };
 
 export default MoviesList;

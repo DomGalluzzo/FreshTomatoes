@@ -12,12 +12,13 @@ import {
 	ListGroup,
 } from "react-bootstrap";
 
-import { fetchMovieShow } from "../actions";
+import { fetchMovieShow, createFavorite } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
+import AddFavorite from "./AddFavorite";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const MovieShow = () => {
 
 	let { id } = useParams();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		fetchData();
 	}, []);
 
@@ -43,7 +44,9 @@ const MovieShow = () => {
 						<Title text={movie.title} className="movie-show-title ml-4" />
 					</Row>
 					<Row className="mt-3">
-						<Col sm={0} md={4}></Col>
+						<Col sm={0} md={4}>
+							<AddFavorite />
+						</Col>
 
 						<Col sm={12} md={8} className="pl-4">
 							<div className="movie-image">

@@ -19,7 +19,15 @@ const initialState = {
 		},
 	],
 	genres: [],
-	watchlists: [],
+	watchlists: [
+		{
+			favorites: [
+				{
+					favorite: {},
+				},
+			],
+		},
+	],
 	errorMessage: "",
 };
 

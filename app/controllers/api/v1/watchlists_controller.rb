@@ -4,13 +4,14 @@ module Api
       def index
         @watchlists = Watchlist.where(user_id: params[:user_id]).includes(:user)
         @user = current_user
-        render json: @watchlists, include: %i[movies]
+        render json: @watchlists, include: :movies
       end
 
       def show
         @watchlist = Watchlist.includes(:movies).find(params[:id])
         @user = current_user
-        render json: @show
+        @favorites = @watchlist.favorites
+        render json: @watchlist, include: :movies
       end
     end
   end

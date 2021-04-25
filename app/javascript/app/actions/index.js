@@ -87,7 +87,10 @@ export const fetchWatchlists = (id) => async (dispatch) => {
 			type: FETCH_WATCHLISTS_LOADING,
 		});
 
-		const response = await Axios.get(`/api/v1/users/${id}/watchlists`);
+		const watchlist_id = id - 1;
+		const response = await Axios.get(
+			`/api/v1/users/${id}/watchlists/${watchlist_id}`
+		);
 
 		dispatch({
 			type: FETCH_WATCHLISTS_SUCCESS,
@@ -119,26 +122,21 @@ export const fetchGenres = () => async (dispatch) => {
 	}
 };
 
-export const createFavorite = (user_id, watchlist_id, movie_id) => async (
-	dispatch
-) => {
+export const createFavorite = (user_id, movie_id) => async (dispatch) => {
 	try {
 		dispatch({
 			type: CREATE_FAVORITE_LOADING,
 		});
 
-		const body = { watchlist_id, movie_id };
 		const response = await Axios.post(`/api/v1/users/${user_id}/watchlists`, {
 			method: "POST",
 			headers: { "Content-type": "application/json" },
-			body: JSON.stringify(body),
+			body: JSON.stringify(movie_id),
 		});
-
-		const data = await response.json();
 
 		dispatch({
 			type: CREATE_FAVORITE_SUCCESS,
-			payload: data,
+			payload: response.data,
 		});
 	} catch (error) {
 		dispatch({
