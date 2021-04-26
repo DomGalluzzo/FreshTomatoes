@@ -1,8 +1,6 @@
 class Favorite < ApplicationRecord
   belongs_to :movie
-  belongs_to :watchlist
+  belongs_to :user
 
-  has_one :user, through: :watchlist
 
-  validates :movie_id, uniqueness: { scope: :watchlist_id }
 end

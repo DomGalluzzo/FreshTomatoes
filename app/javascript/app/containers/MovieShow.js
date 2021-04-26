@@ -12,18 +12,16 @@ import {
 	ListGroup,
 } from "react-bootstrap";
 
-import { fetchMovieShow, createFavorite } from "../actions";
+import { fetchMovieShow } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
-import AddFavorite from "./AddFavorite";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movieState = useSelector((state) => state.movieShow);
-	const addToWatchlist = useSelector;
 
 	let { id } = useParams();
 
@@ -43,7 +41,7 @@ const MovieShow = () => {
 				<Container className="movie-show-container">
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
-							<AddFavorite />
+							<button className="btn btn-primary">Add</button>
 						</Col>
 
 						<Col sm={12} md={8} className="pl-4">

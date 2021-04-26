@@ -1,6 +1,5 @@
 require "faker"
 
-Watchlist.destroy_all
 User.destroy_all
 Credit.destroy_all
 Actor.destroy_all
@@ -581,61 +580,43 @@ Review.create!(comment: Faker::Lorem.paragraph(sentence_count: 5), rating: Faker
 Review.create!(comment: Faker::Lorem.paragraph(sentence_count: 5), rating: Faker::Number.within(range: 1..5), user: seed13, movie: inception)
 
 
-
-
-# ! Watchlists
-# Seed 1
-seed1_watchlist = Watchlist.create!(name: "My Watchlist", user: seed1)
-
-# Seed 2
-seed2_watchlist = Watchlist.create!(name: "My Favorites", user: seed2)
-
-# Seed 3
-seed3_watchlist = Watchlist.create!(name: "Watchlist", user: seed3)
-
-# Seed 4
-seed4_watchlist = Watchlist.create!(name: "Stuff to watch", user: seed4)
-
-# Seed 5
-seed5_watchlist = Watchlist.create!(name: "Favorites", user: seed5)
-
 # ! Favorites
 # Seed 1
-Favorite.create!(movie: space_odyssey, watchlist: seed1_watchlist)
-Favorite.create!(movie: godfather1, watchlist: seed1_watchlist)
-Favorite.create!(movie: citizen_kane, watchlist: seed1_watchlist)
-Favorite.create!(movie: raiders_lost_ark, watchlist: seed1_watchlist)
-Favorite.create!(movie: airplane, watchlist: seed1_watchlist)
-Favorite.create!(movie: alien, watchlist: seed1_watchlist)
+Favorite.create!(movie: space_odyssey, user: seed1)
+Favorite.create!(movie: godfather1, user: seed1)
+Favorite.create!(movie: citizen_kane, user: seed1)
+Favorite.create!(movie: raiders_lost_ark, user: seed1)
+Favorite.create!(movie: airplane, user: seed1)
+Favorite.create!(movie: alien, user: seed1)
 
 # Seed 2
-Favorite.create!(movie: space_odyssey, watchlist: seed2_watchlist)
-Favorite.create!(movie: godfather1, watchlist: seed2_watchlist)
-Favorite.create!(movie: citizen_kane, watchlist: seed2_watchlist)
-Favorite.create!(movie: raiders_lost_ark, watchlist: seed2_watchlist)
-Favorite.create!(movie: airplane, watchlist: seed2_watchlist)
-Favorite.create!(movie: alien, watchlist: seed2_watchlist)
+Favorite.create!(movie: space_odyssey, user: seed2)
+Favorite.create!(movie: godfather1, user: seed2)
+Favorite.create!(movie: citizen_kane, user: seed2)
+Favorite.create!(movie: raiders_lost_ark, user: seed2)
+Favorite.create!(movie: airplane, user: seed2)
+Favorite.create!(movie: alien, user: seed2)
 
 # Seed 3
-Favorite.create!(movie: space_odyssey, watchlist: seed3_watchlist)
-Favorite.create!(movie: godfather1, watchlist: seed3_watchlist)
-Favorite.create!(movie: citizen_kane, watchlist: seed3_watchlist)
-Favorite.create!(movie: raiders_lost_ark, watchlist: seed3_watchlist)
-Favorite.create!(movie: airplane, watchlist: seed3_watchlist)
-Favorite.create!(movie: alien, watchlist: seed3_watchlist)
+Favorite.create!(movie: space_odyssey, user: seed3)
+Favorite.create!(movie: godfather1, user: seed3)
+Favorite.create!(movie: citizen_kane, user: seed3)
+Favorite.create!(movie: raiders_lost_ark, user: seed3)
+Favorite.create!(movie: airplane, user: seed3)
+Favorite.create!(movie: alien, user: seed3)
 
 # Seed 4
-Favorite.create!(movie: space_odyssey, watchlist: seed4_watchlist)
-Favorite.create!(movie: godfather1, watchlist: seed4_watchlist)
-Favorite.create!(movie: citizen_kane, watchlist: seed4_watchlist)
-Favorite.create!(movie: raiders_lost_ark, watchlist: seed4_watchlist)
-Favorite.create!(movie: airplane, watchlist: seed4_watchlist)
-Favorite.create!(movie: alien, watchlist: seed4_watchlist)
+Favorite.create!(movie: space_odyssey, user: seed4)
+Favorite.create!(movie: godfather1, user: seed4)
+Favorite.create!(movie: citizen_kane, user: seed4)
+Favorite.create!(movie: raiders_lost_ark, user: seed4)
+Favorite.create!(movie: airplane, user: seed4)
+Favorite.create!(movie: alien, user: seed4)
 
 # Seed 5
-Favorite.create!(movie: space_odyssey, watchlist: seed5_watchlist)
-Favorite.create!(movie: godfather1, watchlist: seed5_watchlist)
-Favorite.create!(movie: citizen_kane, watchlist: seed5_watchlist)
-Favorite.create!(movie: raiders_lost_ark, watchlist: seed5_watchlist)
-Favorite.create!(movie: airplane, watchlist: seed5_watchlist)
-Favorite.create!(movie: alien, watchlist: seed5_watchlist)
+Favorite.create!(movie: space_odyssey, user: seed5)
+Favorite.create!(movie: godfather1, user: seed5)
+Favorite.create!(movie: citizen_kane, user: seed5)
+Favorite.create!(movie: raiders_lost_ark, user: seed5)
+Favorite.create!(movie: airplane, user: seed5)
+Favorite.create!(movie: alien, user: seed5)

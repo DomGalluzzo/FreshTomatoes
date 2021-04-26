@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "../containers/HomePage";
 import MovieShow from "../containers/MovieShow";
 import MoviesList from "../containers/MoviesList";
-import UserWatchlists from "../containers/UserWatchlists";
+import UserWatchlist from "../containers/UserFavorites";
 
 const App = () => {
 	return (
@@ -12,7 +12,7 @@ const App = () => {
 			<Switch>
 				<Route exact path="/" exact component={HomePage} />
 				<Route path="/movies/:id" exact component={MovieShow} />
-				<Route exact path="/users/:id/watchlists" component={UserWatchlists} />
+				<Route exact path="/users/:id/favorites" component={UserWatchlist} />
 				<Route path="/movies" component={MoviesList} />
 			</Switch>
 		</Router>

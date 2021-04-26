@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "movies/:id", to: "pages#home"
   get "directors/:id", to: "pages#home"
   get "reviews/new", to: "pages#home"
-  get "users/:id/watchlists", to: "pages#home", as: "watchlists"
+  get "users/:id/favorites", to: "pages#home", as: "favorites"
 
 
   namespace :api, defaults: { format: :json } do
@@ -21,20 +21,16 @@ Rails.application.routes.draw do
       resources :genres, only: [ :index, :show ]
       resources :movies, only: [ :index, :show ]
       resources :reviews, only: [ :update, :destroy ]
-      resources :watchlists, only: [:index, :show]
       
       resources :users, only: [ :show, :create, :destroy ] do 
-        resources :favorites, only: [ :new, :create, :destroy ]
-        resources :watchlists, only: :show 
-        # resources :favorites, only: :index
+        resources :favorites
       end
+
+
       resources :movies, only: [ :index, :show ] do 
         resources :reviews, only: [ :index, :show, :new, :create ]
-        # resources :actors, only: :index
       end
-      # resources :actors, only: :show do
-      #   resources :movies, only: :index
-      # end
+     
     end
   end
 end
