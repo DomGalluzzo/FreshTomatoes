@@ -19,7 +19,7 @@ module Api
           render json: @favorite
         else
           flash[:error] = "Something went wrong"
-          redirect_to root_path
+          
         end
       end
 
@@ -36,7 +36,7 @@ module Api
       private
 
       def favorite_params
-        params.permit(:id, :user_id, :movie, :favorite)
+        params.permit(:movie)
       end
     end
   end
