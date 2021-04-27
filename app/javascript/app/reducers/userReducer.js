@@ -4,7 +4,7 @@ import {
 	FETCH_USER_FAILED,
 } from "../actions";
 
-const userReducer = (state = {}, action) => {
+const userReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_USER_LOADING:
 			return { ...state, loading: true, errorMessage: "" };

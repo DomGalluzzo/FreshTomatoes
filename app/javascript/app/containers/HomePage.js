@@ -14,8 +14,7 @@ import GenresList from "./GenresList";
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const moviesList = useSelector((state) => state.moviesList);
-	const currentUser = useSelector((state) => state.currentUser.user);
-	console.log(currentUser);
+	const currentUser = useSelector((state) => state.user);
 
 	useEffect(() => {
 		fetchData();
