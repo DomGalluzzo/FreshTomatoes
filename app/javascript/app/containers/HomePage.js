@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
 import { Col, Row, Container, Image, Carousel } from "react-bootstrap";
 
-import { fetchMoviesList } from "../actions/index";
+import { fetchMoviesList, fetchUser } from "../actions/index";
 import Title from "../components/Title";
 import PosterCarousel from "../components/PosterCarousel";
 import Movie from "../components/Movie";
@@ -14,13 +14,16 @@ import GenresList from "./GenresList";
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const moviesList = useSelector((state) => state.moviesList);
+	const currentUser = useSelector((state) => state.currentUser.user);
+	console.log(currentUser);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		fetchData();
 	}, []);
 
 	const fetchData = () => {
 		dispatch(fetchMoviesList());
+		dispatch(fetchUser());
 	};
 
 	// * Returns movies that have a release year before 2000
@@ -70,7 +73,12 @@ const HomePage = () => {
 			return moviesList.movies.map((movie) => {
 				return (
 					<>
-						<Movie movie={movie} key={movie.id} image={movie.image} />
+						<Movie
+							movie={movie}
+							key={movie.id}
+							image={movie.image}
+							rating={movie.reviews}
+						/>
 					</>
 				);
 			});
@@ -94,7 +102,7 @@ const HomePage = () => {
 				if (!_.isUndefined(movie.genre) && movie.genre.name === selectedGenre) {
 					return (
 						<li className="top-genre-movies-item">
-							<Movie movie={movie} key={movie.id} />
+							<Movie movie={movie} key={movie.id} rating={movie.reviews} />
 						</li>
 					);
 				}
@@ -165,7 +173,7 @@ const HomePage = () => {
 				</Container>
 
 				<Container className="mt-3 p-0 top-movies-container">
-					<Row className="m-0 p-0" fluid>
+					<Row className="m-0 p-0">
 						<Col className="p-0" sm={6} md={4}>
 							<Title
 								text="Top Action Movies"

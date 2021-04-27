@@ -6,7 +6,7 @@ import {
 
 import initialState from "../components/initialState";
 
-const moviesListReducer = (state = initialState, action) => {
+const moviesListReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_MOVIES_LIST_LOADING:
 			return { ...state, loading: true, errorMessage: "" };

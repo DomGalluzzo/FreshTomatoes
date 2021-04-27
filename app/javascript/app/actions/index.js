@@ -1,5 +1,4 @@
 import Axios from "axios";
-import { type } from "jquery";
 
 export const FETCH_MOVIE_SHOW_LOADING = "FETCH_MOVIE_SHOW_LOADING";
 export const FETCH_MOVIE_SHOW_SUCCESS = "FETCH_MOVIE_SHOW_SUCCESS";
@@ -13,13 +12,17 @@ export const FETCH_MOVIE_REVIEWS_LOADING = "FETCH_MOVIE_REVIEWS_LOADING";
 export const FETCH_MOVIE_REVIEWS_SUCCESS = "FETCH_MOVIE_REVIEWS_SUCCESS";
 export const FETCH_MOVIE_REVIEWS_FAILED = "FETCH_MOVIE_REVIEWS_FAILED";
 
-export const FETCH_WATCHLISTS_LOADING = "FETCH_WATCHLISTS_LOADING";
-export const FETCH_WATCHLISTS_SUCCESS = "FETCH_WATCHLISTS_SUCCESS";
-export const FETCH_WATCHLISTS_FAILED = "FETCH_WATCHLISTS_FAILED";
+export const FETCH_FAVORITES_LOADING = "FETCH_FAVORITES_LOADING";
+export const FETCH_FAVORITES_SUCCESS = "FETCH_FAVORITES_SUCCESS";
+export const FETCH_FAVORITES_FAILED = "FETCH_FAVORITES_FAILED";
 
 export const FETCH_GENRES_LOADING = "FETCH_GENRES_LOADING";
 export const FETCH_GENRES_SUCCESS = "FETCH_GENRES_SUCCESS";
 export const FETCH_GENRES_FAILED = "FETCH_GENRES_FAILED";
+
+export const FETCH_USER_LOADING = "FETCH_USER_LOADING";
+export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+export const FETCH_USER_FAILED = "FETCH_USER_FAILED";
 
 export const fetchMovieShow = (id) => async (dispatch) => {
 	try {
@@ -77,21 +80,21 @@ export const fetchMovieReviews = (id) => async (dispatch) => {
 	}
 };
 
-export const fetchWatchlists = (id) => async (dispatch) => {
+export const fetchFavorites = (id) => async (dispatch) => {
 	try {
 		dispatch({
-			type: FETCH_WATCHLISTS_LOADING,
+			type: FETCH_FAVORITES_LOADING,
 		});
 
-		const response = await Axios.get(`/api/v1/users/${id}/watchlists`);
+		const response = await Axios.get(`/api/v1/users/${id}/favorites`);
 
 		dispatch({
-			type: FETCH_WATCHLISTS_SUCCESS,
+			type: FETCH_FAVORITES_SUCCESS,
 			payload: response.data,
 		});
 	} catch (error) {
 		dispatch({
-			type: FETCH_WATCHLISTS_FAILED,
+			type: FETCH_FAVORITES_FAILED,
 		});
 	}
 };
@@ -111,6 +114,26 @@ export const fetchGenres = () => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: FETCH_GENRES_FAILED,
+		});
+	}
+};
+
+export const fetchUser = () => async (dispatch) => {
+	try {
+		dispatch({
+			type: FETCH_USER_LOADING,
+		});
+
+		const user = await root.getAttribute("data-user");
+		const userJson = await JSON.parse(user);
+
+		dispatch({
+			type: FETCH_USER_SUCCESS,
+			payload: userJson,
+		});
+	} catch (error) {
+		dispatch({
+			type: FETCH_USER_FAILED,
 		});
 	}
 };

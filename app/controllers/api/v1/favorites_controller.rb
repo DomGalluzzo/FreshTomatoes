@@ -2,7 +2,8 @@ module Api
   module V1
     class FavoritesController < ApplicationController
       def index
-        @favorites = Favorite.all
+        @favorites = Favorite.where(user_id: params[:user_id])
+        render json: @favorites, include: :movie
       end
 
       def new
@@ -33,7 +34,7 @@ module Api
       private
 
       def favorite_params
-        params.require(:favorite).permit(:movie_id, :watchlist_id)
+        params.require(:favorite).permit(:movie_id, :user_id)
       end
     end
   end

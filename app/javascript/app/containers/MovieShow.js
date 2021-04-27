@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -12,13 +12,12 @@ import {
 	ListGroup,
 } from "react-bootstrap";
 
-import { fetchMovieShow } from "../actions";
+import { fetchMovieShow, fetchUser } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
-import MoviesList from "./MoviesList";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const MovieShow = () => {
 
 	let { id } = useParams();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		fetchData();
 	}, []);
 
@@ -40,12 +39,9 @@ const MovieShow = () => {
 
 			return (
 				<Container className="movie-show-container">
-					<Row className="movie-show-header">
-						<Title text={movie.title} className="movie-show-title ml-4" />
-					</Row>
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
-							<MoviesList />
+							<button className="btn btn-primary">Add</button>
 						</Col>
 
 						<Col sm={12} md={8} className="pl-4">
