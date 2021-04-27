@@ -5,16 +5,18 @@ import _ from "lodash";
 
 import { Col, Row, Container, Image, Carousel } from "react-bootstrap";
 
-import { fetchMoviesList, fetchUser } from "../actions/index";
+import { fetchMoviesList, fetchUser, fetchFavorites } from "../actions/index";
 import Title from "../components/Title";
 import PosterCarousel from "../components/PosterCarousel";
 import Movie from "../components/Movie";
 import GenresList from "./GenresList";
+import AddFavorite from "./AddFavorite";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
 	const moviesList = useSelector((state) => state.moviesList);
 	const currentUser = useSelector((state) => state.user);
+	const userFavorites = useSelector((state) => state.favorites.favorites);
 
 	useEffect(() => {
 		fetchData();
@@ -23,6 +25,7 @@ const HomePage = () => {
 	const fetchData = () => {
 		dispatch(fetchMoviesList());
 		dispatch(fetchUser());
+		dispatch(fetchFavorites(currentUser.id));
 	};
 
 	// * Returns movies that have a release year before 2000

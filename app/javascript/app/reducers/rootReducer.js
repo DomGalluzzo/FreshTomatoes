@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
 	genres: genresReducer,
 	favorites: userFavoritesReducer,
 	user: userReducer,
-	addFavorite: addFavoriteReducer,
+	// addFavorite: addFavoriteReducer,
 });
 
 export default rootReducer;

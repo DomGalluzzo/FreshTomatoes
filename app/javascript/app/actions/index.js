@@ -110,12 +110,14 @@ export const addFavorite = (user_id, movie) => async (dispatch) => {
 		});
 
 		const response = await Axios.post(`/api/v1/users/${user_id}/favorites`, {
-			favorite: { movie },
+			movie,
 		});
+
+		const data = JSON.parse(response.config.data);
 
 		dispatch({
 			type: ADD_FAVORITE_SUCCESS,
-			payload: response.data,
+			payload: data,
 		});
 	} catch (error) {
 		dispatch({

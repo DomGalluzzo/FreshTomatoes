@@ -1,6 +1,7 @@
 module Api
   module V1
     class FavoritesController < ApplicationController
+      skip_before_action :verify_authenticity_token
       def index
         @favorites = Favorite.where(user_id: params[:user_id])
 
@@ -14,11 +15,11 @@ module Api
       def create
         @favorite = Favorite.new(favorite_params)
         if @favorite.save
-          flash[:success] = "Favorite successfully created"
+          
           render json: @favorite
         else
           flash[:error] = "Something went wrong"
-          render 'new'
+          redirect_to root_path
         end
       end
 
@@ -35,7 +36,7 @@ module Api
       private
 
       def favorite_params
-        params.require(:favorite).permit(:movie_id, :user_id)
+        params.permit(:id, :user_id, :movie, :favorite)
       end
     end
   end

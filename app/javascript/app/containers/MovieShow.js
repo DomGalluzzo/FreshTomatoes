@@ -17,7 +17,7 @@ import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
-import AddFavorite from "../components/AddFavorite";
+import AddFavorite from "./AddFavorite";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -45,7 +45,11 @@ const MovieShow = () => {
 				<Container className="movie-show-container">
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
-							<AddFavorite movie={movie} favoritesList={userFavorites} />
+							<AddFavorite
+								user={currentUser}
+								movie={movie}
+								favoritesList={userFavorites}
+							/>
 						</Col>
 
 						<Col sm={12} md={8} className="pl-4">
