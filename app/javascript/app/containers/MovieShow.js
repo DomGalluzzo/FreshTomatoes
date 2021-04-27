@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ import {
 	ListGroup,
 } from "react-bootstrap";
 
-import { fetchMovieShow } from "../actions";
+import { fetchMovieShow, fetchUser } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";

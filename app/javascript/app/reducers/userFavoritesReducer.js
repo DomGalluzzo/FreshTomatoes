@@ -6,7 +6,7 @@ import {
 
 import initialState from "../components/initialState";
 
-const userFavoritesReducer = (state = initialState, action) => {
+const userFavoritesReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_FAVORITES_LOADING:
 			return { ...state, loading: true, errorMessage: "" };

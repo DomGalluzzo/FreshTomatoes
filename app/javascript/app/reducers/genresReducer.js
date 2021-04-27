@@ -6,7 +6,7 @@ import {
 
 import initialState from "../components/initialState";
 
-const genresReducer = (state = initialState, action) => {
+const genresReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_GENRES_LOADING:
 			return { ...state, loading: true, errorMessage: "" };

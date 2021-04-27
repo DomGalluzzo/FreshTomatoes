@@ -5,6 +5,7 @@ import movieShowReducer from "./movieShowReducer";
 import movieReviewsReducer from "./movieReviewsReducer";
 import userFavoritesReducer from "./userFavoritesReducer";
 import genresReducer from "./genresReducer";
+import userReducer from "./userReducer";
 
 const rootReducer = combineReducers({
 	moviesList: moviesListReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
 	movieReviews: movieReviewsReducer,
 	genres: genresReducer,
 	favorites: userFavoritesReducer,
+	currentUser: userReducer,
 });
 
 export default rootReducer;

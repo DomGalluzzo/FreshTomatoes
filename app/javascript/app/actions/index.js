@@ -20,7 +20,9 @@ export const FETCH_GENRES_LOADING = "FETCH_GENRES_LOADING";
 export const FETCH_GENRES_SUCCESS = "FETCH_GENRES_SUCCESS";
 export const FETCH_GENRES_FAILED = "FETCH_GENRES_FAILED";
 
-export const ADD_TO_WATCHLIST = "ADD_TO_WATCHLIST";
+export const FETCH_USER_LOADING = "FETCH_USER_LOADING";
+export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+export const FETCH_USER_FAILED = "FETCH_USER_FAILED";
 
 export const fetchMovieShow = (id) => async (dispatch) => {
 	try {
@@ -116,19 +118,22 @@ export const fetchGenres = () => async (dispatch) => {
 	}
 };
 
-export const addToWatchlist = (movie) => async (dispatch) => {
-	const response = await Axios.post(`/api/v1/watchlists/1/favorites`, {
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(movie),
-	});
-	console.log(movie);
+export const fetchUser = () => async (dispatch) => {
+	try {
+		dispatch({
+			type: FETCH_USER_LOADING,
+		});
 
-	const data = await response.json();
+		const user = await root.getAttribute("data-user");
+		const userJson = await JSON.parse(user);
 
-	dispatch({
-		type: ADD_TO_WATCHLIST,
-		payload: data,
-	});
+		dispatch({
+			type: FETCH_USER_SUCCESS,
+			payload: userJson,
+		});
+	} catch (error) {
+		dispatch({
+			type: FETCH_USER_FAILED,
+		});
+	}
 };
