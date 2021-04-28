@@ -2,6 +2,7 @@ import {
 	FETCH_FAVORITES_FAILED,
 	FETCH_FAVORITES_LOADING,
 	FETCH_FAVORITES_SUCCESS,
+	ADD_FAVORITE_SUCCESS,
 } from "../actions";
 
 import initialState from "../components/initialState";
@@ -25,6 +26,14 @@ const userFavoritesReducer = (state = [], action) => {
 				loading: false,
 				errorMessage: "Unable to load favorites",
 			};
+		case ADD_FAVORITE_SUCCESS:
+			return {
+				...state,
+				favorites: [...state.favorites, action.payload],
+				loading: false,
+				errorMessage: "",
+			};
+
 		default:
 			return state;
 	}

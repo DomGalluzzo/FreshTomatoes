@@ -7,7 +7,6 @@ import { fetchMoviesList } from "../actions";
 import Title from "../components/Title";
 import { Row, Col, Image, ListGroup } from "react-bootstrap";
 import Movie from "../components/Movie";
-import AddFavorite from "./AddFavorite";
 
 const MoviesList = ({ onclick }) => {
 	const dispatch = useDispatch();

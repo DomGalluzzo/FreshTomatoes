@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { addToWatchlist, createFavorite } from "../actions";
+import { addFavorite } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import _ from "lodash";
 
-const AddFavorite = ({ handleFavoritesClick }) => {
+const AddFavorite = ({ user, movie, userFavorites }) => {
 	const dispatch = useDispatch();
+	const handleAddFavorite = () => {
+		if (!_.isEmpty(userFavorites)) {
+			if (userFavorites.some((favorite) => favorite.movie_id === movie.id)) {
+				alert("Movie already in there");
+			} else {
+				dispatch(addFavorite(user.id, movie));
+			}
+		}
+	};
 
-	let { id } = useParams();
-
-	return (
-		<div className="">
-			<button
-				className="btn btn-primary"
-				onClick={() => dispatch(addToWatchlist(2, id))}>
-				Favorite
-			</button>
-		</div>
-	);
+	return <button onClick={handleAddFavorite}>Add</button>;
 };
 
 export default AddFavorite;

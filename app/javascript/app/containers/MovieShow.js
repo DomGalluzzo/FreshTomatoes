@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import _ from "lodash";
-import {
-	Col,
-	Row,
-	Container,
-	Jumbotron,
-	Image,
-	ListGroup,
-} from "react-bootstrap";
+import { Col, Row, Container, Image } from "react-bootstrap";
 
-import { fetchMovieShow, fetchUser } from "../actions";
+import {
+	fetchMovieShow,
+	fetchUser,
+	addFavorite,
+	fetchFavorites,
+} from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
+import AddFavorite from "./AddFavorite";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movieState = useSelector((state) => state.movieShow);
+	const currentUser = useSelector((state) => state.user);
+	const userFavorites = useSelector((state) => state.favorites.favorites);
 
 	let { id } = useParams();
 
@@ -31,6 +33,8 @@ const MovieShow = () => {
 
 	const fetchData = () => {
 		dispatch(fetchMovieShow(id));
+		dispatch(fetchUser());
+		dispatch(fetchFavorites(currentUser.id));
 	};
 
 	const showData = () => {
@@ -41,7 +45,11 @@ const MovieShow = () => {
 				<Container className="movie-show-container">
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
-							<button className="btn btn-primary">Add</button>
+							<AddFavorite
+								user={currentUser}
+								movie={movie}
+								userFavorites={userFavorites}
+							/>
 						</Col>
 
 						<Col sm={12} md={8} className="pl-4">
