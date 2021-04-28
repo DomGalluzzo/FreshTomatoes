@@ -28,6 +28,10 @@ export const FETCH_USER_LOADING = "FETCH_USER_LOADING";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAILED = "FETCH_USER_FAILED";
 
+export const CREATE_REVIEW_LOADING = "CREATE_REVIEW_LOADING";
+export const CREATE_REVIEW_SUCCESS = "CREATE_REVIEW_SUCCESS";
+export const CREATE_REVIEW_FAILED = "CREATE_REVIEW_FAILED";
+
 export const fetchMovieShow = (id) => async (dispatch) => {
 	try {
 		dispatch({
@@ -80,6 +84,30 @@ export const fetchMovieReviews = (id) => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: FETCH_MOVIE_REVIEWS_FAILED,
+		});
+	}
+};
+
+export const createReview = (movie_id, comment, rating) => async (dispatch) => {
+	const body = { comment, rating };
+	try {
+		dispatch({
+			type: CREATE_REVIEW_LOADING,
+		});
+
+		const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
+			body,
+		});
+
+		const data = JSON.parse(response.config.data);
+
+		dispatch({
+			type: CREATE_REVIEW_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: CREATE_REVIEW_FAILED,
 		});
 	}
 };

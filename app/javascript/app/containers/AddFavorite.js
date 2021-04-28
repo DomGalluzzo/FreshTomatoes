@@ -3,16 +3,16 @@ import { addFavorite } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import _ from "lodash";
+import { Alert } from "react-bootstrap";
 
 const AddFavorite = ({ user, movie, userFavorites }) => {
 	const dispatch = useDispatch();
 	const handleAddFavorite = () => {
-		if (!_.isEmpty(userFavorites)) {
-			if (userFavorites.some((favorite) => favorite.movie_id === movie.id)) {
-				alert(`${movie.title} is already in your watchlist`);
-			} else {
-				dispatch(addFavorite(user.id, movie));
-			}
+		if (userFavorites.some((favorite) => favorite.movie_id === movie.id)) {
+			alert(`${movie.title} is already in your watchlist`);
+		} else {
+			dispatch(addFavorite(user.id, movie));
+			alert(`${movie.title} successfully added to watchlist`);
 		}
 	};
 
