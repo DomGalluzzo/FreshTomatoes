@@ -4,7 +4,7 @@ import { Image, Row } from "react-bootstrap";
 
 import RatingIcon from "./RatingIcon";
 
-const Movie = ({ movie, image, rating }) => {
+const Movie = ({ movie, image, rating, className }) => {
 	return (
 		<>
 			<Link
@@ -17,7 +17,7 @@ const Movie = ({ movie, image, rating }) => {
 					/>
 				)}
 
-				<div className="poster-footer ml-1">
+				<div className={`poster-footer ml-1 ${className}`}>
 					{rating && (
 						<Row className="m-0 mt-2">
 							<RatingIcon
