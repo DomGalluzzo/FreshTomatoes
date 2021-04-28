@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import _ from "lodash";
-import { Col, Row, Container, Image } from "react-bootstrap";
+import { Col, Button, Row, Container, Image } from "react-bootstrap";
 
 import {
 	fetchMovieShow,
@@ -18,6 +18,7 @@ import MovieDetails from "../components/MovieDetails";
 import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
 import AddFavorite from "./AddFavorite";
+import NewReviewModal from "../components/NewReviewModal";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -79,7 +80,10 @@ const MovieShow = () => {
 											id="movie-info-header"
 										/>
 									</Row>
-									<Container className="reviews-list-body">
+									<Row className="render-review-modal-button-container">
+										<NewReviewModal currentUser={currentUser} movie={movie} />
+									</Row>
+									<Container className="reviews-list-body mt-3">
 										<ReviewsList reviews={movie.reviews} />
 									</Container>
 								</Container>
