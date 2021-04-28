@@ -88,15 +88,20 @@ export const fetchMovieReviews = (id) => async (dispatch) => {
 	}
 };
 
-export const createReview = (movie_id, comment, rating) => async (dispatch) => {
-	const body = { comment, rating };
+export const createReview = (movie_id, currentUser, comment, rating) => async (
+	dispatch
+) => {
+	const userId = currentUser.id;
+
 	try {
 		dispatch({
 			type: CREATE_REVIEW_LOADING,
 		});
 
 		const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
-			body,
+			user_id: userId,
+			comment,
+			rating,
 		});
 
 		const data = JSON.parse(response.config.data);
