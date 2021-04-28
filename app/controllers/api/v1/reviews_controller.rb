@@ -25,11 +25,11 @@ module Api
         @review = Review.new(review_params)
         @user = current_user
         @review.user = @user
-        
+        @movie = @review.movie
 
         if @review.save!
           flash[:success] = "Review successfully created"
-          render json: @review
+          render json: @movie
         else
           flash[:error] = "Something went wrong"
           render 'new'
