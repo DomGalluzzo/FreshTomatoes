@@ -79,7 +79,7 @@ const MovieShow = () => {
 											id="movie-info-header"
 										/>
 									</Row>
-									<Container className="reviews-list-body">
+									<Container className="reviews-list-body mt-3">
 										<ReviewsList reviews={movie.reviews} />
 									</Container>
 								</Container>

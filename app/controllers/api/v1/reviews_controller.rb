@@ -21,8 +21,9 @@ module Api
       end
 
       def create
-        review = Review.new(review_params)
-        review.user = current_user
+        @review = Review.new(review_params)
+        @user = current_user
+        @review.user = @user
         if review.save!
           flash[:success] = "Review successfully created"
           render json: review
