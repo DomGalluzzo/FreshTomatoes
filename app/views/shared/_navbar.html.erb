@@ -28,7 +28,14 @@
           
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
+          
+          <% if @user.image %>
             <%= image_tag @user.image, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619018185/default_icon_yflbxj.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            
+          <% end %>
+          
             
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "My Watchlist", favorites_path(current_user), class: "dropdown-item" %>
