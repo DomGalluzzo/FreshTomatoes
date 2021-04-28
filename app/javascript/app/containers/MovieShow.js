@@ -35,7 +35,9 @@ const MovieShow = () => {
 	const fetchData = () => {
 		dispatch(fetchMovieShow(id));
 		dispatch(fetchUser());
-		dispatch(fetchFavorites(currentUser.id));
+		if (!_.isNull(currentUser)) {
+			dispatch(fetchFavorites(currentUser.id));
+		}
 	};
 
 	const showData = () => {
