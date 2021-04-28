@@ -9,14 +9,18 @@ const AddFavorite = ({ user, movie, userFavorites }) => {
 	const handleAddFavorite = () => {
 		if (!_.isEmpty(userFavorites)) {
 			if (userFavorites.some((favorite) => favorite.movie_id === movie.id)) {
-				alert("Movie already in there");
+				alert(`${movie.title} is already in your watchlist`);
 			} else {
 				dispatch(addFavorite(user.id, movie));
 			}
 		}
 	};
 
-	return <button onClick={handleAddFavorite}>Add</button>;
+	return (
+		<button className="btn btn-success" onClick={handleAddFavorite}>
+			Add to Watchlist
+		</button>
+	);
 };
 
 export default AddFavorite;

@@ -13,10 +13,12 @@ import {
 } from "react-bootstrap";
 
 import { fetchFavorites } from "../actions";
+import Title from "../components/Title";
 
 const UserFavorites = () => {
 	const dispatch = useDispatch();
 	const favoritesList = useSelector((state) => state.favorites);
+	const currentUser = useSelector((state) => state.user);
 
 	let { id } = useParams();
 
@@ -31,12 +33,31 @@ const UserFavorites = () => {
 	const showFavorites = () => {
 		if (!_.isEmpty(favoritesList.favorites)) {
 			return favoritesList.favorites.map((favorite) => {
-				return <>{favorite.movie.title}</>;
+				return (
+					<ListGroup.Item>
+						<Link to={`/movies/${favorite.movie_id}`}>
+							<span
+								style={{ textDecoration: "none", color: "black" }}
+								className="user-favorites-movie-link">
+								{favorite.movie.title}
+							</span>
+						</Link>
+					</ListGroup.Item>
+				);
 			});
 		}
 	};
 
-	return <div>{showFavorites()}</div>;
+	return (
+		<Container className="user-favorites-container p-0" fluid>
+			<Title
+				className="pl-4"
+				text={`${currentUser.username}'s Watchlist`}
+				style={{ fontSize: "1.5em" }}
+			/>
+			<ListGroup>{showFavorites()}</ListGroup>
+		</Container>
+	);
 };
 
 export default UserFavorites;
