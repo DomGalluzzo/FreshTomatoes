@@ -29,7 +29,7 @@ const NewReviewModal = ({ currentUser, movie }) => {
 	return (
 		<>
 			<Button variant="success" onClick={handleShow}>
-				New Review
+				Add Review
 			</Button>
 			<Modal
 				show={show}
