@@ -9,11 +9,7 @@ require "faker"
 # Director.destroy_all
 # Review.destroy_all
 
-# * Movie poster (lorem picsum 500x200)
-# https://picsum.photos/500/200
 
-# * Avatar (pravatar 50x50)
-# https://i.pravatar.cc/50
 
 # ! Users
 guest = User.create!(email: "guest@gmail.com", password: "password", username: "guest")
@@ -77,21 +73,21 @@ alien = Movie.create!(title: "Alien", image: "https://res.cloudinary.com/dcdspz5
 
 her = Movie.create!(title: "Her", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016227/Her_qvupnh.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016228/HerPoster_q2xfpj.jpg", summary: "Left heartbroken after his marriage ends, Theodore (Joaquin Phoenix) becomes fascinated with a new operating system which reportedly develops into an intuitive and unique entity in its own right.", release_year: 2014, runtime: 126, genre: romance, director: jonze)
 
-black_panther = Movie.create!(title: "Black Panther", summary: "After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.", release_year: 2018, runtime: 124, genre: action, director: coogler)
+black_panther = Movie.create!(title: "Black Panther", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/BlackPanther_hu5dxt.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642628/BlackPantherPoster_d24mwm.jpg", summary: "After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.", release_year: 2018, runtime: 124, genre: action, director: coogler)
 
-dunkirk = Movie.create!(title: "Dunkirk", summary: "In May 1940, Germany advanced into France, trapping Allied troops on the beaches of Dunkirk. Under air and ground cover from British and French forces, troops were slowly and methodically evacuated from the beach using every serviceable naval and civilian vessel that could be found. At the end of this heroic mission, 330,000 French, British, Belgian and Dutch soldiers were safely evacuated.", release_year: 2017, runtime: 107, genre: action, director: nolan)
+dunkirk = Movie.create!(title: "Dunkirk", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642628/Dunkirk_iz9kb2.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642629/DunkirkPoster_ixgwbs.jpg", summary: "In May 1940, Germany advanced into France, trapping Allied troops on the beaches of Dunkirk. Under air and ground cover from British and French forces, troops were slowly and methodically evacuated from the beach using every serviceable naval and civilian vessel that could be found. At the end of this heroic mission, 330,000 French, British, Belgian and Dutch soldiers were safely evacuated.", release_year: 2017, runtime: 107, genre: action, director: nolan)
 
-toy_story_4 = Movie.create!(title: "Toy Story 4", summary: "Woody, Buzz Lightyear and the rest of the gang embark on a road trip with Bonnie and a new toy named Forky. The adventurous journey turns into an unexpected reunion as Woody's slight detour leads him to his long-lost friend Bo Peep. As Woody and Bo discuss the old days, they soon start to realize that they're worlds apart when it comes to what they want from life as a toy.", release_year: 2019, runtime: 100, genre: animation, director: cooley)
+toy_story_4 = Movie.create!(title: "Toy Story 4", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/ToyStory4_ug1rtu.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642628/ToyStory4Poster_ipzci9.jpg", summary: "Woody, Buzz Lightyear and the rest of the gang embark on a road trip with Bonnie and a new toy named Forky. The adventurous journey turns into an unexpected reunion as Woody's slight detour leads him to his long-lost friend Bo Peep. As Woody and Bo discuss the old days, they soon start to realize that they're worlds apart when it comes to what they want from life as a toy.", release_year: 2019, runtime: 100, genre: animation, director: cooley)
 
-coco = Movie.create!(title: "Coco", summary: "Despite his family's generations-old ban on music, young Miguel dreams of becoming an accomplished musician like his idol Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead. After meeting a charming trickster named Héctor, the two new friends embark on an extraordinary journey to unlock the real story behind Miguel's family history.", release_year: 2017, runtime: 109, genre: animation, director: unkrich)
+coco = Movie.create!(title: "Coco", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/Coco_s90m8e.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642629/CocoPoster_ynfdlp.jpg", summary: "Despite his family's generations-old ban on music, young Miguel dreams of becoming an accomplished musician like his idol Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead. After meeting a charming trickster named Héctor, the two new friends embark on an extraordinary journey to unlock the real story behind Miguel's family history.", release_year: 2017, runtime: 109, genre: animation, director: unkrich)
 
-inside_out = Movie.create!(title: "Inside Out", summary: "Riley (Kaitlyn Dias) is a happy, hockey-loving 11-year-old Midwestern girl, but her world turns upside-down when she and her parents move to San Francisco. Riley's emotions -- led by Joy (Amy Poehler) -- try to guide her through this difficult, life-changing event. However, the stress of the move brings Sadness (Phyllis Smith) to the forefront. When Joy and Sadness are inadvertently swept into the far reaches of Riley's mind, the only emotions left in Headquarters are Anger, Fear and Disgust.", release_year: 2015, runtime: 95, genre: animation, director: docter)
+inside_out = Movie.create!(title: "Inside Out", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/InsideOut_twpaqf.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/InsideOutPoster_ljau99.jpg", summary: "Riley (Kaitlyn Dias) is a happy, hockey-loving 11-year-old Midwestern girl, but her world turns upside-down when she and her parents move to San Francisco. Riley's emotions -- led by Joy (Amy Poehler) -- try to guide her through this difficult, life-changing event. However, the stress of the move brings Sadness (Phyllis Smith) to the forefront. When Joy and Sadness are inadvertently swept into the far reaches of Riley's mind, the only emotions left in Headquarters are Anger, Fear and Disgust.", release_year: 2015, runtime: 95, genre: animation, director: docter)
 
-quiet_place = Movie.create!(title: "A Quiet Place", summary: "If they hear you, they hunt you. A family must live in silence to avoid mysterious creatures that hunt by sound. Knowing that even the slightest whisper or footstep can bring death, Evelyn and Lee are determined to find a way to protect their children while desperately searching for a way to fight back.", release_year: 2018, runtime: 90, genre: horror, director: krasinski)
+quiet_place = Movie.create!(title: "A Quiet Place", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/QuietPlace_fbt80r.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642627/QuietPlacePoster_whtmq0.jpg", summary: "If they hear you, they hunt you. A family must live in silence to avoid mysterious creatures that hunt by sound. Knowing that even the slightest whisper or footstep can bring death, Evelyn and Lee are determined to find a way to protect their children while desperately searching for a way to fight back.", release_year: 2018, runtime: 90, genre: horror, director: krasinski)
 
-get_out = Movie.create!(title: "Get Out", summary: "Now that Chris (Daniel Kaluuya) and his girlfriend, Rose (Allison Williams), have reached the meet-the-parents milestone of dating, she invites him for a weekend getaway upstate with Missy and Dean. At first, Chris reads the family's overly accommodating behavior as nervous attempts to deal with their daughter's interracial relationship, but as the weekend progresses, a series of increasingly disturbing discoveries lead him to a truth that he never could have imagined.", release_year: 2017, runtime: 104, genre: horror, director: peele)
+get_out = Movie.create!(title: "Get Out", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642628/GetOut_bc3pym.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642628/GetOutPoster_iqscpe.jpg", summary: "Now that Chris (Daniel Kaluuya) and his girlfriend, Rose (Allison Williams), have reached the meet-the-parents milestone of dating, she invites him for a weekend getaway upstate with Missy and Dean. At first, Chris reads the family's overly accommodating behavior as nervous attempts to deal with their daughter's interracial relationship, but as the weekend progresses, a series of increasingly disturbing discoveries lead him to a truth that he never could have imagined.", release_year: 2017, runtime: 104, genre: horror, director: peele)
 
-inception = Movie.create!(title: "Inception", summary: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.", release_year: 2010, runtime: 148, genre: action, director: nolan)
+inception = Movie.create!(title: "Inception", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642629/Inception_mv4rrh.jpg", poster: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619642629/InceptionPoster_goedo7.jpg", summary: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.", release_year: 2010, runtime: 148, genre: action, director: nolan)
 
 
 # ! Actors
@@ -103,114 +99,114 @@ will_sylvester = Actor.create!(name: "William Sylvester", image: "https://resizi
 daniel_richter = Actor.create!(name: "Daniel Richter", character: "Moon-Watcher")
 
 # Godfather
-marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://i.pravatar.cc/50", character: "Don Vito Corleone")
-al_pacino = Actor.create!(name: "Al Pacino", image:"https://i.pravatar.cc/50", character: "Michael Corleone")
-james_caan = Actor.create!(name: "James Caan", character: "Sonny Corleone" )
-richard_castellano = Actor.create!(name: "Richard S. Castellano", character: "Clemenza")
-robert_duvall = Actor.create!(name: "Robert Duvall", image:"https://i.pravatar.cc/50", character: "Tom Hagen")
-sterling_hayden = Actor.create!(name: "Sterling Hayden", character: "Capt. McCluskey")
+marlon_brando = Actor.create!(name: "Marlon Brando", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646105/1200px-Marlon_Brando_by_Edward_Cronenweth__1955_dp28h4.jpg", character: "Don Vito Corleone")
+al_pacino = Actor.create!(name: "Al Pacino", image:"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/Al_Pacino_poccyq.jpg", character: "Michael Corleone")
+james_caan = Actor.create!(name: "James Caan", character: "Sonny Corleone", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/MV5BMTI5NjkyNDQ3NV5BMl5BanBnXkFtZTcwNjY5NTQ0Mw_._V1_UY1200_CR85_0_630_1200_AL__qlbyg4.jpg" )
+richard_castellano = Actor.create!(name: "Richard S. Castellano", character: "Clemenza", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/Peter_Clemenza_dyqgez.jpg")
+robert_duvall = Actor.create!(name: "Robert Duvall", image:"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/RobertDuvall_zedthq.jpg", character: "Tom Hagen")
+sterling_hayden = Actor.create!(name: "Sterling Hayden", character: "Capt. McCluskey", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/download_1_o5hrzl.jpg")
 
 
 # Citizen Kane
-joseph_cotten = Actor.create!(name: "Joseph Cotten", image: "https://i.pravatar.cc/50", character: "Jedediah Leland")
-dorothy_comingore = Actor.create!(name: "Dorothy Comingore", image: "https://i.pravatar.cc/50", character: "Susan Alexander Kane")
-agnes_moorehead = Actor.create!(name: "Agnes Moorehead", image: "https://i.pravatar.cc/50", character: "Mary Kane")
-ruth_warrick = Actor.create!(name: "Ruth Warrick", character: "Emily Monroe Norton Kane")
-ray_collins = Actor.create!(name: "Ray Collins", character: "James W. Gettys")
+joseph_cotten = Actor.create!(name: "Joseph Cotten", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/download_mj2wio.jpg", character: "Jedediah Leland")
+dorothy_comingore = Actor.create!(name: "Dorothy Comingore", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/MV5BMTU4NjcwNTU5Ml5BMl5BanBnXkFtZTcwMDI5NDYwOA_._V1__tjzlvr.jpg", character: "Susan Alexander Kane")
+agnes_moorehead = Actor.create!(name: "Agnes Moorehead", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646105/Studio_publicity_Agnes_Moorehead_zz0ogo.jpg", character: "Mary Kane")
+ruth_warrick = Actor.create!(name: "Ruth Warrick", character: "Emily Monroe Norton Kane", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/RUTHWarrick_azrodc.jpg")
+ray_collins = Actor.create!(name: "Ray Collins", character: "James W. Gettys", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/Ray-Collins_lvrpdv.jpg")
 
 # Raiders of the Lost Ark
-harrison_ford = Actor.create!(name: "Harrison Ford", image: "https://i.pravatar.cc/50", character: "Indiana Jones")
-karen_allen = Actor.create!(name: "Karen Allen", image: "https://i.pravatar.cc/50", character: "Marion")
+harrison_ford = Actor.create!(name: "Harrison Ford", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/MV5BMTY4Mjg0NjIxOV5BMl5BanBnXkFtZTcwMTM2NTI3MQ_._V1_UY1200_CR88_0_630_1200_AL__jbzpte.jpg", character: "Indiana Jones")
+karen_allen = Actor.create!(name: "Karen Allen", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/S6DOD2DNHBGNFGLINZJRYWFC4U_ae9zdb.jpg", character: "Marion")
 paul_freeman = Actor.create!(name: "Paul Freeman", character: "Belloq")
 ronald_lacey = Actor.create!(name: "Ronald Lacey", character: "Toht")
 
 # There Will Be Blood
-daniel_day_lewis = Actor.create!(name: "Daniel Day-Lewis", image: "https://i.pravatar.cc/50", character: "Daniel Plainview")
-barry_del_sherman = Actor.create!(name: "Barry Del Sherman", image: "https://i.pravatar.cc/50", character: "H.B. Ailman")
-dillon_freasier = Actor.create!(name: "Dillon Freasier", image: "https://i.pravatar.cc/50", character: "HW")
+daniel_day_lewis = Actor.create!(name: "Daniel Day-Lewis", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/14641_v9_bb_xh3y7y.jpg", character: "Daniel Plainview")
+barry_del_sherman = Actor.create!(name: "Barry Del Sherman", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/MV5BNTIwNTcwMTE4M15BMl5BanBnXkFtZTgwNzU2MzMxOTE_._V1__rpd2qk.jpg", character: "H.B. Ailman")
+dillon_freasier = Actor.create!(name: "Dillon Freasier", character: "HW")
 paul_f_tompkins = Actor.create!(name: "Paul F. Tompkins", character: "Prescott")
 
 # Dark Knight
-christian_bale = Actor.create!(name: "Christian Bale", image: "https://i.pravatar.cc/50", character: "Bruce Wayne/Batman")
-heath_ledger = Actor.create!(name: "Heath Ledger", image: "https://i.pravatar.cc/50", character: "Joker")
-michael_cane = Actor.create!(name: "Michael Cane", image: "https://i.pravatar.cc/50", character: "Alfred")
-aaron_eckhart = Actor.create!(name: "Aaron Eckhart", character: "Harvey Dent")
-maggie_g = Actor.create!(name: "Maggie Gyllenhaal", character: "Rachel")
+christian_bale = Actor.create!(name: "Christian Bale", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/Christian_Bale_2009_wmpe1g.jpg", character: "Bruce Wayne/Batman")
+heath_ledger = Actor.create!(name: "Heath Ledger", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/Heath_Ledger__2_waxghm.jpg", character: "Joker")
+michael_cane = Actor.create!(name: "Michael Cane", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/michael-caine-025-michael-caine-c2ae-raymi-hero-productions-2017-photo-by-jeff-spicer-e1564489766704_sijyk2.jpg", character: "Alfred")
+aaron_eckhart = Actor.create!(name: "Aaron Eckhart", character: "Harvey Dent", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/Aaron_Eckhart__29830286295___cropped_elpkrt.jpg")
+maggie_g = Actor.create!(name: "Maggie Gyllenhaal", character: "Rachel", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/1924_ft10vr.jpg")
 
 # Airplane!
-leslie_nielsen = Actor.create!(name: "Leslie Nielsen", image: "https://i.pravatar.cc/50", character: "Dr. Rumack")
-robert_hays = Actor.create!(name: "Robert Hays", image: "https://i.pravatar.cc/50", character: "Ted Striker")
-julie_hagerty = Actor.create!(name: "Julie Hagerty", image: "https://i.pravatar.cc/50", character: "Elaine Dickinson")
-kareem = Actor.create!(name: "Kareem Abdul-Jabbar", character: "Roger Murdock")
+leslie_nielsen = Actor.create!(name: "Leslie Nielsen", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/Leslie_Nielsen_smkito.jpg", character: "Dr. Rumack")
+robert_hays = Actor.create!(name: "Robert Hays", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646105/58ff53551cbb2.image_zso2s0.jpg", character: "Ted Striker")
+julie_hagerty = Actor.create!(name: "Julie Hagerty", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/6588fd9dd54a1b6d6794db89a8b89905_vkwy2a.jpg", character: "Elaine Dickinson")
+kareem = Actor.create!(name: "Kareem Abdul-Jabbar", character: "Roger Murdock", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/images_eo6jiw.jpg")
 lloyd_bridges = Actor.create!(name: "Lloyd Bridges", character: "Steve McCroskey")
 
 # Alien
-sigourney_weaver = Actor.create!(name: "Sigourney Weaver", image: "https://i.pravatar.cc/50", character: "Ripley")
-yaphet_kotto = Actor.create!(name: "Yaphet Kotto", image: "https://i.pravatar.cc/50", character: "Parker")
-ian_holm = Actor.create!(name: "Ian Holm", image: "https://i.pravatar.cc/50", character: "Ash")
-tom_skerritt = Actor.create!(name: "Tom Skerritt", character: "Dallas")
+sigourney_weaver = Actor.create!(name: "Sigourney Weaver", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646105/sigourney-weaver-alien-1_mnvd6m.jpg", character: "Ripley")
+yaphet_kotto = Actor.create!(name: "Yaphet Kotto", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/MV5BMTM1NzU1NTQwOF5BMl5BanBnXkFtZTcwMzI4OTgwMw_._V1__f1k23u.jpg", character: "Parker")
+ian_holm = Actor.create!(name: "Ian Holm", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/ash1_azztt3.jpg", character: "Ash")
+tom_skerritt = Actor.create!(name: "Tom Skerritt", character: "Dallas", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/dallas1_aqg5l9.jpg")
 v_cartwright = Actor.create!(name: "Veronica Cartwright", character: "Lambert")
 
 # Her
-joaquin_phoenix = Actor.create!(name: "Joaquin Phoenix", image: "https://i.pravatar.cc/50", character: "Theodore")
-amy_adams = Actor.create!(name: "Amy Adams", image: "https://i.pravatar.cc/50", character: "Amy")
-scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://i.pravatar.cc/50", character: "Samantha (voice)")
-chris_pratt = Actor.create!(name: "Chris Pratt", character: "Paul")
+joaquin_phoenix = Actor.create!(name: "Joaquin Phoenix", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646107/Joaquin_Phoenix_at_the_2018_Berlin_Film_Festival_mn7lmh.jpg", character: "Theodore")
+amy_adams = Actor.create!(name: "Amy Adams", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646105/1200px-Amy_Adams_UK_Nocturnal_Animals_Premiere__cropped_z6m9jz.jpg", character: "Amy")
+scarlett_johansson = Actor.create!(name: "Scarlett Johansson", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646106/Scarlett_Johansson_by_Gage_Skidmore_2__cropped__2_l3bc1j.jpg", character: "Samantha (voice)")
+chris_pratt = Actor.create!(name: "Chris Pratt", character: "Paul", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619646108/MV5BNzg3MTgwOTgzMV5BMl5BanBnXkFtZTgwODIxMTUwMjE_._V1__nhnx09.jpg")
 
 # Black Panther
-chadwick_boseman = Actor.create!(name: "Chadwick Boseman", character: "T'Challa, Black Panther")
-michael_b_jordan = Actor.create!(name: "Michael B. Jordan", character: "Erik Killmonger")
-lupita_nyongo = Actor.create!(name: "Lupita Nyong'o", character: "Nakia")
+chadwick_boseman = Actor.create!(name: "Chadwick Boseman", character: "T'Challa, Black Panther", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643534/ChadwickBoseman_q2fnga.jpg")
+michael_b_jordan = Actor.create!(name: "Michael B. Jordan", character: "Erik Killmonger", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/MichaelBJordan_s1kyfr.jpg")
+lupita_nyongo = Actor.create!(name: "Lupita Nyong'o", character: "Nakia", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/SXSW_2019_4__47282558132___cropped_n5qeza.jpg")
 danai_gurira = Actor.create!(name: "Danai Gurira", character: "Okoye")
-martin_freeman = Actor.create!(name: "Martin Freeman", character: "Everett K. Ross")
+martin_freeman = Actor.create!(name: "Martin Freeman", character: "Everett K. Ross", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/MV5BMjE0MjAwOTMzMF5BMl5BanBnXkFtZTcwMDg1MjEyNw_._V1__xjdhzg.jpg")
 
 # Dunkirk
-fionn_whitehead = Actor.create!(name: "Fionn Whitehead", character: "Tommy")
+fionn_whitehead = Actor.create!(name: "Fionn Whitehead", character: "Tommy", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/4764_lv9s5v.jpg")
 tom_carney = Actor.create!(name: "Tomy Glynn-Carney", character: "Peter")
 jack_lowden = Actor.create!(name: "Jack Lowden", character: "Collins")
-harry_styles = Actor.create!(name: "Harry Styles", character: "Alex")
+harry_styles = Actor.create!(name: "Harry Styles", character: "Alex", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643534/MV5BMTUxMzU2MTk1OF5BMl5BanBnXkFtZTgwNzg4NjAwMzI_._V1__gl77bo.jpg")
 
 # Toy Story 4
-tom_hanks = Actor.create!(name: "Tom Hanks", character: "Woody (voice)")
-tim_allen = Actor.create!(name: "Tim Allen", character: "Buzz Lightyear (voice)")
-annie_potts = Actor.create!(name: "Annie Potts", character: "Bo Peep (voice)")
+tom_hanks = Actor.create!(name: "Tom Hanks", character: "Woody (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643534/MV5BMTQ2MjMwNDA3Nl5BMl5BanBnXkFtZTcwMTA2NDY3NQ_._V1__tlannb.jpg")
+tim_allen = Actor.create!(name: "Tim Allen", character: "Buzz Lightyear (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/MV5BMTI5ODY0NTAwOF5BMl5BanBnXkFtZTcwOTI3NjQxMw_._V1_UX214_CR0_0_214_317_AL__blrrj6.jpg")
+annie_potts = Actor.create!(name: "Annie Potts", character: "Bo Peep (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643532/annie-potts_turv7k.jpg")
 tony_hale = Actor.create!(name: "Tony Hale", character: "Forky (voice)")
-keegan_m_key = Actor.create!(name: "Keegan-Michael Key", character: "Ducky (voice)")
+keegan_m_key = Actor.create!(name: "Keegan-Michael Key", character: "Ducky (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643532/bb575d7a-e210-4e73-8310-b037cf5671a6-GTY_1199092464_jvl69p.jpg")
 
 # Coco
-anthony_gonzalez = Actor.create!(name: "Anthony Gonzalez", character: "Miguel (voice)")
-gael_bernal = Actor.create(name: "Gael Garcia Bernal", character: "Hector (voice)")
-benjamin_bratt = Actor.create!(name: "Benjamin Bratt", character: "Ernesto de la Cruz (voice)")
+anthony_gonzalez = Actor.create!(name: "Anthony Gonzalez", character: "Miguel (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643536/636468709534814843-AFP-AFP-U432P-95185653_mkoyin.jpg")
+gael_bernal = Actor.create(name: "Gael Garcia Bernal", character: "Hector (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643536/4788_gjf6s2.jpg")
+benjamin_bratt = Actor.create!(name: "Benjamin Bratt", character: "Ernesto de la Cruz (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643534/MV5BMTUwNDIwOTI5N15BMl5BanBnXkFtZTcwMDcwMjQyNg_._V1__hr23nd.jpg")
 alanna_ubach = Actor.create!(name: "Alanna Ubach", character: "Mama Imelda (voice)")
 jaime_camil = Actor.create!(name: "Jaime Camil", character: "Papa (voice)")
 
 # Inside Out
-amy_poehler = Actor.create!(name: "Amy Poehler", character: "Joy (voice)")
-phyllis_smith = Actor.create!(name: "Phyllis Smith", character: "Sadness (voice)")
-richard_kind = Actor.create!(name: "Richard Kind", character: "Bing Bong (voice)")
-bill_hader = Actor.create!(name: "Bill Hader", character: "Fear (voice)")
-lewis_black = Actor.create!(name: "Lewis Black", character: "Anger (voice)")
-mindy_kaling = Actor.create!(name: "Mindy Kaling", character: "Disgust (voice)")
+amy_poehler = Actor.create!(name: "Amy Poehler", character: "Joy (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/MV5BYjIzMDA0NmUtMTlhZi00ZDU3LTkzYWMtZDhkYTU1ZDJlMGRkXkEyXkFqcGdeQXVyNzcwODE0OTk_._V1__qeqyig.jpg")
+phyllis_smith = Actor.create!(name: "Phyllis Smith", character: "Sadness (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/MV5BMjA4NTM3NjUwMV5BMl5BanBnXkFtZTcwMDMyMTk3Mw_._V1__l0rcrm.jpg")
+richard_kind = Actor.create!(name: "Richard Kind", character: "Bing Bong (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/Richard_Kind_abxnjj.jpg")
+bill_hader = Actor.create!(name: "Bill Hader", character: "Fear (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643536/484312_v9_bb_k7znvb.jpg")
+lewis_black = Actor.create!(name: "Lewis Black", character: "Anger (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/_lewis_black_headshot2_dpzec7.jpg")
+mindy_kaling = Actor.create!(name: "Mindy Kaling", character: "Disgust (voice)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643534/MV5BNzQ2OTUzNDU1MF5BMl5BanBnXkFtZTcwODQ2MTYyNw_._V1__bnti67.jpg")
 
 # A Quiet Place
-emily_blunt = Actor.create!(name: "Emily Blunt", character: "Evelyn Abbott")
-john_krasinski = Actor.create!(name: "John Krasinski", character: "Lee Abbott")
-millicent = Actor.create!(name: "Millicent Simmonds", character: "Regan Abbott")
-noah_jupe = Actor.create!(name: "Noah Jupe", character: "Marcus Abbott")
+emily_blunt = Actor.create!(name: "Emily Blunt", character: "Evelyn Abbott", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643532/Emily-Blunt-2013_b71gkb.jpg")
+john_krasinski = Actor.create!(name: "John Krasinski", character: "Lee Abbott", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643532/john-krasinski_gyxy5j.jpg")
+millicent = Actor.create!(name: "Millicent Simmonds", character: "Regan Abbott", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/MillicentSimmonds_ctuupi.jpg")
+noah_jupe = Actor.create!(name: "Noah Jupe", character: "Marcus Abbott", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643534/MV5BODlmOTIzM2MtMTdiOS00OTQwLWI0NTYtOTcyYTNmNDcwYzQ1XkEyXkFqcGdeQXVyNDg1NDM0NDk_._V1__xt93jc.jpg")
 cade_woodward = Actor.create!(name: "Cade Woodward", character: "Beau Abbott")
 
 # Get Out
-daniel_kaluuya = Actor.create!(name: "Daniel Kaluuya", character: "Chris Washington")
-allison_williams = Actor.create!(name: "Allison Williams", character: "Rose Armitage")
-catherine_keener = Actor.create!(name: "Catherine Keener", character: "Missy Armitage")
-bradley_whitford = Actor.create!(name: "Bradley Whitford", character: "Dean Armitage")
-marcus_henderson = Actor.create!(name: "Marcus Henderson", character: "Walter")
+daniel_kaluuya = Actor.create!(name: "Daniel Kaluuya", character: "Chris Washington", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/MV5BOTk1MzgzOTg5OV5BMl5BanBnXkFtZTcwNDQ4NjMxOA_._V1__ilr5iw.jpg")
+allison_williams = Actor.create!(name: "Allison Williams", character: "Rose Armitage", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643536/Allison-Williams_knylky.jpg")
+catherine_keener = Actor.create!(name: "Catherine Keener", character: "Missy Armitage", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643536/11062_v9_bb_j0mu4d.jpg")
+bradley_whitford = Actor.create!(name: "Bradley Whitford", character: "Dean Armitage", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/MV5BMjQwMzg3ODUxNF5BMl5BanBnXkFtZTgwMzc5MDcxNDM_._V1_UY1200_CR151_0_630_1200_AL__nplxgl.jpg")
+marcus_henderson = Actor.create!(name: "Marcus Henderson", character: "Walter", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643533/Marcus_Henderson_uxyuqm.jpg")
 
 # Inception
-leo_dicaprio = Actor.create!(name: "Leonardo DiCaprio", character: "Cobb")
-gordon_levitt = Actor.create!(name: "Joseph Gordon-Levitt", character: "Arthur")
-elliot_page = Actor.create!(name: "Elliot Page", character: "Ariadne (as Ellen Page)")
-tom_hardy = Actor.create!(name: "Tom Hardy", character: "Eames")
+leo_dicaprio = Actor.create!(name: "Leonardo DiCaprio", character: "Cobb", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643535/435_v9_bc_nveesf.jpg")
+gordon_levitt = Actor.create!(name: "Joseph Gordon-Levitt", character: "Arthur", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643537/American-actor-Joseph-Gordon-Levitt-2018_buyezq.jpg")
+elliot_page = Actor.create!(name: "Elliot Page", character: "Ariadne (as Ellen Page)", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643532/gettyimages-925876714-1608563023_j5viit.jpg")
+tom_hardy = Actor.create!(name: "Tom Hardy", character: "Eames", image: "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619643536/Tom_Hardy_by_Gage_Skidmore_bqa9tx.jpg")
 
 
 
