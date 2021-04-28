@@ -48,7 +48,7 @@ const MovieShow = () => {
 							<AddFavorite
 								user={currentUser}
 								movie={movie}
-								favoritesList={userFavorites}
+								userFavorites={userFavorites}
 							/>
 						</Col>
 

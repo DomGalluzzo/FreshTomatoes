@@ -25,7 +25,9 @@ const HomePage = () => {
 	const fetchData = () => {
 		dispatch(fetchMoviesList());
 		dispatch(fetchUser());
-		dispatch(fetchFavorites(currentUser.id));
+		if (!_.isNull(currentUser)) {
+			dispatch(fetchFavorites(currentUser.id));
+		}
 	};
 
 	// * Returns movies that have a release year before 2000

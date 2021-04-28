@@ -27,7 +27,12 @@ const userFavoritesReducer = (state = [], action) => {
 				errorMessage: "Unable to load favorites",
 			};
 		case ADD_FAVORITE_SUCCESS:
-			return { ...state, favorites: [action.payload, ...state.favorites] };
+			return {
+				...state,
+				favorites: [...state.favorites, action.payload],
+				loading: false,
+				errorMessage: "",
+			};
 
 		default:
 			return state;

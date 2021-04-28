@@ -14,12 +14,13 @@ module Api
 
       def create
         @favorite = Favorite.new(favorite_params)
-        if @favorite.save
-          
+        @user = current_user
+        @favorite.user = @user
+
+        if @favorite.save!
           render json: @favorite
         else
           flash[:error] = "Something went wrong"
-          
         end
       end
 
@@ -36,7 +37,7 @@ module Api
       private
 
       def favorite_params
-        params.permit(:movie)
+        params.permit(:movie_id)
       end
     end
   end
