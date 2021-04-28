@@ -1,12 +1,13 @@
 require "faker"
 
-User.destroy_all
-Credit.destroy_all
-Actor.destroy_all
-Movie.destroy_all
-Genre.destroy_all
-Director.destroy_all
-Review.destroy_all
+# Favorite.destroy_all
+# User.destroy_all
+# Credit.destroy_all
+# Actor.destroy_all
+# Movie.destroy_all
+# Genre.destroy_all
+# Director.destroy_all
+# Review.destroy_all
 
 # * Movie poster (lorem picsum 500x200)
 # https://picsum.photos/500/200
