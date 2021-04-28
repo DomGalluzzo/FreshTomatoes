@@ -11,6 +11,7 @@ import PosterCarousel from "../components/PosterCarousel";
 import Movie from "../components/Movie";
 import GenresList from "./GenresList";
 import AddFavorite from "./AddFavorite";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
 	const dispatch = useDispatch();
@@ -195,6 +196,8 @@ const HomePage = () => {
 					</Row>
 				</Container>
 			</Container>
+			<Container className="container-break py-5" fluid></Container>
+			<Footer justify="center" />
 		</>
 	);
 };
