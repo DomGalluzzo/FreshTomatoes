@@ -214,8 +214,11 @@ export const removeFavorite = (user_id, movie) => async (dispatch) => {
 			movie_id: movieId,
 		});
 
+		const data = JSON.parse(response.config.data);
+
 		disaptch({
 			type: REMOVE_FAVORITE_SUCCESS,
+			payload: data,
 		});
 	} catch (error) {
 		dispatch({
