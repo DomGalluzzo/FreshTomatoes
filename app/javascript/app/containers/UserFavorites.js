@@ -7,12 +7,13 @@ import { Button, Container, ListGroup } from "react-bootstrap";
 
 import { fetchFavorites, removeFavorite } from "../actions";
 import Title from "../components/Title";
+import Favorite from "../components/Favorite";
 
 const UserFavorites = () => {
 	const dispatch = useDispatch();
 	const favoritesList = useSelector((state) => state.favorites);
 	const currentUser = useSelector((state) => state.user);
-	const [favorites, setFavorites] = useState(favoritesList);
+	// const [favorites, setFavorites] = useState(favoritesList);
 
 	let { id } = useParams();
 
@@ -23,23 +24,18 @@ const UserFavorites = () => {
 	const getFavorites = () => {
 		dispatch(fetchFavorites(id));
 	};
+	// () => dispatch(removeFavorite(id, favorite))
 
 	const showFavorites = () => {
 		if (!_.isEmpty(favoritesList.favorites)) {
 			return favoritesList.favorites.map((favorite) => {
 				return (
-					<ListGroup.Item>
-						<Link to={`/movies/${favorite.movie_id}`}>
-							<span
-								style={{ textDecoration: "none", color: "black" }}
-								className="user-favorites-movie-link">
-								{favorite.movie.title}
-							</span>
-						</Link>
-						<Button onClick={() => dispatch(removeFavorite(id, favorite))}>
-							Remove
-						</Button>
-					</ListGroup.Item>
+					<Favorite
+						key={favorite.id}
+						movieTitle={favorite.movie.title}
+						onClick={() => dispatch(removeFavorite(currentUser.id, favorite))}
+						link={`/movies/${favorite.movie_id}`}
+					/>
 				);
 			});
 		}
