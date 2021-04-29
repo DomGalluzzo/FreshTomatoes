@@ -213,14 +213,13 @@ export const removeFavorite = (id, favorite) => async (dispatch) => {
 			type: REMOVE_FAVORITE_LOADING,
 		});
 
-		const response = await Axios.delete(
-			`/api/v1/users/${id}/favorites/${favoriteId}`
-		);
-		console.log(response);
+		await Axios.delete(`/api/v1/users/${id}/favorites/${favoriteId}`);
 
-		disaptch({
+		// const data = JSON.parse(response.config.data);
+
+		dispatch({
 			type: REMOVE_FAVORITE_SUCCESS,
-			payload: response,
+			// payload: response,
 		});
 	} catch (error) {
 		dispatch({

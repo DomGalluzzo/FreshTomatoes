@@ -13,7 +13,6 @@ const UserFavorites = () => {
 	const dispatch = useDispatch();
 	const favoritesList = useSelector((state) => state.favorites);
 	const currentUser = useSelector((state) => state.user);
-	// const [favorites, setFavorites] = useState(favoritesList);
 
 	let { id } = useParams();
 
@@ -24,6 +23,7 @@ const UserFavorites = () => {
 	const getFavorites = () => {
 		dispatch(fetchFavorites(id));
 	};
+
 	// () => dispatch(removeFavorite(id, favorite))
 
 	const showFavorites = () => {
