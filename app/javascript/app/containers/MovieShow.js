@@ -53,11 +53,14 @@ const MovieShow = () => {
 							<Container className="movie-trailer-container " fluid>
 								<Sticky className="sticky-container">
 									<VideoPlayer movie={movie} />
-									<AddFavorite
-										user={currentUser}
-										movie={movie}
-										userFavorites={userFavorites}
-									/>
+									<Container className="movie-trailer-footer-buttons">
+										<AddFavorite
+											user={currentUser}
+											movie={movie}
+											userFavorites={userFavorites}
+										/>
+										<NewReviewModal currentUser={currentUser} movie={movie} />
+									</Container>
 								</Sticky>
 							</Container>
 						</Col>
