@@ -17,7 +17,9 @@ const AddFavorite = ({ user, movie, userFavorites }) => {
 	};
 
 	return (
-		<button className="btn btn-success" onClick={handleAddFavorite}>
+		<button
+			className="btn btn-success button-align"
+			onClick={handleAddFavorite}>
 			Add to Watchlist
 		</button>
 	);
