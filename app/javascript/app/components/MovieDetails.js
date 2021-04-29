@@ -14,16 +14,14 @@ const MovieDetails = ({ movie }) => {
 				marginTop: "30px",
 			}}
 			fluid>
-			<Row>
-				<Col sm={4} lg={3} className="p-0">
+			<Row className="movie-details-row">
+				<Col sm={2} md={3} className="p-0">
 					<Image src={movie.poster} className="movie-poster" />
 				</Col>
-				<Col sm={8} lg={9} className="movie-info-column">
-					<h1 className="mt-4" style={{ fontSize: "25px", fontWeight: "bold" }}>
-						{movie.title}
-					</h1>
+				<Col sm={10} md={9} className="movie-info-column">
+					<h1 className="mt-4 movie-info-column-movie-title">{movie.title}</h1>
 
-					<h6 className="mt-3">
+					<h6 className="mt-3 movie-info-column-movie-info">
 						{movie.release_year}, {movie.genre.name},{" "}
 						{runtimeConversion(movie.runtime)}
 					</h6>

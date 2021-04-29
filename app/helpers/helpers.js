@@ -20,5 +20,8 @@ export const averageRating = (reviews) => {
 		  });
 
 	total = Math.floor((total / 50) * 100);
+	if (total > 100) {
+		total = 100;
+	}
 	return total;
 };

@@ -10,7 +10,7 @@
 }
 
 #movie-info-header {
-	font-size: 20px;
+	font-size: 1em;
 	margin-left: 3%;
 	font-family: $main-font;
 }
@@ -42,4 +42,31 @@
 .movie-table-data-column {
 	border-top: none !important;
 	text-align: left;
+}
+
+.rating-percentage {
+	font-size: 1.5em;
+	margin-left: 15%;
+}
+
+.movie-info-column-movie-title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.movie-info-column-movie-info {
+	font-size: 1em;
+}
+
+@media screen and (max-width: 768px) {
+	.movie-info-column-movie-title {
+		font-size: 1.1em;
+	}
+	.movie-info-column-movie-info {
+		font-size: 0.9em;
+	}
+
+	.movie-details-ratings {
+		padding-top: 10%;
+	}
 }

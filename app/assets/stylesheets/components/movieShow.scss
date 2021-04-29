@@ -1,0 +1,93 @@
+.movie-show-container {
+	background-color: #ffffff;
+	padding: 2%;
+}
+.movie-show-title {
+	font-family: $main-font;
+	background-color: #ffffff;
+	height: 100%;
+	width: fit-content;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.movie-show-header {
+	display: block;
+	// font-size: 1em;
+	// font-weight: bold;
+	background-color: $main-red;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.other-movies-title {
+	font-family: $main-font;
+}
+
+.other-movies-link {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+.credits-card {
+	border: none;
+}
+
+.credits-card-body {
+	padding: 0;
+}
+
+.credits-name {
+	font-size: 14px;
+	padding-top: 0.25rem;
+	margin-bottom: 0;
+}
+
+.credits-character {
+	font-size: 12px;
+	padding-top: 0.25rem;
+	color: #959595;
+}
+
+.review-card-column {
+	padding: 0;
+	margin-right: 5px;
+}
+
+.button-align {
+	position: relative;
+	left: 29%;
+	margin-top: 5%;
+}
+
+@media screen and (max-width: 768px) {
+	.sticky-container > div {
+		position: initial !important;
+	}
+	.movie-details-row {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.card-deck {
+		overflow: scroll;
+	}
+	.credits-card {
+		margin: 0;
+	}
+	.credits-card-body {
+		word-break: break-word;
+	}
+	.movie-info-column {
+		width: 145%;
+	}
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+	.card-columns {
+		column-count: 2 !important;
+	}
+	.button-align {
+		position: relative;
+		left: 13%;
+		margin-top: 5%;
+	}
+}
