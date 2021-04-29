@@ -12,6 +12,14 @@ export const FETCH_MOVIE_REVIEWS_LOADING = "FETCH_MOVIE_REVIEWS_LOADING";
 export const FETCH_MOVIE_REVIEWS_SUCCESS = "FETCH_MOVIE_REVIEWS_SUCCESS";
 export const FETCH_MOVIE_REVIEWS_FAILED = "FETCH_MOVIE_REVIEWS_FAILED";
 
+export const CREATE_REVIEW_LOADING = "CREATE_REVIEW_LOADING";
+export const CREATE_REVIEW_SUCCESS = "CREATE_REVIEW_SUCCESS";
+export const CREATE_REVIEW_FAILED = "CREATE_REVIEW_FAILED";
+
+export const UPDATE_REVIEW_LOADING = "UPDATE_REVIEW_LOADING";
+export const UPDATE_REVIEW_SUCCESS = "UPDATE_REVIEW_SUCCESS";
+export const UPDATE_REVIEW_FAILED = "UPDATE_REVIEW_FAILED";
+
 export const FETCH_FAVORITES_LOADING = "FETCH_FAVORITES_LOADING";
 export const FETCH_FAVORITES_SUCCESS = "FETCH_FAVORITES_SUCCESS";
 export const FETCH_FAVORITES_FAILED = "FETCH_FAVORITES_FAILED";
@@ -28,9 +36,7 @@ export const FETCH_USER_LOADING = "FETCH_USER_LOADING";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAILED = "FETCH_USER_FAILED";
 
-export const CREATE_REVIEW_LOADING = "CREATE_REVIEW_LOADING";
-export const CREATE_REVIEW_SUCCESS = "CREATE_REVIEW_SUCCESS";
-export const CREATE_REVIEW_FAILED = "CREATE_REVIEW_FAILED";
+// ! Movies
 
 export const fetchMovieShow = (id) => async (dispatch) => {
 	try {
@@ -68,6 +74,8 @@ export const fetchMoviesList = () => async (dispatch) => {
 		});
 	}
 };
+
+// ! Reviews
 
 export const fetchMovieReviews = (id) => async (dispatch) => {
 	try {
@@ -117,6 +125,37 @@ export const createReview = (movie_id, currentUser, comment, rating) => async (
 	}
 };
 
+export const updateReview = (movie_id, currentUser, comment, rating) => async (
+	dispatch
+) => {
+	const userId = currentUser.id;
+
+	try {
+		dispatch({
+			type: UPDATE_REVIEW_LOADING,
+		});
+
+		const response = await Axios.put(`/api/v1/movies/${movie_id}/reviews`, {
+			user_id: userId,
+			comment,
+			rating,
+		});
+
+		const data = JSON.parse(response.config.data);
+
+		dispatch({
+			type: UPDATE_REVIEW_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: UPDATE_REVIEW_FAILED,
+		});
+	}
+};
+
+// ! Favorites
+
 export const fetchFavorites = (id) => async (dispatch) => {
 	try {
 		dispatch({
@@ -160,6 +199,8 @@ export const addFavorite = (user_id, movie) => async (dispatch) => {
 	}
 };
 
+// ! Genres
+
 export const fetchGenres = () => async (dispatch) => {
 	try {
 		dispatch({
@@ -178,6 +219,8 @@ export const fetchGenres = () => async (dispatch) => {
 		});
 	}
 };
+
+// ! User
 
 export const fetchUser = () => async (dispatch) => {
 	try {
