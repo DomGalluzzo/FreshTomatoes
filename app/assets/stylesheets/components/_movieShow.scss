@@ -40,3 +40,9 @@
 	padding: 0;
 	margin-right: 5px;
 }
+
+@media screen and (max-width: 768px) {
+	.sticky-container > div {
+		position: initial !important;
+	}
+}
