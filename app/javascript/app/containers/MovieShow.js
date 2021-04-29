@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import { Col, Button, Row, Container, Image } from "react-bootstrap";
+import Sticky from "react-sticky-el";
 
 import {
 	fetchMovieShow,
@@ -19,6 +20,7 @@ import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
 import AddFavorite from "./AddFavorite";
 import NewReviewModal from "../components/NewReviewModal";
+import VideoPlayer from "../components/VideoPlayer";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
@@ -48,11 +50,16 @@ const MovieShow = () => {
 				<Container className="movie-show-container">
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
-							<AddFavorite
-								user={currentUser}
-								movie={movie}
-								userFavorites={userFavorites}
-							/>
+							<Container className="movie-trailer-container p-0 m-0" fluid>
+								<Sticky>
+									<VideoPlayer movie={movie} />
+									<AddFavorite
+										user={currentUser}
+										movie={movie}
+										userFavorites={userFavorites}
+									/>
+								</Sticky>
+							</Container>
 						</Col>
 
 						<Col sm={12} md={8} className="pl-4">
