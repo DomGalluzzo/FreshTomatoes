@@ -203,22 +203,24 @@ export const addFavorite = (user_id, movie) => async (dispatch) => {
 	}
 };
 
-export const removeFavorite = (user_id, movie) => async (dispatch) => {
-	const movieId = movie.id;
+export const removeFavorite = (id, favorite) => async (dispatch) => {
+	const favoriteId = favorite.id;
+
+	const movieId = favorite.movie_id;
+
 	try {
 		dispatch({
 			type: REMOVE_FAVORITE_LOADING,
 		});
 
-		const response = await Axios.delete(`/api/v1/users/${user_id}/favorites`, {
-			movie_id: movieId,
-		});
-
-		const data = JSON.parse(response.config.data);
+		const response = await Axios.delete(
+			`/api/v1/users/${id}/favorites/${favoriteId}`
+		);
+		console.log(response);
 
 		disaptch({
 			type: REMOVE_FAVORITE_SUCCESS,
-			payload: data,
+			payload: response,
 		});
 	} catch (error) {
 		dispatch({

@@ -46,7 +46,7 @@ const userFavoritesReducer = (state = [], action) => {
 			return {
 				...state,
 				loading: false,
-				favorites: action.payload,
+				// favorites: action.payload,
 				errorMessage: "",
 			};
 

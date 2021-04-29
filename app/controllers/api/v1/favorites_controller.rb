@@ -12,6 +12,12 @@ module Api
         @favorite = Favorite.new
       end
 
+      def show
+        @favorite = Favorite.find(params[:id])
+        render json: @favorite
+      end
+      
+
       def create
         @favorite = Favorite.new(favorite_params)
         @user = current_user
@@ -26,18 +32,20 @@ module Api
 
       def destroy
         @favorite = Favorite.find(favorite_params)
+        # @user = current_user
+        # @favorite.user = @user
         if @favorite.destroy
           flash[:success] = 'Favorite was successfully deleted.'
         else
           flash[:error] = 'Something went wrong'
         end
-        redirect_to favorites_url
+
       end
 
       private
 
       def favorite_params
-        params.permit(:movie_id)
+        params.permit(:id, :movie_id, :user_id, :format)
       end
     end
   end

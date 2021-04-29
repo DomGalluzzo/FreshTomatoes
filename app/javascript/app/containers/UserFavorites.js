@@ -1,24 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import _ from "lodash";
-import {
-	Col,
-	Row,
-	Container,
-	Jumbotron,
-	Image,
-	ListGroup,
-} from "react-bootstrap";
+import { Button, Container, ListGroup } from "react-bootstrap";
 
-import { fetchFavorites } from "../actions";
+import { fetchFavorites, removeFavorite } from "../actions";
 import Title from "../components/Title";
 
 const UserFavorites = () => {
 	const dispatch = useDispatch();
 	const favoritesList = useSelector((state) => state.favorites);
 	const currentUser = useSelector((state) => state.user);
+	const [favorites, setFavorites] = useState(favoritesList);
 
 	let { id } = useParams();
 
@@ -42,6 +36,9 @@ const UserFavorites = () => {
 								{favorite.movie.title}
 							</span>
 						</Link>
+						<Button onClick={() => dispatch(removeFavorite(id, favorite))}>
+							Remove
+						</Button>
 					</ListGroup.Item>
 				);
 			});
