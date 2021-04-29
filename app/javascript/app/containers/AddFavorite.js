@@ -3,26 +3,35 @@ import { addFavorite } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import _ from "lodash";
-import { Alert } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-const AddFavorite = ({ user, movie, userFavorites }) => {
+const AddFavorite = ({ user, movie }) => {
 	const dispatch = useDispatch();
+	const userFavorites = useSelector((state) => state.favorites.favorites);
+
 	const handleAddFavorite = () => {
-		if (userFavorites.some((favorite) => favorite.movie_id === movie.id)) {
-			alert(`${movie.title} is already in your watchlist`);
-		} else {
-			dispatch(addFavorite(user.id, movie));
-			alert(`${movie.title} successfully added to watchlist`);
+		if (!_.isUndefined(userFavorites)) {
+			if (userFavorites.some((favorite) => favorite.movie_id === movie.id)) {
+				return (
+					<Button className="btn btn-danger button-align disabled">
+						Already In Watchlist
+					</Button>
+				);
+			} else {
+				return (
+					<Button
+						className="btn btn-success button-align"
+						onClick={() => {
+							dispatch(addFavorite(user.id, movie));
+						}}>
+						Add To Watchlist
+					</Button>
+				);
+			}
 		}
 	};
 
-	return (
-		<button
-			className="btn btn-success button-align"
-			onClick={handleAddFavorite}>
-			Add to Watchlist
-		</button>
-	);
+	return <>{handleAddFavorite()}</>;
 };
 
 export default AddFavorite;
