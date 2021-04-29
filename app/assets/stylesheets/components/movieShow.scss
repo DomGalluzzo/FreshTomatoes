@@ -56,9 +56,19 @@
 
 .button-align {
 	position: relative;
-	left: 29%;
-	margin-top: 5%;
+	// left: 29%;
+	margin: 5% 0;
 }
+
+.movie-trailer-container {
+	padding-top: 5rem;
+}
+
+.sticky {
+	top: 5% !important;
+}
+
+// ! Media Queries Below
 
 @media screen and (max-width: 768px) {
 	.sticky-container > div {
@@ -87,7 +97,7 @@
 	}
 	.button-align {
 		position: relative;
-		left: 13%;
-		margin-top: 5%;
+		// left: 13%;
+		margin: 5% 0;
 	}
 }

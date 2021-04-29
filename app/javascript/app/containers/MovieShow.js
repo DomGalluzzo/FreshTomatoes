@@ -50,7 +50,7 @@ const MovieShow = () => {
 				<Container className="movie-show-container">
 					<Row className="mt-3">
 						<Col sm={0} md={4}>
-							<Container className="movie-trailer-container p-0 m-0" fluid>
+							<Container className="movie-trailer-container " fluid>
 								<Sticky className="sticky-container">
 									<VideoPlayer movie={movie} />
 									<AddFavorite
