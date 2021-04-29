@@ -28,6 +28,10 @@ export const ADD_FAVORITE_LOADING = "ADD_FAVORITE_LOADING";
 export const ADD_FAVORITE_SUCCESS = "ADD_FAVORITE_SUCCESS";
 export const ADD_FAVORITE_FAILED = "ADD_FAVORITE_FAILED";
 
+export const REMOVE_FAVORITE_LOADING = "REMOVE_FAVORITE_LOADING";
+export const REMOVE_FAVORITE_SUCCESS = "REMOVE_FAVORITE_SUCCESS";
+export const REMOVE_FAVORITE_FAILED = "REMOVE_FAVORITE_FAILED";
+
 export const FETCH_GENRES_LOADING = "FETCH_GENRES_LOADING";
 export const FETCH_GENRES_SUCCESS = "FETCH_GENRES_SUCCESS";
 export const FETCH_GENRES_FAILED = "FETCH_GENRES_FAILED";
@@ -195,6 +199,27 @@ export const addFavorite = (user_id, movie) => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: ADD_FAVORITE_FAILED,
+		});
+	}
+};
+
+export const removeFavorite = (user_id, movie) => async (dispatch) => {
+	const movieId = movie.id;
+	try {
+		dispatch({
+			type: REMOVE_FAVORITE_LOADING,
+		});
+
+		const response = await Axios.delete(`/api/v1/users/${user_id}/favorites`, {
+			movie_id: movieId,
+		});
+
+		disaptch({
+			type: REMOVE_FAVORITE_SUCCESS,
+		});
+	} catch (error) {
+		dispatch({
+			type: REMOVE_FAVORITE_FAILED,
 		});
 	}
 };
