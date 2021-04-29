@@ -92,7 +92,9 @@ const MovieShow = () => {
 											id="movie-info-header"
 										/>
 									</Row>
-									<Row className="render-review-modal-button-container">
+									<Row
+										className="render-review-modal-button-container"
+										id="add-review-hide">
 										<NewReviewModal currentUser={currentUser} movie={movie} />
 									</Row>
 									<Container className="reviews-list-body mt-3">

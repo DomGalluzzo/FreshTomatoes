@@ -73,6 +73,10 @@
 	justify-content: space-between;
 }
 
+#add-review-hide {
+	display: none;
+}
+
 // ! Media Queries Below
 
 @media screen and (max-width: 768px) {
@@ -97,6 +101,9 @@
 	}
 	.movie-trailer-container {
 		padding-top: 0;
+	}
+	#add-review-hide {
+		display: contents;
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 768px) {
