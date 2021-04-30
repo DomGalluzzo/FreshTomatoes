@@ -46,6 +46,9 @@ const userFavoritesReducer = (state = [], action) => {
 			return {
 				...state,
 				loading: false,
+				favorites: state.favorites.filter(
+					(favorite) => favorite.id != action.payload.id
+				),
 
 				errorMessage: "",
 			};

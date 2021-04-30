@@ -17,7 +17,7 @@ const HomePage = () => {
 	const dispatch = useDispatch();
 	const moviesList = useSelector((state) => state.moviesList);
 	const currentUser = useSelector((state) => state.user);
-	const userFavorites = useSelector((state) => state.favorites.favorites);
+	// const userFavorites = useSelector((state) => state.favorites.favorites);
 
 	useEffect(() => {
 		fetchData();
@@ -26,9 +26,9 @@ const HomePage = () => {
 	const fetchData = () => {
 		dispatch(fetchMoviesList());
 		dispatch(fetchUser());
-		if (!_.isNull(currentUser)) {
-			dispatch(fetchFavorites(currentUser.id));
-		}
+		// if (!_.isNull(currentUser)) {
+		// 	dispatch(fetchFavorites(currentUser.id));
+		// }
 	};
 
 	// * Returns movies that have a release year before 2000

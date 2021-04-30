@@ -24,8 +24,6 @@ const UserFavorites = () => {
 		dispatch(fetchFavorites(id));
 	};
 
-	// () => dispatch(removeFavorite(id, favorite))
-
 	const showFavorites = () => {
 		if (!_.isEmpty(favoritesList.favorites)) {
 			return favoritesList.favorites.map((favorite) => {
@@ -39,6 +37,15 @@ const UserFavorites = () => {
 				);
 			});
 		}
+		if (favoritesList.loading) {
+			return <p>loading...</p>;
+		}
+
+		if (favoritesList.errorMessage !== "") {
+			return <p>{favoritesList.errorMessage}</p>;
+		}
+
+		return <p>Unable to fetch data</p>;
 	};
 
 	return (

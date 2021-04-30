@@ -39,6 +39,7 @@ module Api
         else
           flash[:error] = 'Something went wrong'
         end
+        render json: @favorites
 
       end
 
