@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import _ from "lodash";
-import { Button, Container, ListGroup } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 import { fetchFavorites, removeFavorite } from "../actions";
 import Title from "../components/Title";
@@ -28,12 +28,13 @@ const UserFavorites = () => {
 		if (!_.isEmpty(favoritesList.favorites)) {
 			return favoritesList.favorites.map((favorite) => {
 				return (
-					<Favorite
-						key={favorite.id}
-						movieTitle={favorite.movie.title}
-						onClick={() => dispatch(removeFavorite(currentUser.id, favorite))}
-						link={`/movies/${favorite.movie_id}`}
-					/>
+					<Col sm={6} md={2} className="p-0 user-favorite-item-column">
+						<Favorite
+							key={favorite.id}
+							movie={favorite.movie}
+							onClick={() => dispatch(removeFavorite(currentUser.id, favorite))}
+						/>
+					</Col>
 				);
 			});
 		}
@@ -55,7 +56,7 @@ const UserFavorites = () => {
 				text={`${currentUser.username}'s Watchlist`}
 				style={{ fontSize: "1.5em" }}
 			/>
-			<ListGroup>{showFavorites()}</ListGroup>
+			<Row className="user-favorites-row">{showFavorites()}</Row>
 		</Container>
 	);
 };

@@ -1,0 +1,32 @@
+.user-favorites-row {
+	margin: 0 auto;
+}
+
+.user-favorite-item-column {
+	margin: 0.75em 1.1em;
+	box-shadow: 0 0 13px 3px rgba(15, 15, 15, 0.3);
+	width: 47%;
+	border-radius: 2%;
+
+	> a > img {
+		width: 100%;
+		border-top-left-radius: 2%;
+		border-top-right-radius: 2%;
+	}
+
+	.poster-footer {
+		text-align: center;
+		font-family: $main-font;
+	}
+}
+
+.remove-favorite-button-container {
+}
+
+// ! Media Queries
+
+@media screen and (max-width: 768px) {
+	.user-favorite-item-column {
+		margin: 1em 0.25em;
+	}
+}
