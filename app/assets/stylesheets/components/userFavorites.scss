@@ -1,12 +1,23 @@
 .user-favorites-row {
-	margin: 0 auto;
+	margin: 2em 0 !important;
 }
 
 .user-favorite-item-column {
 	margin: 0.75em 1.1em;
 	box-shadow: 0 0 13px 3px rgba(15, 15, 15, 0.3);
-	width: 47%;
+	width: 47% !important;
+
+	height: 0%;
 	border-radius: 2%;
+
+	&:hover {
+		opacity: 0.8;
+		transition-duration: 500ms;
+
+		.poster-footer {
+			color: $main-red;
+		}
+	}
 
 	> a > img {
 		width: 100%;
@@ -21,6 +32,16 @@
 }
 
 .remove-favorite-button-container {
+	display: flex;
+	justify-content: center;
+	border-top: 0.1em solid rgba(0, 0, 0, 0.1);
+}
+
+.delete-icon {
+	cursor: pointer;
+	margin: 0.25em 0;
+	color: $main-red;
+	transition: transform 300ms ease-out;
 }
 
 // ! Media Queries

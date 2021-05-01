@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Button, Container } from "react-bootstrap";
+import { FaTrashAlt } from "react-icons/fa";
 import Movie from "./Movie";
 
 // const Favorite = ({ onClick, movieTitle, link }) => {
@@ -25,7 +26,8 @@ const Favorite = ({ onClick, movie }) => {
 		<>
 			<Movie key={movie.id} movie={movie} image={movie.poster} />
 			<Container className="p-0 m-0 remove-favorite-button-container" fluid>
-				<Button onClick={onClick}>Remove</Button>
+				{/* <Button onClick={onClick}>Remove</Button> */}
+				<FaTrashAlt size="2em" onClick={onClick} className="delete-icon" />
 			</Container>
 		</>
 	);
