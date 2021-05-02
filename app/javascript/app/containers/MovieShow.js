@@ -54,11 +54,7 @@ const MovieShow = () => {
 								<Sticky className="sticky-container">
 									<VideoPlayer movie={movie} />
 									<Container className="movie-trailer-footer-buttons">
-										<AddFavorite
-											user={currentUser}
-											movie={movie}
-											userFavorites={userFavorites}
-										/>
+										<AddFavorite user={currentUser} movie={movie} />
 										<NewReviewModal currentUser={currentUser} movie={movie} />
 									</Container>
 								</Sticky>
@@ -92,7 +88,9 @@ const MovieShow = () => {
 											id="movie-info-header"
 										/>
 									</Row>
-									<Row className="render-review-modal-button-container">
+									<Row
+										className="render-review-modal-button-container"
+										id="add-review-hide">
 										<NewReviewModal currentUser={currentUser} movie={movie} />
 									</Row>
 									<Container className="reviews-list-body mt-3">

@@ -1,9 +1,32 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
+
+import { Modal } from "react-bootstrap";
 import ReactPlayer from "react-player";
 
-const VideoPlayer = ({ movie }) => {
-	return <ReactPlayer url={movie.trailer} width="100%" height="100%" />;
+const VideoPlayer = ({ movie, open, toggleModal }) => {
+	const [trailerModalShow, setTrailerModalShow] = useState(false);
+
+	const handleOpenTrailerModal = () => setTrailerModalShow(true);
+	const handleCloseTrailerModal = () => setTrailerModalShow(false);
+
+	return (
+		<>
+			<ReactPlayer
+				url={movie.trailer}
+				light={true}
+				width="100%"
+				height="100%"
+				onClick={handleOpenTrailerModal}
+			/>
+			<Modal
+				size="lg"
+				show={trailerModalShow}
+				onHide={handleCloseTrailerModal}
+				centered>
+				<ReactPlayer url={movie.trailer} />
+			</Modal>
+		</>
+	);
 };
 
 export default VideoPlayer;

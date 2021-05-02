@@ -1,0 +1,58 @@
+.user-favorites-row {
+	margin: 2em 0 !important;
+}
+
+.user-favorite-item-column {
+	margin: 0.75em 1.1em;
+	box-shadow: 0 0 13px 3px rgba(15, 15, 15, 0.3);
+	width: 47% !important;
+
+	height: 0%;
+	border-radius: 2%;
+
+	&:hover {
+		opacity: 0.8;
+		transition-duration: 500ms;
+
+		.poster-footer {
+			color: $main-red;
+		}
+	}
+
+	> a > img {
+		width: 100%;
+		border-top-left-radius: 2%;
+		border-top-right-radius: 2%;
+	}
+
+	.poster-footer {
+		text-align: center;
+		font-family: $main-font;
+	}
+}
+
+.user-watchlist-title {
+	margin-left: 1rem;
+	margin-top: 1rem;
+	border-left: 5px solid $main-red;
+	font-family: $main-font;
+}
+
+.remove-favorite-button-container {
+	display: flex;
+	justify-content: center;
+	border-top: 0.1em solid rgba(0, 0, 0, 0.1);
+}
+
+.favorite-remove-button > span {
+	font-size: 0.75em;
+	font-family: $main-font;
+}
+
+// ! Media Queries
+
+@media screen and (max-width: 768px) {
+	.user-favorite-item-column {
+		margin: 1em 0.25em;
+	}
+}

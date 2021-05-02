@@ -2,8 +2,8 @@ module Api
   module V1
     class ReviewsController < ApplicationController
       skip_before_action :authenticate_user!, only: %i[index show]
-      skip_before_action :verify_authenticity_token
-      # before_action :set_movie, only: %i[create update destroy]
+      skip_before_action :verify_authenticity_token, only: :create
+      # before_action :set_movie, only: %i[show create update destroy]
 
       def index
         @reviews = Review.where(movie_id: params[:movie_id]).includes(:user)
@@ -23,16 +23,13 @@ module Api
 
       def create
         @review = Review.new(review_params)
-        @user = current_user
-        @review.user = @user
-        @movie = @review.movie
-
+        @review.user = current_user
         if @review.save!
           flash[:success] = "Review successfully created"
           render json: @movie
         else
           flash[:error] = "Something went wrong"
-          render 'new'
+          render "new"
         end
       end
 
@@ -64,7 +61,7 @@ module Api
       end
 
       def set_movie
-        @movie = Movie.find(params[:id])
+        @movie = Movie.find(params[:movie_id])
       end
     end
   end

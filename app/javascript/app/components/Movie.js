@@ -13,7 +13,7 @@ const Movie = ({ movie, image, rating, className }) => {
 				{image && (
 					<Image
 						src={movie.poster}
-						style={{ height: "258px", width: "180px", opacity: "0.9" }}
+						style={{ height: "258px", opacity: "0.9" }}
 					/>
 				)}
 
