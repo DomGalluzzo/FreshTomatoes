@@ -22,6 +22,7 @@ const VideoPlayer = ({ movie, open, toggleModal }) => {
 				size="lg"
 				show={trailerModalShow}
 				onHide={handleCloseTrailerModal}
+				className="modal-content-trailer"
 				centered>
 				<ReactPlayer url={movie.trailer} />
 			</Modal>

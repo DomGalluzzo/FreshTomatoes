@@ -86,7 +86,7 @@
 }
 
 // ! Video Player Modal override
-.modal-content {
+.modal-content-trailer {
 	border: none;
 	width: fit-content;
 	left: 7%;
@@ -125,11 +125,11 @@
 		display: contents;
 	}
 
-	.modal-content {
+	.modal-content-trailer {
 		bottom: 3rem;
 	}
 
-	.modal-content > div {
+	.modal-content-trailer > div {
 		height: 100% !important;
 		width: 100% !important;
 	}
