@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { createReview } from "../actions";
 import { Button, Modal, Form } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
-const NewReviewModal = ({ currentUser, movie }) => {
+const NewReviewModal = ({ currentUser, userReview, movie }) => {
 	const dispatch = useDispatch();
 
 	const [show, setShow] = useState(false);
@@ -27,11 +28,40 @@ const NewReviewModal = ({ currentUser, movie }) => {
 		setComment("");
 	};
 
+	const handleUpdateReview = (e) => {
+		e.preventDefault();
+
+		dispatch(updateReview(movie.id, currentUser, comment, rating));
+
+		setRating(null);
+		setComment("");
+	};
+
+	const handleLoadUserReview = (e) => {
+		e.preventDefault();
+		setRating(userReview.rating);
+		setComment(userReview.comment);
+	};
+
+	// const renderCreateReviewModal = () => {
+	// 	return (
+
+	// 	)
+	// }
+
 	return (
 		<>
-			<Button className="button-align" variant="success" onClick={handleShow}>
-				Add Review
-			</Button>
+			{!_.isNull(currentUser.user) ? (
+				<Button className="button-align" variant="success" onClick={handleShow}>
+					Add Review
+				</Button>
+			) : (
+				<Link to="/users/sign_in">
+					<Button className="button-align" variant="warning">
+						Sign in to Review
+					</Button>
+				</Link>
+			)}
 			<Modal
 				show={show}
 				onHide={handleClose}
