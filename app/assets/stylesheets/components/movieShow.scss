@@ -77,6 +77,17 @@
 	display: none;
 }
 
+// ! Video Player Modal override
+.modal-content {
+	border: none;
+	width: fit-content;
+	left: 7%;
+}
+
+.react-player__preview {
+	height: 10rem !important;
+}
+
 // ! Media Queries Below
 
 @media screen and (max-width: 768px) {
@@ -104,6 +115,15 @@
 	}
 	#add-review-hide {
 		display: contents;
+	}
+
+	.modal-content {
+		bottom: 3rem;
+	}
+
+	.modal-content > div {
+		height: 100% !important;
+		width: 100% !important;
 	}
 }
 @media screen and (min-width: 576px) and (max-width: 768px) {
