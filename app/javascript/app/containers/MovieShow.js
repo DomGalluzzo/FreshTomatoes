@@ -52,6 +52,10 @@ const MovieShow = () => {
 						<Col sm={0} md={4}>
 							<Container className="movie-trailer-container " fluid>
 								<Sticky className="sticky-container">
+									<Title
+										text={`${movie.title} Trailer`}
+										className="movie-trailer-title"
+									/>
 									<VideoPlayer movie={movie} />
 									<Container className="movie-trailer-footer-buttons">
 										<AddFavorite user={currentUser} movie={movie} />

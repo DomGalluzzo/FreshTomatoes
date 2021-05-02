@@ -73,6 +73,14 @@
 	justify-content: space-between;
 }
 
+.movie-trailer-title {
+	font-size: 1.25em;
+	font-family: $main-font;
+	border-left: 5px solid $main-red;
+	padding-left: 0.25em;
+	margin-bottom: 0.25em;
+}
+
 #add-review-hide {
 	display: none;
 }
