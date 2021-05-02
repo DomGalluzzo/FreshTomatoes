@@ -52,7 +52,7 @@ const UserFavorites = () => {
 	return (
 		<Container className="user-favorites-container p-0" fluid>
 			<Title
-				className="pl-4"
+				className="pl-1 user-watchlist-title"
 				text={`${currentUser.username}'s Watchlist`}
 				style={{ fontSize: "1.5em" }}
 			/>
