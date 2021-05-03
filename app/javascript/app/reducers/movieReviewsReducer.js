@@ -8,6 +8,9 @@ import {
 	UPDATE_REVIEW_LOADING,
 	UPDATE_REVIEW_SUCCESS,
 	UPDATE_REVIEW_FAILED,
+	DELETE_REVIEW_LOADING,
+	DELETE_REVIEW_SUCCESS,
+	DELETE_REVIEW_FAILED,
 } from "../actions";
 
 import initialState from "../components/initialState";
@@ -21,7 +24,7 @@ const movieReviewsReducer = (state = [], action) => {
 		case CREATE_REVIEW_SUCCESS:
 			return {
 				...state,
-				reviews: [...state.reviews, action.payload],
+				reviews: [...state.reviews, { review: action.payload }],
 				loading: false,
 				errorMessage: "",
 			};
@@ -65,10 +68,33 @@ const movieReviewsReducer = (state = [], action) => {
 			return {
 				...state,
 				loading: false,
-				errorMessage: "Unable to updated review",
+				errorMessage: "Unable to update review",
 			};
 
 		// ! Destroy
+		case DELETE_REVIEW_LOADING:
+			return {
+				...state,
+				loading: true,
+				errorMessage: "",
+			};
+
+		case DELETE_REVIEW_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				reviews: state.reviews.filter(
+					(review) => review.id != action.payload.id
+				),
+				errorMessage: "",
+			};
+
+		case DELETE_REVIEW_FAILED:
+			return {
+				...state,
+				loading: false,
+				errorMessage: "Unable to delete review",
+			};
 
 		default:
 			return state;

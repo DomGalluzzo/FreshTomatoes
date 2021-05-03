@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { createReview } from "../actions";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Container, Modal, Form } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
 const NewReviewModal = ({ currentUser, userReview, movie }) => {
@@ -44,14 +44,15 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 				show={show}
 				onHide={handleClose}
 				backdrop="static"
-				keyboard={false}>
+				keyboard={false}
+				className="modal-content-review">
 				<Modal.Header closeButton>
-					<Modal.Title>{`New Review for ${movie.title}`}</Modal.Title>
+					<Modal.Title className="modal-title-review">{`New Review for ${movie.title}`}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Form>
 						<Form.Group controlId="formNewReviewRating">
-							<Form.Label>Rating</Form.Label>
+							<Form.Label className="modal-title-review">Rating</Form.Label>
 							<ReactStars
 								count={5}
 								onChange={ratingChanged}
@@ -63,7 +64,7 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 							/>
 						</Form.Group>
 						<Form.Group controlId="formNewReviewComment">
-							<Form.Label>Comment</Form.Label>
+							<Form.Label className="modal-title-review">Comment</Form.Label>
 							<Form.Control
 								as="textarea"
 								rows={3}
@@ -71,12 +72,14 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>
-						<Button
-							variant="primary"
-							type="submit"
-							onClick={handleCreateReview}>
-							Submit Review
-						</Button>
+						<Container className="modal-form-button-container" id="new-review">
+							<Button
+								variant="primary"
+								type="submit"
+								onClick={handleCreateReview}>
+								Submit Review
+							</Button>
+						</Container>
 					</Form>
 				</Modal.Body>
 			</Modal>

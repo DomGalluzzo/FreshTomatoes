@@ -2,7 +2,7 @@ module Api
   module V1
     class ReviewsController < ApplicationController
       skip_before_action :authenticate_user!, only: %i[index show]
-      skip_before_action :verify_authenticity_token, only: %i[update create]
+      skip_before_action :verify_authenticity_token, only: %i[update create destroy]
       # before_action :set_movie, only: %i[show create update destroy]
       before_action :set_review, only: :update
 
@@ -24,7 +24,8 @@ module Api
 
       def create
         @review = Review.new(review_params)
-        @review.user = current_user
+        @user = current_user
+        @review.user = @user
         if @review.save!
           flash[:success] = "Review successfully created"
           render json: @movie
@@ -52,7 +53,6 @@ module Api
         else
           flash[:error] = 'Something went wrong'
         end
-        redirect_to reviews_url
       end
 
       private

@@ -28,3 +28,25 @@
 	font-size: 0.75em;
 	font-family: $main-font;
 }
+.modal-form-button-container {
+	display: flex;
+	padding: 0 !important;
+	justify-content: space-between;
+	margin-top: 2em;
+
+	&#new-review {
+		justify-content: flex-end;
+	}
+}
+
+// .modal-content-review {
+// 	font-family: $main-font;
+// }
+
+.modal-title-review {
+	font-size: 1.25em;
+	font-family: $main-font;
+	border-left: 5px solid $main-red;
+	padding-left: 0.25em;
+	margin-bottom: 0.25em;
+}

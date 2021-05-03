@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 // import { Link } from "react-router-dom";
 
-import { updateReview } from "../actions";
-import { Button, Modal, Form } from "react-bootstrap";
+import { updateReview, deleteReview } from "../actions";
+import { Button, Container, Modal, Form } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
 const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
@@ -21,13 +21,17 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	};
 
 	const userReviewId = userReview.id;
+	const movieId = movie.id;
+
 	const handleUpdateReview = () => {
-		dispatch(
-			updateReview(movie.id, currentUser, userReviewId, comment, rating)
-		);
+		dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
 
 		setRating(null);
 		setComment("");
+	};
+
+	const handleDeleteReview = () => {
+		dispatch(deleteReview(movieId, userReviewId));
 	};
 
 	return (
@@ -41,14 +45,15 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 				show={show}
 				onHide={handleClose}
 				backdrop="static"
-				keyboard={false}>
+				keyboard={false}
+				className="modal-content-review">
 				<Modal.Header closeButton>
-					<Modal.Title>{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
+					<Modal.Title className="modal-title-review">{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Form validated={true}>
 						<Form.Group controlId="formNewReviewRating">
-							<Form.Label>Rating</Form.Label>
+							<Form.Label className="modal-title-review">Rating</Form.Label>
 							<ReactStars
 								count={5}
 								onChange={ratingChanged}
@@ -61,7 +66,7 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 							/>
 						</Form.Group>
 						<Form.Group controlId="formNewReviewComment">
-							<Form.Label>Comment</Form.Label>
+							<Form.Label className="modal-title-review">Comment</Form.Label>
 							<Form.Control
 								as="textarea"
 								rows={3}
@@ -69,12 +74,17 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>
-						<Button
-							variant="primary"
-							type="submit"
-							onClick={handleUpdateReview}>
-							Submit Review
-						</Button>
+						<Container className="modal-form-button-container">
+							<Button variant="danger" onClick={handleDeleteReview}>
+								DELETE
+							</Button>
+							<Button
+								variant="primary"
+								type="submit"
+								onClick={handleUpdateReview}>
+								Submit Review
+							</Button>
+						</Container>
 					</Form>
 				</Modal.Body>
 			</Modal>
