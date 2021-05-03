@@ -2,10 +2,14 @@
 	display: flex;
 	justify-content: space-between;
 	box-shadow: 0 0 14px 3px rgba(50, 50, 50, 0.2);
+	width: 89%;
+	background: #ffffff;
 }
 
 .sub-form-container {
-	padding: 2.5%;
+	padding-left: 2.5%;
+	padding-bottom: 2.5%;
+	width: 44%;
 }
 
 .sign-in-footer-links {
@@ -29,6 +33,15 @@
 .image-left-container > img {
 	width: 540px;
 	height: 387px;
+
+	opacity: 0.8;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+.image-right-container > img {
+	width: 556px;
+	// height: 449px;
+	height: 100%;
 	opacity: 0.8;
 	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
 }
@@ -41,6 +54,11 @@
 
 .session-button-container {
 	max-width: 50%;
+}
+
+.form-actions.d-flex {
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 // ! Media Queries

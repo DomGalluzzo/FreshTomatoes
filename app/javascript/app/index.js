@@ -7,7 +7,6 @@ import ReduxToastr from "react-redux-toastr";
 
 import store from "./components/store";
 import App from "./components/App";
-import TopNav from "./components/TopNav";
 
 ReactDOM.render(
 	<React.StrictMode>
