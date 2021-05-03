@@ -3,6 +3,7 @@ module Api
     class FavoritesController < ApplicationController
       skip_before_action :verify_authenticity_token
       before_action :set_favorite, only: %i[update destroy]
+
       def index
         @favorites = Favorite.where(user_id: params[:user_id])
 

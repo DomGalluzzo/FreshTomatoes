@@ -2,8 +2,9 @@ module Api
   module V1
     class ReviewsController < ApplicationController
       skip_before_action :authenticate_user!, only: %i[index show]
-      skip_before_action :verify_authenticity_token, only: :create
+      skip_before_action :verify_authenticity_token, only: %i[update create]
       # before_action :set_movie, only: %i[show create update destroy]
+      before_action :set_review, only: :update
 
       def index
         @reviews = Review.where(movie_id: params[:movie_id]).includes(:user)
@@ -34,10 +35,10 @@ module Api
       end
 
       def update
-        @review = Review.find(review_params)
-        if @review.update_attributes(params[:review])
+        # @review = Review.find(params[:id])
+
+        if @review.update(review_params)
           flash[:success] = "Review was successfully updated"
-          redirect_to @movie
         else
           flash[:error] = "Something went wrong"
           render 'edit'
@@ -57,11 +58,15 @@ module Api
       private
 
       def review_params
-        params.permit(:movie_id, :user_id, :comment, :rating)
+        params.require(:review).permit(:movie_id, :user_id, :comment, :rating)
       end
 
       def set_movie
         @movie = Movie.find(params[:movie_id])
+      end
+
+      def set_review
+        @review = Review.find(params[:review_id] || params[:id])
       end
     end
   end

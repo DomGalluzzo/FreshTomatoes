@@ -20,10 +20,11 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 		setRating(newRating);
 	};
 
-	const handleUpdateReview = (e) => {
-		e.preventDefault();
-
-		dispatch(updateReview(movie.id, currentUser, comment, rating));
+	const userReviewId = userReview.id;
+	const handleUpdateReview = () => {
+		dispatch(
+			updateReview(movie.id, currentUser, userReviewId, comment, rating)
+		);
 
 		setRating(null);
 		setComment("");
@@ -42,16 +43,17 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 				backdrop="static"
 				keyboard={false}>
 				<Modal.Header closeButton>
-					<Modal.Title>{`Edit ${currentUser.username}'s for ${movie.title}`}</Modal.Title>
+					<Modal.Title>{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form>
+					<Form validated={true}>
 						<Form.Group controlId="formNewReviewRating">
 							<Form.Label>Rating</Form.Label>
 							<ReactStars
 								count={5}
 								onChange={ratingChanged}
 								size={24}
+								value={userReview.rating}
 								emptyIcon={<i className="far fa-star"></i>}
 								halfIcon={<i className="fa fa-star-half-alt"></i>}
 								fullIcon={<i className="fa fa-star"></i>}
@@ -63,7 +65,7 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 							<Form.Control
 								as="textarea"
 								rows={3}
-								value={comment}
+								defaultValue={userReview.comment}
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>

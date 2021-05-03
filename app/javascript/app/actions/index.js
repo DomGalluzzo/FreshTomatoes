@@ -129,9 +129,13 @@ export const createReview = (movie_id, currentUser, comment, rating) => async (
 	}
 };
 
-export const updateReview = (movie_id, currentUser, comment, rating) => async (
-	dispatch
-) => {
+export const updateReview = (
+	movie_id,
+	currentUser,
+	userReviewId,
+	comment,
+	rating
+) => async (dispatch) => {
 	const userId = currentUser.id;
 
 	try {
@@ -139,10 +143,11 @@ export const updateReview = (movie_id, currentUser, comment, rating) => async (
 			type: UPDATE_REVIEW_LOADING,
 		});
 
-		const response = await Axios.put(
+		const response = await Axios.patch(
 			`/api/v1/movies/${movie_id}/reviews/${userReviewId}`,
 			{
-				user_id: userId,
+				// id: userReviewId,
+				// user_id: userId,
 				comment,
 				rating,
 			}
