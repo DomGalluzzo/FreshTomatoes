@@ -67,7 +67,9 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 								style={{ height: "50px", width: "50px" }}
 							/>
 
-							<p className="ml-3" style={{ wordBreak: "break-word" }}>
+							<p
+								className="ml-3 review-card-footer-username"
+								style={{ wordBreak: "break-word" }}>
 								{review.user.username}
 							</p>
 						</Card.Footer>

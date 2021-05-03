@@ -6,7 +6,7 @@ import { updateReview } from "../actions";
 import { Button, Modal, Form } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
-const NewReviewModal = ({ currentUser, userReview, movie }) => {
+const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	const dispatch = useDispatch();
 
 	const [show, setShow] = useState(false);
@@ -82,4 +82,4 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 	);
 };
 
-export default NewReviewModal;
+export default UpdateReviewModal;
