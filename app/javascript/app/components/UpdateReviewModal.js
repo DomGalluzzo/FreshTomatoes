@@ -39,7 +39,6 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	};
 
 	// ! Toastr
-
 	const toastrConfirmOptions = {
 		// * Reversed to switch button placement
 		okText: "Cancel",
