@@ -20,6 +20,10 @@ export const UPDATE_REVIEW_LOADING = "UPDATE_REVIEW_LOADING";
 export const UPDATE_REVIEW_SUCCESS = "UPDATE_REVIEW_SUCCESS";
 export const UPDATE_REVIEW_FAILED = "UPDATE_REVIEW_FAILED";
 
+export const DELETE_REVIEW_LOADING = "DELETE_REVIEW_LOADING";
+export const DELETE_REVIEW_SUCCESS = "DELETE_REVIEW_SUCCESS";
+export const DELETE_REVIEW_FAILED = "DELETE_REVIEW_FAILED";
+
 export const FETCH_FAVORITES_LOADING = "FETCH_FAVORITES_LOADING";
 export const FETCH_FAVORITES_SUCCESS = "FETCH_FAVORITES_SUCCESS";
 export const FETCH_FAVORITES_FAILED = "FETCH_FAVORITES_FAILED";
@@ -112,6 +116,7 @@ export const createReview = (movie_id, currentUser, comment, rating) => async (
 
 		const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
 			user_id: userId,
+			movie_id: movie_id,
 			comment,
 			rating,
 		});
@@ -129,21 +134,25 @@ export const createReview = (movie_id, currentUser, comment, rating) => async (
 	}
 };
 
-export const updateReview = (movie_id, currentUser, comment, rating) => async (
-	dispatch
-) => {
-	const userId = currentUser.id;
-
+export const updateReview = (
+	movieId,
+	currentUser,
+	userReviewId,
+	comment,
+	rating
+) => async (dispatch) => {
 	try {
 		dispatch({
 			type: UPDATE_REVIEW_LOADING,
 		});
 
-		const response = await Axios.put(`/api/v1/movies/${movie_id}/reviews`, {
-			user_id: userId,
-			comment,
-			rating,
-		});
+		const response = await Axios.patch(
+			`/api/v1/movies/${movieId}/reviews/${userReviewId}`,
+			{
+				comment,
+				rating,
+			}
+		);
 
 		const data = JSON.parse(response.config.data);
 
@@ -154,6 +163,28 @@ export const updateReview = (movie_id, currentUser, comment, rating) => async (
 	} catch (error) {
 		dispatch({
 			type: UPDATE_REVIEW_FAILED,
+		});
+	}
+};
+
+export const deleteReview = (movieId, userReviewId) => async (dispatch) => {
+	try {
+		dispatch({
+			type: DELETE_REVIEW_LOADING,
+		});
+
+		const response = await Axios.delete(
+			`/api/v1/movies/${movieId}/reviews/${userReviewId}`,
+			{ review: { id: userReviewId } }
+		);
+
+		dispatch({
+			type: DELETE_REVIEW_SUCCESS,
+			payload: response.config.review,
+		});
+	} catch (error) {
+		dispatch({
+			type: DELETE_REVIEW_FAILED,
 		});
 	}
 };

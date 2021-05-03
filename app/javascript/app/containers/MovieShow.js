@@ -20,13 +20,22 @@ import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
 import AddFavorite from "./AddFavorite";
 import NewReviewModal from "../components/NewReviewModal";
+import UpdateReviewModal from "../components/UpdateReviewModal";
 import VideoPlayer from "../components/VideoPlayer";
 
 const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movieState = useSelector((state) => state.movieShow);
 	const currentUser = useSelector((state) => state.user);
-	const userFavorites = useSelector((state) => state.favorites.favorites);
+	// const userFavorites = useSelector((state) => state.favorites.favorites);
+	const movieReviews = useSelector((state) => state.movieReviews.reviews);
+
+	let userReview;
+	if (!_.isUndefined(movieReviews)) {
+		userReview = movieReviews.find(
+			(review) => review.user_id === currentUser.id
+		);
+	}
 
 	let { id } = useParams();
 
@@ -52,10 +61,22 @@ const MovieShow = () => {
 						<Col sm={0} md={4}>
 							<Container className="movie-trailer-container " fluid>
 								<Sticky className="sticky-container">
+									<Title
+										text={`${movie.title} Trailer`}
+										className="movie-trailer-title"
+									/>
 									<VideoPlayer movie={movie} />
 									<Container className="movie-trailer-footer-buttons">
 										<AddFavorite user={currentUser} movie={movie} />
-										<NewReviewModal currentUser={currentUser} movie={movie} />
+										{userReview ? (
+											<UpdateReviewModal
+												currentUser={currentUser}
+												movie={movie}
+												userReview={userReview}
+											/>
+										) : (
+											<NewReviewModal currentUser={currentUser} movie={movie} />
+										)}
 									</Container>
 								</Sticky>
 							</Container>

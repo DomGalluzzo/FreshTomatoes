@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/movies", to: "pages#home"
   get "movies/:id", to: "pages#home"
   get "directors/:id", to: "pages#home"
-  get "reviews/new", to: "pages#home"
+  get "review", to: "pages#home"
   get "users/:id/favorites", to: "pages#home", as: "favorites"
 
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
 
       resources :movies, only: [ :index, :show ] do 
-        resources :reviews, only: [ :index, :show, :new, :create ]
+        resources :reviews
       end
      
     end

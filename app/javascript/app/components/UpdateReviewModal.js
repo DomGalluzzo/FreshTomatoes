@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-import { createReview } from "../actions";
+import { updateReview, deleteReview } from "../actions";
 import { Button, Container, Modal, Form } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 
-const NewReviewModal = ({ currentUser, userReview, movie }) => {
+const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	const dispatch = useDispatch();
 
 	const [show, setShow] = useState(false);
@@ -20,25 +20,26 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 		setRating(newRating);
 	};
 
-	const handleCreateReview = () => {
-		dispatch(createReview(movie.id, currentUser, comment, rating));
+	const userReviewId = userReview.id;
+	const movieId = movie.id;
+
+	const handleUpdateReview = () => {
+		dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
 
 		setRating(null);
 		setComment("");
 	};
 
+	const handleDeleteReview = () => {
+		dispatch(deleteReview(movieId, userReviewId));
+	};
+
 	return (
 		<>
-			{!_.isNull(currentUser.user) ? (
-				<Button className="button-align" variant="success" onClick={handleShow}>
-					Add Review
+			{userReview && (
+				<Button className="button-align" variant="info" onClick={handleShow}>
+					Edit Review
 				</Button>
-			) : (
-				<Link to="/users/sign_in">
-					<Button className="button-align" variant="warning">
-						Sign in to Review
-					</Button>
-				</Link>
 			)}
 			<Modal
 				show={show}
@@ -47,16 +48,17 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 				keyboard={false}
 				className="modal-content-review">
 				<Modal.Header closeButton>
-					<Modal.Title className="modal-title-review">{`New Review for ${movie.title}`}</Modal.Title>
+					<Modal.Title className="modal-title-review">{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form>
+					<Form validated={true}>
 						<Form.Group controlId="formNewReviewRating">
 							<Form.Label className="modal-title-review">Rating</Form.Label>
 							<ReactStars
 								count={5}
 								onChange={ratingChanged}
 								size={24}
+								value={userReview.rating}
 								emptyIcon={<i className="far fa-star"></i>}
 								halfIcon={<i className="fa fa-star-half-alt"></i>}
 								fullIcon={<i className="fa fa-star"></i>}
@@ -68,15 +70,18 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 							<Form.Control
 								as="textarea"
 								rows={3}
-								value={comment}
+								defaultValue={userReview.comment}
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>
-						<Container className="modal-form-button-container" id="new-review">
+						<Container className="modal-form-button-container">
+							<Button variant="danger" onClick={handleDeleteReview}>
+								DELETE
+							</Button>
 							<Button
 								variant="primary"
 								type="submit"
-								onClick={handleCreateReview}>
+								onClick={handleUpdateReview}>
 								Submit Review
 							</Button>
 						</Container>
@@ -87,4 +92,4 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 	);
 };
 
-export default NewReviewModal;
+export default UpdateReviewModal;

@@ -1,0 +1,52 @@
+.review-card {
+	cursor: default;
+}
+
+.movie-details-ratings {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.rating-percentage {
+		font-family: $main-font;
+	}
+}
+
+.rating-link-reviews {
+	font-family: $main-font;
+	font-weight: lighter;
+	font-size: 10px;
+}
+
+.render-review-modal-button-container {
+	margin: 0 auto;
+	margin-top: 1em;
+	margin-left: 1em;
+}
+
+.review-card-footer-username {
+	font-size: 0.75em;
+	font-family: $main-font;
+}
+.modal-form-button-container {
+	display: flex;
+	padding: 0 !important;
+	justify-content: space-between;
+	margin-top: 2em;
+
+	&#new-review {
+		justify-content: flex-end;
+	}
+}
+
+// .modal-content-review {
+// 	font-family: $main-font;
+// }
+
+.modal-title-review {
+	font-size: 1.25em;
+	font-family: $main-font;
+	border-left: 5px solid $main-red;
+	padding-left: 0.25em;
+	margin-bottom: 0.25em;
+}
