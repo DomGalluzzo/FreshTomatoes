@@ -26,8 +26,15 @@ const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movieState = useSelector((state) => state.movieShow);
 	const currentUser = useSelector((state) => state.user);
-	const userFavorites = useSelector((state) => state.favorites.favorites);
+	// const userFavorites = useSelector((state) => state.favorites.favorites);
 	const movieReviews = useSelector((state) => state.movieReviews.reviews);
+
+	let userReview;
+	if (!_.isUndefined(movieReviews)) {
+		userReview = movieReviews.find(
+			(review) => review.user_id === currentUser.id
+		);
+	}
 
 	let { id } = useParams();
 
@@ -42,12 +49,6 @@ const MovieShow = () => {
 			dispatch(fetchFavorites(currentUser.id));
 		}
 	};
-
-	if (!_.isUndefined(movieReviews)) {
-		const userReview = movieReviews.find(
-			(review) => review.user_id === currentUser.id
-		);
-	}
 
 	const showData = () => {
 		if (!_.isEmpty(movieState.movie)) {

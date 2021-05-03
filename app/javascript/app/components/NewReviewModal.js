@@ -37,18 +37,6 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 		setComment("");
 	};
 
-	const handleLoadUserReview = (e) => {
-		e.preventDefault();
-		setRating(userReview.rating);
-		setComment(userReview.comment);
-	};
-
-	// const renderCreateReviewModal = () => {
-	// 	return (
-
-	// 	)
-	// }
-
 	return (
 		<>
 			{!_.isNull(currentUser.user) ? (

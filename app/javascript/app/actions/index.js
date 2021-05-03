@@ -139,11 +139,14 @@ export const updateReview = (movie_id, currentUser, comment, rating) => async (
 			type: UPDATE_REVIEW_LOADING,
 		});
 
-		const response = await Axios.put(`/api/v1/movies/${movie_id}/reviews`, {
-			user_id: userId,
-			comment,
-			rating,
-		});
+		const response = await Axios.put(
+			`/api/v1/movies/${movie_id}/reviews/${userReviewId}`,
+			{
+				user_id: userId,
+				comment,
+				rating,
+			}
+		);
 
 		const data = JSON.parse(response.config.data);
 
