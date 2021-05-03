@@ -18,7 +18,7 @@ import Title from "../components/Title";
 
 const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 	const defaultAvatar =
-		"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619016242/BlankAvatar.png";
+		"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619018185/default_icon_yflbxj.png";
 	const dispatch = useDispatch();
 	const movieReviews = useSelector((state) => state.movieReviews);
 
@@ -30,6 +30,14 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 
 	const fetchData = () => {
 		dispatch(fetchMovieReviews(id));
+	};
+
+	const userImageCheck = (review) => {
+		if (_.isNull(review.user.image)) {
+			return defaultAvatar;
+		} else {
+			return review.user.image;
+		}
 	};
 
 	const showData = () => {
@@ -55,7 +63,7 @@ const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 						</Card.Body>
 						<Card.Footer className="d-flex align-items-end pl-0 pb-1 pt-0">
 							<Image
-								src={review.user.image ? review.user.image : defaultAvatar}
+								src={userImageCheck(review)}
 								style={{ height: "50px", width: "50px" }}
 							/>
 

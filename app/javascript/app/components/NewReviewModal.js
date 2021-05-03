@@ -20,18 +20,8 @@ const NewReviewModal = ({ currentUser, userReview, movie }) => {
 		setRating(newRating);
 	};
 
-	const handleCreateReview = (e) => {
-		e.preventDefault();
+	const handleCreateReview = () => {
 		dispatch(createReview(movie.id, currentUser, comment, rating));
-
-		setRating(null);
-		setComment("");
-	};
-
-	const handleUpdateReview = (e) => {
-		e.preventDefault();
-
-		dispatch(updateReview(movie.id, currentUser, comment, rating));
 
 		setRating(null);
 		setComment("");
