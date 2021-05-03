@@ -37,15 +37,17 @@ const Footer = ({ justify }) => {
 					</Nav.Item>
 				</Col>
 				<Col md={4} className="social-links-column">
-					<Title text="FOLLOW US" style={{ color: "white" }} />
+					<Title text="SOCIALS" style={{ color: "white" }} />
 					<Row>
 						<Nav.Item className="social-links">
-							<Nav.Link href="https://github.com/DomGalluzzo">
+							<Nav.Link href="https://github.com/DomGalluzzo" target="_blank">
 								<FaGithub />
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item className="social-links">
-							<Nav.Link href="https://www.linkedin.com/in/dominickgalluzzo/">
+							<Nav.Link
+								href="https://www.linkedin.com/in/dominickgalluzzo/"
+								target="_blank">
 								<FaLinkedin />
 							</Nav.Link>
 						</Nav.Item>
@@ -57,7 +59,9 @@ const Footer = ({ justify }) => {
 							</Nav.Link>
 						</Nav.Item>
 						<Nav.Item className="social-links">
-							<Nav.Link href="https://www.facebook.com/dominick.galluzzo/">
+							<Nav.Link
+								href="https://www.facebook.com/dominick.galluzzo/"
+								target="_blank">
 								<FaFacebookSquare />
 							</Nav.Link>
 						</Nav.Item>
