@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { Link } from "react-router-dom";
 
-import { updateReview, deleteReview } from "../actions";
 import { Button, Container, Modal, Form } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
+import { toastr } from "react-redux-toastr";
+
+import { updateReview, deleteReview } from "../actions";
 
 const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	const dispatch = useDispatch();
@@ -13,15 +14,15 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	const [rating, setRating] = useState(null);
 	const [comment, setComment] = useState("");
 
+	const userReviewId = userReview.id;
+	const movieId = movie.id;
+
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	const ratingChanged = (newRating) => {
 		setRating(newRating);
 	};
-
-	const userReviewId = userReview.id;
-	const movieId = movie.id;
 
 	const handleUpdateReview = () => {
 		dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
@@ -31,7 +32,20 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	};
 
 	const handleDeleteReview = () => {
-		dispatch(deleteReview(movieId, userReviewId));
+		toastr.confirm(
+			"Are you sure you to delete your review?",
+			toastrConfirmOptions
+		);
+	};
+
+	// ! Toastr
+
+	const toastrConfirmOptions = {
+		// * Reversed to switch button placement
+		okText: "Cancel",
+		cancelText: "DELETE",
+
+		onCancel: () => dispatch(deleteReview(movieId, userReviewId)),
 	};
 
 	return (
