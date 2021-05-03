@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Button, Form, Image } from "react-bootstrap";
 
-const SignIn = () => {
+const LogIn = () => {
 	return (
 		<Container className="p-0 mt-4 main-form-container" fluid>
 			<Container className="p-0 image-left-container">
@@ -43,4 +43,4 @@ const SignIn = () => {
 	);
 };
 
-export default SignIn;
+export default LogIn;
