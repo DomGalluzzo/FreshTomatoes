@@ -2,7 +2,13 @@ import React from "react";
 
 import { Nav, Col, Container, Row } from "react-bootstrap";
 import Title from "./Title";
-import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
+import {
+	FaFacebookSquare,
+	FaGithub,
+	FaLinkedin,
+	FaEnvelopeOpenText,
+} from "react-icons/fa";
+import { toastr } from "react-redux-toastr";
 
 const Footer = ({ justify }) => {
 	return (
@@ -31,21 +37,32 @@ const Footer = ({ justify }) => {
 					</Nav.Item>
 				</Col>
 				<Col md={4} className="social-links-column">
-					<Title text="FOLLOW US" style={{ color: "white" }} />
+					<Title text="SOCIALS" style={{ color: "white" }} />
 					<Row>
 						<Nav.Item className="social-links">
-							<Nav.Link href="#">
+							<Nav.Link href="https://github.com/DomGalluzzo" target="_blank">
+								<FaGithub />
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item className="social-links">
+							<Nav.Link
+								href="https://www.linkedin.com/in/dominickgalluzzo/"
+								target="_blank">
+								<FaLinkedin />
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item className="social-links">
+							<Nav.Link
+								href=""
+								onClick={() => toastr.confirm("Email: Dom.Galluzzo@gmail.com")}>
+								<FaEnvelopeOpenText />
+							</Nav.Link>
+						</Nav.Item>
+						<Nav.Item className="social-links">
+							<Nav.Link
+								href="https://www.facebook.com/dominick.galluzzo/"
+								target="_blank">
 								<FaFacebookSquare />
-							</Nav.Link>
-						</Nav.Item>
-						<Nav.Item className="social-links">
-							<Nav.Link href="#">
-								<FaTwitter />
-							</Nav.Link>
-						</Nav.Item>
-						<Nav.Item className="social-links">
-							<Nav.Link href="#">
-								<FaInstagram />
 							</Nav.Link>
 						</Nav.Item>
 					</Row>
