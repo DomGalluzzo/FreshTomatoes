@@ -20,6 +20,7 @@ import MovieInfo from "../components/MovieInfo";
 import ReviewsList from "./ReviewsList";
 import AddFavorite from "./AddFavorite";
 import NewReviewModal from "../components/NewReviewModal";
+import UpdateReviewModal from "../components/UpdateReviewModal";
 import VideoPlayer from "../components/VideoPlayer";
 
 const MovieShow = () => {
@@ -67,7 +68,15 @@ const MovieShow = () => {
 									<VideoPlayer movie={movie} />
 									<Container className="movie-trailer-footer-buttons">
 										<AddFavorite user={currentUser} movie={movie} />
-										<NewReviewModal currentUser={currentUser} movie={movie} />
+										{userReview ? (
+											<UpdateReviewModal
+												currentUser={currentUser}
+												movie={movie}
+												userReview={userReview}
+											/>
+										) : (
+											<NewReviewModal currentUser={currentUser} movie={movie} />
+										)}
 									</Container>
 								</Sticky>
 							</Container>
