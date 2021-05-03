@@ -6,6 +6,7 @@ import HomePage from "../containers/HomePage";
 import MovieShow from "../containers/MovieShow";
 import MoviesList from "../containers/MoviesList";
 import UserWatchlist from "../containers/UserFavorites";
+import SignIn from "./SignIn";
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 				<Route exact path="/users/:id/favorites" component={UserWatchlist} />
 				<Route path="/movies" component={MoviesList} />
 				<Route path="/genres" component={GenresList} />
+				<Route exact path="/users/sign_in" component={SignIn} />
 			</Switch>
 		</Router>
 	);

@@ -1,0 +1,51 @@
+.main-form-container {
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 0 14px 3px rgba(50, 50, 50, 0.2);
+}
+
+.sub-form-container {
+	padding: 2.5%;
+}
+
+.sign-in-footer-links {
+	display: flex;
+	justify-content: space-around;
+
+	> span {
+		font-family: $main-font;
+		font-size: xx-large;
+		color: $main-red;
+		font-style: italic;
+		font-weight: bold;
+		text-shadow: 1px 1px 5px rgba(25, 25, 25, 0.15);
+	}
+
+	.tomato-title {
+		font-style: normal;
+	}
+}
+
+.image-left-container > img {
+	width: 540px;
+	height: 387px;
+	opacity: 0.8;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+.session-form-label {
+	padding-left: 0.5em;
+	border-left: 5px solid $main-red;
+	font-family: $main-font;
+}
+
+.session-button-container {
+	max-width: 50%;
+}
+
+// ! Media Queries
+@media screen and (max-width: 768px) {
+	.image-left-container {
+		display: none;
+	}
+}
