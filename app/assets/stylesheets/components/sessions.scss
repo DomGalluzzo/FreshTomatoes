@@ -1,0 +1,103 @@
+.main-form-container {
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 0 14px 3px rgba(50, 50, 50, 0.2);
+	width: 89%;
+	background: #ffffff;
+}
+
+.sub-form-container-left {
+	padding-left: 2.5%;
+	padding-bottom: 2.5%;
+	width: 46%;
+}
+
+.sub-form-container-right {
+	padding-top: 3.5%;
+	padding-right: 2.5%;
+	padding-bottom: 2.5%;
+	width: 46%;
+}
+
+.sign-in-footer-links {
+	display: flex;
+	justify-content: space-around;
+
+	> span {
+		font-family: $main-font;
+		font-size: xx-large;
+		color: $main-red;
+		font-style: italic;
+		font-weight: bold;
+		text-shadow: 1px 1px 5px rgba(25, 25, 25, 0.15);
+	}
+
+	.tomato-title {
+		font-style: normal;
+	}
+}
+
+.image-left-container > img {
+	width: 565px;
+	height: 100%;
+
+	opacity: 0.8;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+.image-right-container > img {
+	width: 565px;
+	height: 100%;
+	opacity: 0.8;
+	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+}
+
+.session-form-label {
+	padding-left: 0.5em;
+	border-left: 5px solid $main-red;
+	font-family: $main-font;
+}
+
+.session-button-container {
+	max-width: 50%;
+}
+
+.form-actions.d-flex {
+	justify-content: space-between;
+	align-items: center;
+}
+
+.signup-password-reset {
+	display: grid;
+}
+
+.password-reset {
+	text-align: right;
+	font-size: 0.85em;
+	padding-top: 5%;
+}
+
+// ! Media Queries
+@media screen and (max-width: 768px) {
+	.image-left-container {
+		display: none;
+	}
+	.image-right-container {
+		display: none;
+	}
+
+	.sub-form-container-left {
+		width: 100%;
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+	.sub-form-container-right {
+		width: 100%;
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 2em;
+		padding-bottom: 2em;
+	}
+}

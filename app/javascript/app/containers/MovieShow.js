@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import _ from "lodash";
 import { Col, Button, Row, Container, Image } from "react-bootstrap";
 import Sticky from "react-sticky-el";
+import { toastr } from "react-redux-toastr";
 
 import {
 	fetchMovieShow,
