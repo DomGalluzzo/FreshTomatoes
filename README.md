@@ -252,3 +252,8 @@ A user's watchlist comprises of the user's `username` + "Watchlist" as well as a
 User's are able to delete a movie from their watchlist at any point.
 ![Delete Favorite](https://user-images.githubusercontent.com/70022612/117070496-d083cf00-acfb-11eb-8114-483a05045806.gif)
 
+# Going Forward
+- Implement a `Director` show page listing out relevant info, including all movies they've directed
+- Add an `Actor` show page listing out relevant info, as well as all movies they've been in
+- Search bar functionality with ElasticSearch, or SearchKick.
+- Introduce a `Similar movies by genre` component on the bottom of the `Movie` show page to allow a better user-flow from movie to movie
