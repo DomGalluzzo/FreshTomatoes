@@ -89,7 +89,7 @@
 .modal-content-trailer {
 	border: none;
 	width: fit-content;
-	left: 7%;
+	left: 25%;
 }
 
 .react-player__preview {
@@ -127,9 +127,14 @@
 
 	.modal-content-trailer {
 		bottom: 3rem;
+		left: 8%;
 	}
 
-	.modal-content-trailer > div {
+	.modal-content {
+		height: 35%;
+	}
+
+	.modal-content > div {
 		height: 100% !important;
 		width: 100% !important;
 	}
