@@ -25,9 +25,9 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	};
 
 	const handleUpdateReview = (e) => {
-		e.preventDefault();
 		if (!rating && !comment) {
 			toastr.error("Please update both rating and comment");
+			e.preventDefault();
 		}
 
 		dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
