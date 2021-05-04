@@ -24,7 +24,12 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 		setRating(newRating);
 	};
 
-	const handleUpdateReview = () => {
+	const handleUpdateReview = (e) => {
+		e.preventDefault();
+		if (!rating && !comment) {
+			toastr.error("Please update both rating and comment");
+		}
+
 		dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
 
 		setRating(null);
@@ -39,6 +44,7 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 	};
 
 	// ! Toastr
+	// * Confirm Deletion
 	const toastrConfirmOptions = {
 		// * Reversed to switch button placement
 		okText: "Cancel",
@@ -64,26 +70,46 @@ const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
 					<Modal.Title className="modal-title-review">{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form validated={true}>
-						<Form.Group controlId="formNewReviewRating">
-							<Form.Label className="modal-title-review">Rating</Form.Label>
-							<ReactStars
-								count={5}
-								onChange={ratingChanged}
-								size={24}
-								value={userReview.rating}
-								emptyIcon={<i className="far fa-star"></i>}
-								halfIcon={<i className="fa fa-star-half-alt"></i>}
-								fullIcon={<i className="fa fa-star"></i>}
-								activeColor="#ffd700"
-							/>
-						</Form.Group>
+					<Form>
+						<Container className="p-0 rating-container">
+							<Form.Group controlId="formOldReviewRating">
+								<Form.Label className="modal-title-review">
+									Previous Rating
+								</Form.Label>
+								<ReactStars
+									count={5}
+									edit={false}
+									size={24}
+									value={userReview.rating}
+									emptyIcon={<i className="far fa-star"></i>}
+									halfIcon={<i className="fa fa-star-half-alt"></i>}
+									fullIcon={<i className="fa fa-star"></i>}
+									activeColor="#ffd700"
+								/>
+							</Form.Group>
+							<Form.Group controlId="formNewReviewRating">
+								<Form.Label className="modal-title-review">
+									New Rating
+								</Form.Label>
+								<ReactStars
+									count={5}
+									onChange={ratingChanged}
+									size={24}
+									value={rating}
+									emptyIcon={<i className="far fa-star"></i>}
+									halfIcon={<i className="fa fa-star-half-alt"></i>}
+									fullIcon={<i className="fa fa-star"></i>}
+									activeColor="#ffd700"
+								/>
+							</Form.Group>
+						</Container>
 						<Form.Group controlId="formNewReviewComment">
 							<Form.Label className="modal-title-review">Comment</Form.Label>
 							<Form.Control
+								placeholder={`Previous comment: ${userReview.comment}`}
 								as="textarea"
 								rows={3}
-								defaultValue={userReview.comment}
+								alue={comment}
 								onChange={(e) => setComment(e.target.value)}
 							/>
 						</Form.Group>
