@@ -5,7 +5,7 @@ import _ from "lodash";
 
 import { fetchMoviesList } from "../actions";
 import Title from "../components/Title";
-import { Row, Col, Image, ListGroup } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import Movie from "../components/Movie";
 
 const MoviesList = ({ onclick }) => {
@@ -20,14 +20,18 @@ const MoviesList = ({ onclick }) => {
 		dispatch(fetchMoviesList());
 	};
 
-	const showData = () => {
+	const showMovies = () => {
 		if (!_.isEmpty(moviesList.movies)) {
 			const sortedMovies = moviesList.movies.sort((a, b) =>
 				a.title > b.title ? 1 : -1
 			);
 
 			return sortedMovies.map((movie) => {
-				return <Movie movie={movie} />;
+				return (
+					<Col sm={6} md={2} className="p-0 user-favorite-item-column">
+						<Movie key={movie.id} movie={movie} image={movie.poster} />
+					</Col>
+				);
 			});
 		}
 
@@ -43,9 +47,14 @@ const MoviesList = ({ onclick }) => {
 	};
 
 	return (
-		<ListGroup>
-			<ListGroup.Item>{showData()}</ListGroup.Item>
-		</ListGroup>
+		<Container className="user-favorites-container p-0" fluid>
+			<Title
+				className="pl-1 user-watchlist-title"
+				text="Movies List"
+				style={{ fontSize: "1.5em" }}
+			/>
+			<Row className="user-favorites-row">{showMovies()}</Row>
+		</Container>
 	);
 };
 
