@@ -102,6 +102,8 @@ If a user is not logged in, a `Sign in to Review` button is instead displayed, w
 
 
 #### Description
+![image](https://user-images.githubusercontent.com/70022612/117072168-0f1a8900-acfe-11eb-98cc-16bd889a5841.png)
+
 Original poster image as well as a description with `release year`, `genre`, `runtime`, and `average rating`.
 The average rating calculation was achieved through a helper function to return the average of all ratings (current as well as any added in the future). 
 ````
