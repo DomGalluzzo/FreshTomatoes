@@ -52,6 +52,7 @@ const classicMovies = () => {
         );
       }
     });
+  ...
   }
 ````
 ### Genres
@@ -69,6 +70,7 @@ const moviesInGenre = (selectedGenre) => {
         );
       }
     });
+   ...
   }
 };
 ````
