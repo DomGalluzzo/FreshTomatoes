@@ -155,5 +155,100 @@ switch (true) {
 ````
 All ratings are capped at 100%
 
-#### All Reviews
+#### Movie Info
+The movie info contains a brief synopsis as well as the `director`, `genre`, `release year`, and `runtime`.
+![image](https://user-images.githubusercontent.com/70022612/117066305-9532d180-acf6-11eb-97ab-202c0a585ea8.png)
+
+Runtime is calculated with a helper function to convert the number from minutes to hours and minutes, as demonstrated below.
+````
+export const runtimeConversion = (n) => {
+	let num = n;
+	let hours = num / 60;
+	let rhours = Math.floor(hours);
+	let minutes = (hours - rhours) * 60;
+	let rminutes = Math.round(minutes);
+	return `${rhours}h ${rminutes}m`;
+};
+````
+#### Cast & Crew (see above picture under Movie Info)
+Lists notable `actors`, `real name`, `character name`, as well as their `portrait`. If an actor doesn't have a portrait, they are given a default picture.
+
+
+### Reviews
+#### Adding a new review
+When a user adds a new review, a modal form renders. Upon submission of the new review in the example below, we can see the rating change from 78% to 88%, the rating icon change to a larger smile, and the button which previously said "Add review" now says "edit review".
+![Review](https://user-images.githubusercontent.com/70022612/117067514-1fc80080-acf8-11eb-8849-ca446fcf55ff.gif)
+
+The `onClick` event tied to the submit button triggers the `handleCreateReview` function.
+````
+const handleCreateReview = () => {
+  dispatch(createReview(movieId, currentUser, comment, rating));
+
+  setRating(null);
+  setComment("");
+};
+````
+This function dispatches the createReview action which is an asynchronous POST method to my API's endpoint.
+````
+export const createReview = (movieId, currentUser, comment, rating) => async (
+  ...
+	try {
+		dispatch({
+			type: CREATE_REVIEW_LOADING,
+		});
+
+		const response = await Axios.post(`/api/v1/movies/${movieId}/reviews`, {
+			user_id: userId,
+			movie_id: movieId,
+			comment,
+			rating,
+		});
+
+		const data = JSON.parse(response.config.data);
+
+		dispatch({
+			type: CREATE_REVIEW_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+		dispatch({
+			type: CREATE_REVIEW_FAILED,
+		});
+	}
+};
+````
+The response is then received and dispatched to the `movieReviewsReducer` (and eventually combined with all other reducers in the `rootReducer`)
+````
+const movieReviewsReducer = (state = [], action) => {
+	switch (action.type) {
+		case CREATE_REVIEW_LOADING:
+			return { ...state, loading: true, errorMessage: "" };
+
+		case CREATE_REVIEW_SUCCESS:
+			return {
+				...state,
+				reviews: [...state.reviews, { review: action.payload }],
+				loading: false,
+				errorMessage: "",
+			};
+
+		case CREATE_REVIEW_FAILED:
+			return { ...state, loading: false, errorMessage: "Unable to add review" };
+````
+
+#### Editing a review
+When a user edits their review, a separate modal form renders which shows their previous rating, as well as their previous comment (shown as a placeholder value in the comment box). Upon submission of this edit, we once again see the movie's average rating change from 88% to 82%.
+![Edit Review](https://user-images.githubusercontent.com/70022612/117068207-fa87c200-acf8-11eb-91d3-cf3958afcc94.gif)
+
+#### Deleting a review
+When a user deletes their review, a confirmation alert displays and the user is prompted to confirm their action.
+![Delete Review](https://user-images.githubusercontent.com/70022612/117068540-68cc8480-acf9-11eb-96c9-83342eb404de.gif)
+
+### User Watchlist
+A user's watchlist comprises of the user's `username` + "Watchlist" as well as all the movies they have individually selected.
+![image](https://user-images.githubusercontent.com/70022612/117070088-4d627900-acfb-11eb-914f-63362438cf98.png)
+
+#### Deleting a movie from watchlist
+User's are able to delete a movie from their watchlist at any point.
+![Delete Favorite](https://user-images.githubusercontent.com/70022612/117070496-d083cf00-acfb-11eb-8114-483a05045806.gif)
 
