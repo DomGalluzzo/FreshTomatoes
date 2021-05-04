@@ -46,7 +46,7 @@ const UserFavorites = () => {
 			return <p>{favoritesList.errorMessage}</p>;
 		}
 
-		return <p>Unable to fetch data</p>;
+		return <p className="pl-3">No movies in watchlist</p>;
 	};
 
 	return (

@@ -4,6 +4,7 @@
   </div>
   <div class="sub-form-container-right">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
       <div class="form-inputs">
         <%= f.input :email,
                     required: false,
@@ -19,7 +20,7 @@
         <%= f.button :submit, "Log in", class: "btn btn-success" %>
         <div class="signup-password-reset">
           <span>Need an account? <a href="/users/sign_up">Sign up</a></span>
-          <a href="/users/sign_up" class="password-reset">Password Reset</a>
+          <a href="/users/password/new" class="password-reset">Password Reset</a>
         </div>
       </div>
     <% end %>

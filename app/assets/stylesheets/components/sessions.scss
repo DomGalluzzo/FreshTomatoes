@@ -6,6 +6,13 @@
 	background: #ffffff;
 }
 
+.main-form-container-center {
+	display: flex;
+	justify-content: center;
+	width: 89%;
+	background: #f3f3f3;
+}
+
 .sub-form-container-left {
 	padding-left: 2.5%;
 	padding-bottom: 2.5%;
@@ -17,6 +24,12 @@
 	padding-right: 2.5%;
 	padding-bottom: 2.5%;
 	width: 46%;
+}
+
+.sub-form-container-center {
+	padding: 3em;
+	background: #ffffff;
+	box-shadow: 0 0 14px 3px rgba(50, 50, 50, 0.2);
 }
 
 .sign-in-footer-links {
