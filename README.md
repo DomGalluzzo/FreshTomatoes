@@ -28,8 +28,8 @@ Several external packages/libraries were used during the development of Fresh To
 
 ## Features
 
-#### Home Page
-![Fresh Tomatoes Top Home Page](https://user-images.githubusercontent.com/70022612/117055803-9578a000-ace9-11eb-81d3-63e2a1d88980.png)
+### Home Page
+![Home Page Gif](https://user-images.githubusercontent.com/70022612/117062786-e2607480-acf1-11eb-8a79-017fe96892ae.gif)
 
 The top carousel under "Trending on FT" contains 6 classic movies. The result was attained by filtering all movies fetched from the Redux store with `useSelector()` and returning only those with a release year less than 2000.
 
@@ -54,6 +54,7 @@ const classicMovies = () => {
     });
   }
 ````
+### Genres
 
 Filtering movies by genre was achieved through a similar process with the addition of making the function reusable. 
 ````
@@ -77,3 +78,6 @@ Function call example:
 moviesInGenre("Action");
 moviesInGenre("Sci-Fi");
 ````
+
+### Movie Show
+
