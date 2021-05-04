@@ -124,6 +124,8 @@ export const averageRating = (reviews) => {
 	return total;
 };
 ````
+All ratings are capped at 100%
+
 This helper function is then called in a component to render a certain smiley face depending on that movie's average rating.
 ````
 ...
@@ -155,7 +157,7 @@ switch (true) {
 ...
 	}
 ````
-All ratings are capped at 100%
+
 
 #### Movie Info
 The movie info contains a brief synopsis as well as the `director`, `genre`, `release year`, and `runtime`.
