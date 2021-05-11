@@ -7,7 +7,7 @@ module Api
       def index
         @favorites = Favorite.where(user_id: params[:user_id])
 
-        render json: @favorites, include: :movie
+        render json: @favorites, include: %i[movie user]
       end
 
       def new

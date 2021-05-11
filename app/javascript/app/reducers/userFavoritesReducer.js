@@ -28,6 +28,7 @@ const userFavoritesReducer = (state = [], action) => {
 				...state,
 				favorites: action.payload,
 				loading: false,
+				watchlistOwner: action.payload[0].user,
 				errorMessage: "",
 			};
 
@@ -35,7 +36,7 @@ const userFavoritesReducer = (state = [], action) => {
 			return {
 				...state,
 				loading: false,
-				errorMessage: "Unable to load favorites",
+				errorMessage: "No favorites in watchlist",
 			};
 
 		// ! Delete
