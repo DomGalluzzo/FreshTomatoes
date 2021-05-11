@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import _ from "lodash";
 import { Container, Row, Col } from "react-bootstrap";
+import { toastr } from "react-redux-toastr";
 
 import { fetchFavorites, removeFavorite } from "../actions";
 import Title from "../components/Title";
@@ -24,6 +25,14 @@ const UserFavorites = () => {
 		dispatch(fetchFavorites(id));
 	};
 
+	const handleRemoveFavorite = (favorite) => {
+		if (parseInt(id, 10) === currentUser.id) {
+			dispatch(removeFavorite(currentUser.id, favorite));
+		} else {
+			toastr.error("You don't have permission to do that.");
+		}
+	};
+
 	const showFavorites = () => {
 		if (!_.isEmpty(favoritesList.favorites)) {
 			return favoritesList.favorites.map((favorite) => {
@@ -32,7 +41,7 @@ const UserFavorites = () => {
 						<Favorite
 							key={favorite.id}
 							movie={favorite.movie}
-							onClick={() => dispatch(removeFavorite(currentUser.id, favorite))}
+							onClick={() => handleRemoveFavorite(favorite)}
 						/>
 					</Col>
 				);

@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import _ from "lodash";
-import { Col, Button, Row, Container, Image } from "react-bootstrap";
+import { Col, Row, Container, Image } from "react-bootstrap";
 import Sticky from "react-sticky-el";
-import { toastr } from "react-redux-toastr";
 
-import {
-	fetchMovieShow,
-	fetchUser,
-	addFavorite,
-	fetchFavorites,
-} from "../actions";
+import { fetchMovieShow, fetchUser, fetchFavorites } from "../actions";
 import Title from "../components/Title";
 import MovieActorsList from "../components/MovieActorsList";
 import MovieDetails from "../components/MovieDetails";
@@ -28,7 +21,6 @@ const MovieShow = () => {
 	const dispatch = useDispatch();
 	const movieState = useSelector((state) => state.movieShow);
 	const currentUser = useSelector((state) => state.user);
-	// const userFavorites = useSelector((state) => state.favorites.favorites);
 	const movieReviews = useSelector((state) => state.movieReviews.reviews);
 
 	let userReview;
