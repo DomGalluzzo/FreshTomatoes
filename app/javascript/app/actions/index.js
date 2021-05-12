@@ -104,68 +104,62 @@ export const fetchMovieReviews = (id) => async (dispatch) => {
 	}
 };
 
-export const createReview = (movie_id, currentUser, comment, rating) => async (
-	dispatch
-) => {
-	const userId = currentUser.id;
+export const createReview =
+	(movie_id, currentUser, comment, rating) => async (dispatch) => {
+		const userId = currentUser.id;
 
-	try {
-		dispatch({
-			type: CREATE_REVIEW_LOADING,
-		});
+		try {
+			dispatch({
+				type: CREATE_REVIEW_LOADING,
+			});
 
-		const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
-			user_id: userId,
-			movie_id: movie_id,
-			comment,
-			rating,
-		});
-
-		const data = JSON.parse(response.config.data);
-
-		dispatch({
-			type: CREATE_REVIEW_SUCCESS,
-			payload: data,
-		});
-	} catch (error) {
-		dispatch({
-			type: CREATE_REVIEW_FAILED,
-		});
-	}
-};
-
-export const updateReview = (
-	movieId,
-	currentUser,
-	userReviewId,
-	comment,
-	rating
-) => async (dispatch) => {
-	try {
-		dispatch({
-			type: UPDATE_REVIEW_LOADING,
-		});
-
-		const response = await Axios.patch(
-			`/api/v1/movies/${movieId}/reviews/${userReviewId}`,
-			{
+			const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
+				user_id: userId,
+				movie_id: movie_id,
 				comment,
 				rating,
-			}
-		);
+			});
 
-		const data = JSON.parse(response.config.data);
+			const data = JSON.parse(response.config.data);
 
-		dispatch({
-			type: UPDATE_REVIEW_SUCCESS,
-			payload: data,
-		});
-	} catch (error) {
-		dispatch({
-			type: UPDATE_REVIEW_FAILED,
-		});
-	}
-};
+			dispatch({
+				type: CREATE_REVIEW_SUCCESS,
+				payload: data,
+			});
+		} catch (error) {
+			dispatch({
+				type: CREATE_REVIEW_FAILED,
+			});
+		}
+	};
+
+export const updateReview =
+	(movieId, currentUser, userReviewId, comment, rating) => async (dispatch) => {
+		try {
+			dispatch({
+				type: UPDATE_REVIEW_LOADING,
+			});
+
+			const response = await Axios.patch(
+				`/api/v1/movies/${movieId}/reviews/${userReviewId}`,
+				{
+					comment,
+					rating,
+				}
+			);
+
+			const data = JSON.parse(response.config.data);
+
+			dispatch({
+				type: UPDATE_REVIEW_SUCCESS,
+				payload: data,
+			});
+		} catch (error) {
+			dispatch({
+				type: UPDATE_REVIEW_FAILED,
+			});
+		}
+	};
 
 export const deleteReview = (movieId, userReviewId) => async (dispatch) => {
 	try {

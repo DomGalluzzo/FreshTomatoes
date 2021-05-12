@@ -1,20 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import _ from "lodash";
 import ReactStars from "react-rating-stars-component";
 
 import { fetchMovieReviews } from "../actions";
-import {
-	Button,
-	Col,
-	Card,
-	CardColumns,
-	Container,
-	Row,
-	Image,
-} from "react-bootstrap";
-import Title from "../components/Title";
+import { Card, CardColumns, Image } from "react-bootstrap";
 
 const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
 	const defaultAvatar =
