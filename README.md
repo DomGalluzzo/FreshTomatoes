@@ -2,9 +2,6 @@
 
 Check out the full build deployed [here](https://dg-fresh-tomatoes.herokuapp.com/) on Heroku 
 
-Please log in as a guest user with:
-* guest@gmail.com
-* password
 
 
 
