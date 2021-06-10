@@ -3,7 +3,6 @@ module Api
     class ReviewsController < ApplicationController
       skip_before_action :authenticate_user!, only: %i[index show]
       skip_before_action :verify_authenticity_token, only: %i[update create destroy]
-      # before_action :set_movie, only: %i[show create update destroy]
       before_action :set_review, only: :update
 
       def index
@@ -36,8 +35,6 @@ module Api
       end
 
       def update
-        # @review = Review.find(params[:id])
-
         if @review.update(review_params)
           flash[:success] = "Review was successfully updated"
         else

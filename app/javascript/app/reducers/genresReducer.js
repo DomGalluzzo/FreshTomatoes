@@ -4,8 +4,6 @@ import {
 	FETCH_GENRES_FAILED,
 } from "../actions";
 
-import initialState from "../components/initialState";
-
 const genresReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_GENRES_LOADING:

@@ -8,6 +8,5 @@ class Movie < ApplicationRecord
   has_many :actors, through: :credits
 
   validates :title, presence: true
-  # validates :image, presence: true
   validates :summary, presence: true
 end

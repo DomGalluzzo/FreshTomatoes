@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { addFavorite } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import _ from "lodash";
 import { Button } from "react-bootstrap";
 
