@@ -32,16 +32,12 @@ module Api
       end
 
       def destroy
-        # @favorite = Favorite.find(favorite_params)
-        # @user = current_user
-        # @favorite.user = @user
         if @favorite.destroy
           flash[:success] = 'Favorite was successfully deleted.'
         else
           flash[:error] = 'Something went wrong'
         end
         render json: @favorites
-
       end
 
       private

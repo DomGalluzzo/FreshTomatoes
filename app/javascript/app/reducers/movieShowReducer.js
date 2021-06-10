@@ -4,8 +4,6 @@ import {
 	FETCH_MOVIE_SHOW_FAILED,
 } from "../actions";
 
-import initialState from "../components/initialState";
-
 const movieShowReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_MOVIE_SHOW_LOADING:

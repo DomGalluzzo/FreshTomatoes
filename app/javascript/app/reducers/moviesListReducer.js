@@ -4,8 +4,6 @@ import {
 	FETCH_MOVIES_LIST_FAILED,
 } from "../actions";
 
-import initialState from "../components/initialState";
-
 const moviesListReducer = (state = [], action) => {
 	switch (action.type) {
 		case FETCH_MOVIES_LIST_LOADING:

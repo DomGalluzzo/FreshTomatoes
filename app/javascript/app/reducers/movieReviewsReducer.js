@@ -13,8 +13,6 @@ import {
 	DELETE_REVIEW_FAILED,
 } from "../actions";
 
-import initialState from "../components/initialState";
-
 const movieReviewsReducer = (state = [], action) => {
 	switch (action.type) {
 		// ! Create
