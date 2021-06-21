@@ -32,26 +32,22 @@ The top carousel under "Trending on FT" contains 6 classic movies. The result wa
 
 ````
 const classicMovies = () => {
-  if (!_.isEmpty(moviesList.movies)) {
-    return moviesList.movies.map((movie) => {
-      if (movie.release_year < 2000) {
-        return (
-          <Carousel.Item ...>
-            <Link ...>
-              <img
-                ...
-              />
-              <Carousel.Caption>
-                ...
-              </Carousel.Caption>
-            </Link>
-          </Carousel.Item>
-        );
-      }
-    });
-  ...
-  ...
-  }
+    if (!_.isEmpty(moviesList.movies)) {
+      return moviesList.movies.map((movie) => {
+        if (movie.release_year < 2000) {
+          return (
+            <Carousel.Item ...>
+              <Link ...>
+                <img.../>
+                <Carousel.Caption>
+                  ...
+                </Carousel.Caption>
+              </Link>
+            </Carousel.Item>
+          );
+        }
+      });
+    }
 ````
 ### Genres
 
@@ -109,20 +105,20 @@ Original poster image as well as a description with `release year`, `genre`, `ru
 The average rating calculation was achieved through a helper function to return the average of all ratings (current as well as any added/deleted in the future). 
 ````
 export const averageRating = (reviews) => {
-	let xReviews = reviews;
-	let total = 0;
+  let xReviews = reviews;
+  let total = 0;
 
-	xReviews === undefined
-		? ""
-		: xReviews.forEach((review) => {
-				total += review.rating;
-		  });
+  xReviews === undefined
+    ? ""
+    : xReviews.forEach((review) => {
+      total += review.rating;
+      });
 
 	total = Math.floor((total / 50) * 100);
 	if (total > 100) {
-		total = 100;
+    total = 100;
 	}
-	return total;
+  return total;
 };
 ````
 All ratings are capped at 100%
@@ -167,12 +163,12 @@ The movie info contains a brief synopsis as well as the `director`, `genre`, `re
 Runtime is calculated with a helper function to convert the number from minutes to hours and minutes, as demonstrated below.
 ````
 export const runtimeConversion = (n) => {
-	let num = n;
-	let hours = num / 60;
-	let rhours = Math.floor(hours);
-	let minutes = (hours - rhours) * 60;
-	let rminutes = Math.round(minutes);
-	return `${rhours}h ${rminutes}m`;
+  let num = n;
+  let hours = num / 60;
+  let rhours = Math.floor(hours);
+  let minutes = (hours - rhours) * 60;
+  let rminutes = Math.round(minutes);
+  return `${rhours}h ${rminutes}m`;
 };
 ````
 #### Cast & Crew (see above picture under Movie Info)
@@ -197,48 +193,48 @@ This function dispatches the createReview action which is an asynchronous POST m
 ````
 export const createReview = (movieId, currentUser, comment, rating) => async (
   ...
-	try {
-		dispatch({
-			type: CREATE_REVIEW_LOADING,
-		});
+  try {
+    dispatch({
+      type: CREATE_REVIEW_LOADING,
+    });
 
-		const response = await Axios.post(`/api/v1/movies/${movieId}/reviews`, {
-			user_id: userId,
-			movie_id: movieId,
-			comment,
-			rating,
-		});
+    const response = await Axios.post(`/api/v1/movies/${movieId}/reviews`, {
+      user_id: userId,
+      movie_id: movieId,
+      comment,
+      rating,
+    });
 
-		const data = JSON.parse(response.config.data);
+    const data = JSON.parse(response.config.data);
 
-		dispatch({
-			type: CREATE_REVIEW_SUCCESS,
-			payload: data,
-		});
-	} catch (error) {
-		dispatch({
-			type: CREATE_REVIEW_FAILED,
-		});
-	}
+    dispatch({
+      type: CREATE_REVIEW_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CREATE_REVIEW_FAILED,
+    });
+  }
 };
 ````
 The response is then received and dispatched to the `movieReviewsReducer` (and eventually combined with all other reducers in the `rootReducer`)
 ````
 const movieReviewsReducer = (state = [], action) => {
-	switch (action.type) {
-		case CREATE_REVIEW_LOADING:
-			return { ...state, loading: true, errorMessage: "" };
+  switch (action.type) {
+    case CREATE_REVIEW_LOADING:
+      return { ...state, loading: true, errorMessage: "" };
 
-		case CREATE_REVIEW_SUCCESS:
-			return {
-				...state,
-				reviews: [...state.reviews, { review: action.payload }],
-				loading: false,
-				errorMessage: "",
-			};
+    case CREATE_REVIEW_SUCCESS:
+      return {
+        ...state,
+        reviews: [...state.reviews, { review: action.payload }],
+        loading: false,
+        errorMessage: "",
+      };
 
-		case CREATE_REVIEW_FAILED:
-			return { ...state, loading: false, errorMessage: "Unable to add review" };
+    case CREATE_REVIEW_FAILED:
+      return { ...state, loading: false, errorMessage: "Unable to add review" };
 ````
 
 #### Editing a review
