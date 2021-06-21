@@ -8,127 +8,127 @@ import { toastr } from "react-redux-toastr";
 import { updateReview, deleteReview } from "../actions";
 
 const UpdateReviewModal = ({ currentUser, userReview, movie }) => {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const [show, setShow] = useState(false);
-	const [rating, setRating] = useState(null);
-	const [comment, setComment] = useState("");
+  const [show, setShow] = useState(false);
+  const [rating, setRating] = useState(null);
+  const [comment, setComment] = useState("");
 
-	const userReviewId = userReview.id;
-	const movieId = movie.id;
+  const userReviewId = userReview.id;
+  const movieId = movie.id;
 
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-	const ratingChanged = (newRating) => {
-		setRating(newRating);
-	};
+  const ratingChanged = (newRating) => {
+    setRating(newRating);
+  };
 
-	const handleUpdateReview = (e) => {
-		if (!rating && !comment) {
-			toastr.error("Please update both rating and comment");
-			e.preventDefault();
-		}
+  const handleUpdateReview = (e) => {
+    if (!rating && !comment) {
+      toastr.error("Please update both rating and comment");
+      e.preventDefault();
+    }
 
-		dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
+    dispatch(updateReview(movieId, currentUser, userReviewId, comment, rating));
 
-		setRating(null);
-		setComment("");
-	};
+    setRating(null);
+    setComment("");
+  };
 
-	const handleDeleteReview = () => {
-		toastr.confirm(
-			"Are you sure you to delete your review?",
-			toastrConfirmOptions
-		);
-	};
+  const handleDeleteReview = () => {
+    toastr.confirm(
+      "Are you sure you to delete your review?",
+      toastrConfirmOptions
+    );
+  };
 
-	// ! Toastr
-	// * Confirm Deletion
-	const toastrConfirmOptions = {
-		// * Reversed to switch button placement
-		okText: "Cancel",
-		cancelText: "DELETE",
+  // ! Toastr
+  // * Confirm Deletion
+  const toastrConfirmOptions = {
+    // * Reversed to switch button placement
+    okText: "Cancel",
+    cancelText: "DELETE",
 
-		onCancel: () => dispatch(deleteReview(movieId, userReviewId)),
-	};
+    onCancel: () => dispatch(deleteReview(movieId, userReviewId)),
+  };
 
-	return (
-		<>
-			{userReview && (
-				<Button className="button-align" variant="info" onClick={handleShow}>
-					Edit Review
-				</Button>
-			)}
-			<Modal
-				show={show}
-				onHide={handleClose}
-				backdrop="static"
-				keyboard={false}
-				className="modal-content-review">
-				<Modal.Header closeButton>
-					<Modal.Title className="modal-title-review">{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
-					<Form>
-						<Container className="p-0 rating-container">
-							<Form.Group controlId="formOldReviewRating">
-								<Form.Label className="modal-title-review">
-									Previous Rating
-								</Form.Label>
-								<ReactStars
-									count={5}
-									edit={false}
-									size={24}
-									value={userReview.rating}
-									emptyIcon={<i className="far fa-star"></i>}
-									halfIcon={<i className="fa fa-star-half-alt"></i>}
-									fullIcon={<i className="fa fa-star"></i>}
-									activeColor="#ffd700"
-								/>
-							</Form.Group>
-							<Form.Group controlId="formNewReviewRating">
-								<Form.Label className="modal-title-review">
-									New Rating
-								</Form.Label>
-								<ReactStars
-									count={5}
-									onChange={ratingChanged}
-									size={24}
-									value={rating}
-									emptyIcon={<i className="far fa-star"></i>}
-									halfIcon={<i className="fa fa-star-half-alt"></i>}
-									fullIcon={<i className="fa fa-star"></i>}
-									activeColor="#ffd700"
-								/>
-							</Form.Group>
-						</Container>
-						<Form.Group controlId="formNewReviewComment">
-							<Form.Label className="modal-title-review">Comment</Form.Label>
-							<Form.Control
-								placeholder={`Previous comment: ${userReview.comment}`}
-								as="textarea"
-								rows={3}
-								alue={comment}
-								onChange={(e) => setComment(e.target.value)}
-							/>
-						</Form.Group>
-						<Container className="modal-form-button-container">
-							<Button variant="danger" onClick={handleDeleteReview}>
-								DELETE
-							</Button>
-							<Button
-								variant="primary"
-								type="submit"
-								onClick={handleUpdateReview}>
-								Submit Review
-							</Button>
-						</Container>
-					</Form>
-				</Modal.Body>
-			</Modal>
-		</>
-	);
+  return (
+    <>
+      {userReview && (
+        <Button className="button-align" variant="info" onClick={handleShow}>
+          Edit Review
+        </Button>
+      )}
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        className="modal-content-review">
+        <Modal.Header closeButton>
+          <Modal.Title className="modal-title-review">{`Edit ${currentUser.username}'s Review for ${movie.title}`}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Container className="p-0 rating-container">
+              <Form.Group controlId="formOldReviewRating">
+                <Form.Label className="modal-title-review">
+                  Previous Rating
+                </Form.Label>
+                <ReactStars
+                  count={5}
+                  edit={false}
+                  size={24}
+                  value={userReview.rating}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />
+              </Form.Group>
+              <Form.Group controlId="formNewReviewRating">
+                <Form.Label className="modal-title-review">
+                  New Rating
+                </Form.Label>
+                <ReactStars
+                  count={5}
+                  onChange={ratingChanged}
+                  size={24}
+                  value={rating}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />
+              </Form.Group>
+            </Container>
+            <Form.Group controlId="formNewReviewComment">
+              <Form.Label className="modal-title-review">Comment</Form.Label>
+              <Form.Control
+                placeholder={`Previous comment: ${userReview.comment}`}
+                as="textarea"
+                rows={3}
+                alue={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+            </Form.Group>
+            <Container className="modal-form-button-container">
+              <Button variant="danger" onClick={handleDeleteReview}>
+                DELETE
+              </Button>
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={handleUpdateReview}>
+                Submit Review
+              </Button>
+            </Container>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
 };
 
 export default UpdateReviewModal;

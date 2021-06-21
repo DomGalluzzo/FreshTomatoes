@@ -1,30 +1,30 @@
 import {
-	FETCH_USER_LOADING,
-	FETCH_USER_SUCCESS,
-	FETCH_USER_FAILED,
+  FETCH_USER_LOADING,
+  FETCH_USER_SUCCESS,
+  FETCH_USER_FAILED,
 } from "../actions";
 
 const userReducer = (state = [], action) => {
-	switch (action.type) {
-		case FETCH_USER_LOADING:
-			return { ...state, loading: true, errorMessage: "" };
-		case FETCH_USER_SUCCESS:
-			return {
-				...state,
-				user: action.payload,
-				loading: false,
-				errorMessage: "",
-			};
-		case FETCH_USER_FAILED:
-			return {
-				...state,
-				loading: false,
-				errorMessage: "Unable to fetch user",
-			};
+  switch (action.type) {
+    case FETCH_USER_LOADING:
+      return { ...state, loading: true, errorMessage: "" };
+    case FETCH_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        loading: false,
+        errorMessage: "",
+      };
+    case FETCH_USER_FAILED:
+      return {
+        ...state,
+        loading: false,
+        errorMessage: "Unable to fetch user",
+      };
 
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 };
 
 export default userReducer;

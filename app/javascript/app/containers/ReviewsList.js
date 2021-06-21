@@ -8,79 +8,79 @@ import { fetchMovieReviews } from "../actions";
 import { Card, CardColumns, Image } from "react-bootstrap";
 
 const ReviewsList = ({ reviews, movie, className, style, onClick }) => {
-	const defaultAvatar =
-		"https://res.cloudinary.com/dcdspz5mv/image/upload/v1619018185/default_icon_yflbxj.png";
-	const dispatch = useDispatch();
-	const movieReviews = useSelector((state) => state.movieReviews);
+  const defaultAvatar =
+    "https://res.cloudinary.com/dcdspz5mv/image/upload/v1619018185/default_icon_yflbxj.png";
+  const dispatch = useDispatch();
+  const movieReviews = useSelector((state) => state.movieReviews);
 
-	let { id } = useParams();
+  let { id } = useParams();
 
-	useEffect(() => {
-		fetchData();
-	}, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-	const fetchData = () => {
-		dispatch(fetchMovieReviews(id));
-	};
+  const fetchData = () => {
+    dispatch(fetchMovieReviews(id));
+  };
 
-	const userImageCheck = (review) => {
-		if (_.isNull(review.user.image)) {
-			return defaultAvatar;
-		} else {
-			return review.user.image;
-		}
-	};
+  const userImageCheck = (review) => {
+    if (_.isNull(review.user.image)) {
+      return defaultAvatar;
+    } else {
+      return review.user.image;
+    }
+  };
 
-	const showData = () => {
-		if (!_.isEmpty(movieReviews.reviews)) {
-			return movieReviews.reviews.map((review) => {
-				return (
-					<Card key={review.id} className="review-card">
-						<Card.Header>
-							<ReactStars
-								count={5}
-								value={review.rating}
-								edit={false}
-								size={24}
-								isHalf={true}
-								emptyIcon={<i className="far fa-star"></i>}
-								halfIcon={<i className="fa fa-star-half-alt"></i>}
-								fullIcon={<i className="fa fa-star"></i>}
-								activeColor="#ffd700"
-							/>
-						</Card.Header>
-						<Card.Body>
-							<Card.Text>{review.comment}</Card.Text>
-						</Card.Body>
-						<Card.Footer className="d-flex align-items-end pl-0 pb-1 pt-0">
-							<Image
-								src={userImageCheck(review)}
-								style={{ height: "50px", width: "50px" }}
-							/>
+  const showData = () => {
+    if (!_.isEmpty(movieReviews.reviews)) {
+      return movieReviews.reviews.map((review) => {
+        return (
+          <Card key={review.id} className="review-card">
+            <Card.Header>
+              <ReactStars
+                count={5}
+                value={review.rating}
+                edit={false}
+                size={24}
+                isHalf={true}
+                emptyIcon={<i className="far fa-star"></i>}
+                halfIcon={<i className="fa fa-star-half-alt"></i>}
+                fullIcon={<i className="fa fa-star"></i>}
+                activeColor="#ffd700"
+              />
+            </Card.Header>
+            <Card.Body>
+              <Card.Text>{review.comment}</Card.Text>
+            </Card.Body>
+            <Card.Footer className="d-flex align-items-end pl-0 pb-1 pt-0">
+              <Image
+                src={userImageCheck(review)}
+                style={{ height: "50px", width: "50px" }}
+              />
 
-							<p
-								className="ml-3 review-card-footer-username"
-								style={{ wordBreak: "break-word" }}>
-								{review.user.username}
-							</p>
-						</Card.Footer>
-					</Card>
-				);
-			});
-		}
+              <p
+                className="ml-3 review-card-footer-username"
+                style={{ wordBreak: "break-word" }}>
+                {review.user.username}
+              </p>
+            </Card.Footer>
+          </Card>
+        );
+      });
+    }
 
-		if (movieReviews.loading) {
-			return <p>loading...</p>;
-		}
+    if (movieReviews.loading) {
+      return <p>loading...</p>;
+    }
 
-		if (movieReviews.errorMessage !== "") {
-			return <p>{movieReviews.errorMessage}</p>;
-		}
+    if (movieReviews.errorMessage !== "") {
+      return <p>{movieReviews.errorMessage}</p>;
+    }
 
-		return <p>Unable to fetch data</p>;
-	};
+    return <p>Unable to fetch data</p>;
+  };
 
-	return <CardColumns>{showData()}</CardColumns>;
+  return <CardColumns>{showData()}</CardColumns>;
 };
 
 export default ReviewsList;
