@@ -9,13 +9,13 @@ import genresReducer from "./genresReducer";
 import userReducer from "./userReducer";
 
 const rootReducer = combineReducers({
-	toastr: toastrReducer,
-	moviesList: moviesListReducer,
-	movieShow: movieShowReducer,
-	movieReviews: movieReviewsReducer,
-	genres: genresReducer,
-	favorites: userFavoritesReducer,
-	user: userReducer,
+  toastr: toastrReducer,
+  moviesList: moviesListReducer,
+  movieShow: movieShowReducer,
+  movieReviews: movieReviewsReducer,
+  genres: genresReducer,
+  favorites: userFavoritesReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

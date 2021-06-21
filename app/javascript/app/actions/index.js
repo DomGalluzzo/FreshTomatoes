@@ -47,252 +47,252 @@ export const FETCH_USER_FAILED = "FETCH_USER_FAILED";
 // ! Movies
 
 export const fetchMovieShow = (id) => async (dispatch) => {
-	try {
-		dispatch({
-			type: FETCH_MOVIE_SHOW_LOADING,
-		});
+  try {
+    dispatch({
+      type: FETCH_MOVIE_SHOW_LOADING,
+    });
 
-		const response = await Axios.get(`/api/v1/movies/${id}`);
+    const response = await Axios.get(`/api/v1/movies/${id}`);
 
-		dispatch({
-			type: FETCH_MOVIE_SHOW_SUCCESS,
-			payload: response.data,
-		});
-	} catch (error) {
-		dispatch({
-			type: FETCH_MOVIE_SHOW_FAILED,
-		});
-	}
+    dispatch({
+      type: FETCH_MOVIE_SHOW_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_MOVIE_SHOW_FAILED,
+    });
+  }
 };
 
 export const fetchMoviesList = () => async (dispatch) => {
-	try {
-		dispatch({
-			type: FETCH_MOVIES_LIST_LOADING,
-		});
-		const response = await Axios.get("/api/v1/movies");
+  try {
+    dispatch({
+      type: FETCH_MOVIES_LIST_LOADING,
+    });
+    const response = await Axios.get("/api/v1/movies");
 
-		dispatch({
-			type: FETCH_MOVIES_LIST_SUCCESS,
-			payload: response.data,
-		});
-	} catch (error) {
-		dispatch({
-			type: FETCH_MOVIES_LIST_FAILED,
-		});
-	}
+    dispatch({
+      type: FETCH_MOVIES_LIST_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_MOVIES_LIST_FAILED,
+    });
+  }
 };
 
 // ! Reviews
 
 export const fetchMovieReviews = (id) => async (dispatch) => {
-	try {
-		dispatch({
-			type: FETCH_MOVIE_REVIEWS_LOADING,
-		});
+  try {
+    dispatch({
+      type: FETCH_MOVIE_REVIEWS_LOADING,
+    });
 
-		const response = await Axios.get(`/api/v1/movies/${id}/reviews`);
+    const response = await Axios.get(`/api/v1/movies/${id}/reviews`);
 
-		dispatch({
-			type: FETCH_MOVIE_REVIEWS_SUCCESS,
-			payload: response.data,
-		});
-	} catch (error) {
-		dispatch({
-			type: FETCH_MOVIE_REVIEWS_FAILED,
-		});
-	}
+    dispatch({
+      type: FETCH_MOVIE_REVIEWS_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_MOVIE_REVIEWS_FAILED,
+    });
+  }
 };
 
 export const createReview =
-	(movie_id, currentUser, comment, rating) => async (dispatch) => {
-		const userId = currentUser.id;
+  (movie_id, currentUser, comment, rating) => async (dispatch) => {
+    const userId = currentUser.id;
 
-		try {
-			dispatch({
-				type: CREATE_REVIEW_LOADING,
-			});
+    try {
+      dispatch({
+        type: CREATE_REVIEW_LOADING,
+      });
 
-			const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
-				user_id: userId,
-				movie_id: movie_id,
-				comment,
-				rating,
-			});
+      const response = await Axios.post(`/api/v1/movies/${movie_id}/reviews`, {
+        user_id: userId,
+        movie_id: movie_id,
+        comment,
+        rating,
+      });
 
-			const data = JSON.parse(response.config.data);
+      const data = JSON.parse(response.config.data);
 
-			dispatch({
-				type: CREATE_REVIEW_SUCCESS,
-				payload: data,
-			});
-		} catch (error) {
-			dispatch({
-				type: CREATE_REVIEW_FAILED,
-			});
-		}
-	};
+      dispatch({
+        type: CREATE_REVIEW_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: CREATE_REVIEW_FAILED,
+      });
+    }
+  };
 
 export const updateReview =
-	(movieId, currentUser, userReviewId, comment, rating) => async (dispatch) => {
-		try {
-			dispatch({
-				type: UPDATE_REVIEW_LOADING,
-			});
+  (movieId, currentUser, userReviewId, comment, rating) => async (dispatch) => {
+    try {
+      dispatch({
+        type: UPDATE_REVIEW_LOADING,
+      });
 
-			const response = await Axios.patch(
-				`/api/v1/movies/${movieId}/reviews/${userReviewId}`,
-				{
-					comment,
-					rating,
-				}
-			);
+      const response = await Axios.patch(
+        `/api/v1/movies/${movieId}/reviews/${userReviewId}`,
+        {
+          comment,
+          rating,
+        }
+      );
 
-			const data = JSON.parse(response.config.data);
+      const data = JSON.parse(response.config.data);
 
-			dispatch({
-				type: UPDATE_REVIEW_SUCCESS,
-				payload: data,
-			});
-		} catch (error) {
-			dispatch({
-				type: UPDATE_REVIEW_FAILED,
-			});
-		}
-	};
+      dispatch({
+        type: UPDATE_REVIEW_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: UPDATE_REVIEW_FAILED,
+      });
+    }
+  };
 
 export const deleteReview = (movieId, userReviewId) => async (dispatch) => {
-	try {
-		dispatch({
-			type: DELETE_REVIEW_LOADING,
-		});
+  try {
+    dispatch({
+      type: DELETE_REVIEW_LOADING,
+    });
 
-		const response = await Axios.delete(
-			`/api/v1/movies/${movieId}/reviews/${userReviewId}`,
-			{ review: { id: userReviewId } }
-		);
+    const response = await Axios.delete(
+      `/api/v1/movies/${movieId}/reviews/${userReviewId}`,
+      { review: { id: userReviewId } }
+    );
 
-		dispatch({
-			type: DELETE_REVIEW_SUCCESS,
-			payload: response.config.review,
-		});
-	} catch (error) {
-		dispatch({
-			type: DELETE_REVIEW_FAILED,
-		});
-	}
+    dispatch({
+      type: DELETE_REVIEW_SUCCESS,
+      payload: response.config.review,
+    });
+  } catch (error) {
+    dispatch({
+      type: DELETE_REVIEW_FAILED,
+    });
+  }
 };
 
 // ! Favorites
 
 export const fetchFavorites = (id) => async (dispatch) => {
-	try {
-		dispatch({
-			type: FETCH_FAVORITES_LOADING,
-		});
+  try {
+    dispatch({
+      type: FETCH_FAVORITES_LOADING,
+    });
 
-		const response = await Axios.get(`/api/v1/users/${id}/favorites`);
+    const response = await Axios.get(`/api/v1/users/${id}/favorites`);
 
-		dispatch({
-			type: FETCH_FAVORITES_SUCCESS,
-			payload: response.data,
-		});
-	} catch (error) {
-		dispatch({
-			type: FETCH_FAVORITES_FAILED,
-		});
-	}
+    dispatch({
+      type: FETCH_FAVORITES_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_FAVORITES_FAILED,
+    });
+  }
 };
 
 export const addFavorite = (user_id, movie) => async (dispatch) => {
-	const movieId = movie.id;
-	try {
-		dispatch({
-			type: ADD_FAVORITE_LOADING,
-		});
+  const movieId = movie.id;
+  try {
+    dispatch({
+      type: ADD_FAVORITE_LOADING,
+    });
 
-		const response = await Axios.post(`/api/v1/users/${user_id}/favorites`, {
-			movie_id: movieId,
-		});
+    const response = await Axios.post(`/api/v1/users/${user_id}/favorites`, {
+      movie_id: movieId,
+    });
 
-		const data = JSON.parse(response.config.data);
+    const data = JSON.parse(response.config.data);
 
-		dispatch({
-			type: ADD_FAVORITE_SUCCESS,
-			payload: data,
-		});
-	} catch (error) {
-		dispatch({
-			type: ADD_FAVORITE_FAILED,
-		});
-	}
+    dispatch({
+      type: ADD_FAVORITE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ADD_FAVORITE_FAILED,
+    });
+  }
 };
 
 export const removeFavorite = (id, favorite) => async (dispatch) => {
-	const favoriteId = favorite.id;
+  const favoriteId = favorite.id;
 
-	const movieId = favorite.movie_id;
+  const movieId = favorite.movie_id;
 
-	try {
-		dispatch({
-			type: REMOVE_FAVORITE_LOADING,
-		});
+  try {
+    dispatch({
+      type: REMOVE_FAVORITE_LOADING,
+    });
 
-		const response = await Axios.delete(
-			`/api/v1/users/${id}/favorites/${favoriteId}`,
-			{ favorite: { id: favoriteId } }
-		);
+    const response = await Axios.delete(
+      `/api/v1/users/${id}/favorites/${favoriteId}`,
+      { favorite: { id: favoriteId } }
+    );
 
-		dispatch({
-			type: REMOVE_FAVORITE_SUCCESS,
-			payload: response.config.favorite,
-		});
-	} catch (error) {
-		dispatch({
-			type: REMOVE_FAVORITE_FAILED,
-		});
-	}
+    dispatch({
+      type: REMOVE_FAVORITE_SUCCESS,
+      payload: response.config.favorite,
+    });
+  } catch (error) {
+    dispatch({
+      type: REMOVE_FAVORITE_FAILED,
+    });
+  }
 };
 
 // ! Genres
 
 export const fetchGenres = () => async (dispatch) => {
-	try {
-		dispatch({
-			type: FETCH_GENRES_LOADING,
-		});
+  try {
+    dispatch({
+      type: FETCH_GENRES_LOADING,
+    });
 
-		const response = await Axios.get("/api/v1/genres");
+    const response = await Axios.get("/api/v1/genres");
 
-		dispatch({
-			type: FETCH_GENRES_SUCCESS,
-			payload: response.data,
-		});
-	} catch (error) {
-		dispatch({
-			type: FETCH_GENRES_FAILED,
-		});
-	}
+    dispatch({
+      type: FETCH_GENRES_SUCCESS,
+      payload: response.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_GENRES_FAILED,
+    });
+  }
 };
 
 // ! User
 
 export const fetchUser = () => async (dispatch) => {
-	try {
-		dispatch({
-			type: FETCH_USER_LOADING,
-		});
+  try {
+    dispatch({
+      type: FETCH_USER_LOADING,
+    });
 
-		const user = await root.getAttribute("data-user");
-		const userJson = await JSON.parse(user);
+    const user = await root.getAttribute("data-user");
+    const userJson = await JSON.parse(user);
 
-		dispatch({
-			type: FETCH_USER_SUCCESS,
-			payload: userJson,
-		});
-	} catch (error) {
-		dispatch({
-			type: FETCH_USER_FAILED,
-		});
-	}
+    dispatch({
+      type: FETCH_USER_SUCCESS,
+      payload: userJson,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_USER_FAILED,
+    });
+  }
 };
