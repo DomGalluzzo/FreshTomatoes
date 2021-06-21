@@ -8,7 +8,7 @@ Check out the full build deployed [here](https://dg-fresh-tomatoes.herokuapp.com
 ## Summary
 Fresh Tomatoes is a review-aggregation website for films. All visitors are allowed to view movies, ratings, and reviews; only users that are logged in are eligible to add movies to their watchlist, or leave a review/rating for movies they've already seen.
 
-The backend of Fresh Tomatoes was built with `Rails` and `PostgreSQL`, while the frontend was built using `React`, `Redux (React-Redux)`, `JavaScript`, `HTML`, and `CSS (SCSS)`. All aspects of this app are fully responsive in order to have usability on most current mobile devices.
+The backend of Fresh Tomatoes was built with `Rails` and `PostgreSQL`, while the frontend was built using `React`, `Redux`, `JavaScript`, `HTML`, and `CSS (SCSS)`. All aspects of this app are fully responsive in order to have usability on most current mobile devices.
 
 ## Libraries
 Several external packages/libraries were used during the development of Fresh Tomatoes, including:
